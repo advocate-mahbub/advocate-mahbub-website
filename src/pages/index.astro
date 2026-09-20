@@ -1,0 +1,1607 @@
+---
+import '../styles/global.css';
+
+const site = {
+  name: 'Mahbubur Rahman',
+  designation: 'Advocate',
+  focus: 'Civil, Property & Land Law',
+  positioning: 'Legal Clarity',
+  promise: 'সিদ্ধান্ত নেওয়ার আগে ঝুঁকিটা বুঝুন।',
+  description:
+    'Mahbubur Rahman, Advocate — Civil, Property & Land Law, Property Due Diligence, Legal Documentation, Litigation and practical legal knowledge.',
+  url: 'https://www.mahbuburrahman.bd/',
+};
+
+const practiceAreas = [
+  {
+    number: '01',
+    title: 'Property & Land',
+    text: 'জমি, ফ্ল্যাট, inherited property এবং property-related legal issue নিয়ে structured legal guidance।',
+  },
+  {
+    number: '02',
+    title: 'Land Legal Due Diligence',
+    text: 'Property কেনার বা সিদ্ধান্ত নেওয়ার আগে ownership, records, documents এবং সম্ভাব্য risk যাচাইয়ের framework।',
+  },
+  {
+    number: '03',
+    title: 'Civil Litigation',
+    text: 'দেওয়ানি বিরোধ, property dispute এবং litigation-related legal problem নিয়ে structured assessment।',
+  },
+  {
+    number: '04',
+    title: 'Legal Documentation',
+    text: 'Agreement, deed-related documentation, legal opinion, document review এবং প্রয়োজনীয় documentation support।',
+  },
+];
+
+const tools = [
+  {
+    number: '01',
+    title: 'Property Risk Checker',
+    text: 'আপনার property situation-এর গুরুত্বপূর্ণ risk points আগে চিহ্নিত করার জন্য একটি guided checklist।',
+    href: '/tools/property-risk-checker/',
+    status: 'Available',
+    action: 'শুরু করুন →',
+  },
+  {
+    number: '02',
+    title: 'Hissa Calculator',
+    text: 'উত্তরাধিকার বা যৌথ মালিকানার ক্ষেত্রে share calculation-এর জন্য একটি structured calculator।',
+    href: '#tools',
+    status: 'Coming Soon',
+    action: 'শীঘ্রই আসছে →',
+  },
+  {
+    number: '03',
+    title: 'Ownership Chain Builder',
+    text: 'মালিকানার ধারাবাহিকতা ধাপে ধাপে সাজানোর জন্য একটি structured tool।',
+    href: '#tools',
+    status: 'Coming Soon',
+    action: 'শীঘ্রই আসছে →',
+  },
+  {
+    number: '04',
+    title: 'Legal Knowledge',
+    text: 'Property, land records, due diligence, registration, mutation এবং civil law নিয়ে practical knowledge hub।',
+    href: '#knowledge',
+    status: 'Explore',
+    action: 'Explore →',
+  },
+];
+
+const checkpoints = [
+  'মালিকানা ও Ownership Chain',
+  'খতিয়ান, দাগ ও record information',
+  'নামজারি (Mutation) status',
+  'দলিল ও Registration history',
+  'দখল ও বাস্তব property condition',
+  'মামলা বা বিরোধের সম্ভাবনা',
+];
+
+const knowledgeTopics = [
+  {
+    category: 'PROPERTY',
+    title: 'জমি কেনার আগে কী কী যাচাই করা উচিত?',
+    text: 'Ownership, record, document এবং risk বোঝার জন্য একটি practical framework।',
+  },
+  {
+    category: 'LAND RECORD',
+    title: 'খতিয়ান, দাগ ও মালিকানার সম্পর্ক কী?',
+    text: 'Land records বোঝার জন্য সহজ এবং structured approach।',
+  },
+  {
+    category: 'DUE DILIGENCE',
+    title: 'Property Due Diligence কেন গুরুত্বপূর্ণ?',
+    text: 'Decision নেওয়ার আগে information gap কোথায় তৈরি হয়, তা বুঝুন।',
+  },
+  {
+    category: 'MUTATION',
+    title: 'নামজারি (Mutation) নিয়ে কী জানা দরকার?',
+    text: 'Mutation process নিয়ে common questions এবং practical considerations।',
+  },
+  {
+    category: 'INHERITANCE',
+    title: 'উত্তরাধিকারসূত্রে পাওয়া সম্পত্তি যাচাই করবেন কীভাবে?',
+    text: 'Inherited property-এর ownership chain বুঝতে কী কী information দরকার।',
+  },
+  {
+    category: 'NRB PROPERTY',
+    title: 'বিদেশে থেকে বাংলাদেশের property নিয়ে কীভাবে এগোবেন?',
+    text: 'NRB property owners-এর জন্য documentation, verification এবং remote coordination বিষয়ক knowledge।',
+  },
+];
+
+const checkpointsForDecision = [
+  {
+    number: '01',
+    title: 'মালিকানা ও Ownership Chain',
+  },
+  {
+    number: '02',
+    title: 'খতিয়ান, দাগ ও record information',
+  },
+  {
+    number: '03',
+    title: 'নামজারি (Mutation) status',
+  },
+  {
+    number: '04',
+    title: 'দলিল ও Registration history',
+  },
+  {
+    number: '05',
+    title: 'দখল ও বাস্তব property condition',
+  },
+  {
+    number: '06',
+    title: 'মামলা বা বিরোধের সম্ভাবনা',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Website-এর information কি legal opinion?',
+    a: 'না। Website-এর educational content সাধারণ তথ্য ও understanding-এর জন্য। আপনার নির্দিষ্ট situation, documents এবং facts অনুযায়ী individualized legal advice আলাদা বিষয়।',
+  },
+  {
+    q: 'Property কেনার আগে কী দিয়ে শুরু করা উচিত?',
+    a: 'প্রথমে ownership, relevant records, documents, mutation, possession এবং dispute-related information-এর একটি structured picture তৈরি করা উচিত।',
+  },
+  {
+    q: 'আমি কি consultation-এর জন্য যোগাযোগ করতে পারি?',
+    a: 'হ্যাঁ। আপনার situation, মূল প্রশ্ন এবং প্রয়োজনীয় context সংক্ষেপে জানিয়ে consultation request করতে পারেন।',
+  },
+  {
+    q: 'NRB property issue নিয়ে কি information পাওয়া যাবে?',
+    a: 'NRB Property Legal একটি future-ready knowledge category। এতে Bangladesh property, inheritance, documentation, registration, mutation, ownership verification এবং remote coordination বিষয়গুলো থাকবে।',
+  },
+];
+---
+
+<!doctype html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <meta
+      name="description"
+      content={site.description}
+    />
+
+    <meta
+      name="author"
+      content={site.name}
+    />
+
+    <link
+      rel="canonical"
+      href={site.url}
+    />
+
+    <meta
+      property="og:type"
+      content="website"
+    />
+
+    <meta
+      property="og:title"
+      content={`${site.name} | ${site.focus}`}
+    />
+
+    <meta
+      property="og:description"
+      content={site.description}
+    />
+
+    <meta
+      property="og:url"
+      content={site.url}
+    />
+
+    <title>
+      {site.name} | {site.focus}
+    </title>
+  </head>
+
+  <body>
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="site-header">
+
+      <div class="container nav-wrap">
+
+        <a
+          href="/"
+          class="brand"
+          aria-label="Mahbubur Rahman home"
+        >
+          <span class="brand-name">
+            Mahbubur Rahman
+          </span>
+
+          <span class="brand-role">
+            ADVOCATE
+          </span>
+        </a>
+
+        <nav
+          class="main-nav"
+          aria-label="Main navigation"
+        >
+          <a href="#about">About</a>
+
+          <a href="#property">
+            Property &amp; Land
+          </a>
+
+          <a href="#knowledge">
+            Legal Knowledge
+          </a>
+
+          <a href="#tools">
+            Tools
+          </a>
+
+          <a href="#services">
+            Services
+          </a>
+
+          <a
+            href="#consultation"
+            class="nav-cta"
+          >
+            আলোচনা করুন
+          </a>
+        </nav>
+
+        <button
+          class="mobile-menu-toggle"
+          type="button"
+          aria-label="মেনু খুলুন"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+      </div>
+
+      <div
+        class="mobile-menu"
+        id="mobile-menu"
+      >
+        <nav
+          class="mobile-menu-nav"
+          aria-label="Mobile navigation"
+        >
+          <a href="#about">
+            About
+          </a>
+
+          <a href="#property">
+            Property &amp; Land
+          </a>
+
+          <a href="#knowledge">
+            Legal Knowledge
+          </a>
+
+          <a href="#tools">
+            Tools
+          </a>
+
+          <a href="#services">
+            Services
+          </a>
+
+          <a href="/tools/property-risk-checker/">
+            Property Risk Checker
+          </a>
+
+          <a
+            href="#consultation"
+            class="mobile-menu-cta"
+          >
+            আলোচনা করুন
+          </a>
+        </nav>
+      </div>
+
+    </header>
+
+
+    <main>
+
+      <!-- =====================================================
+           HERO
+           ===================================================== -->
+
+      <section class="hero">
+
+        <div class="hero-grid">
+
+          <div class="container hero-content">
+
+            <p class="eyebrow">
+              CIVIL · PROPERTY · LAND LAW
+            </p>
+
+            <h1>
+              সিদ্ধান্ত নেওয়ার আগে
+              <span>ঝুঁকিটা বুঝুন।</span>
+            </h1>
+
+            <p class="hero-text">
+              জমি বা property নিয়ে সিদ্ধান্ত শুধু কাগজ দেখে নেওয়ার
+              বিষয় নয়। মালিকানা, document, record, transaction history
+              এবং legal risk — সবকিছু বুঝে তারপর সিদ্ধান্ত নেওয়াই
+              নিরাপদ পথ।
+            </p>
+
+            <div class="hero-actions">
+
+              <a
+                href="/tools/property-risk-checker/"
+                class="button button-primary"
+              >
+                Property Risk Check করুন
+              </a>
+
+              <a
+                href="#knowledge"
+                class="button button-secondary"
+              >
+                Legal Knowledge দেখুন
+              </a>
+
+            </div>
+
+            <div class="hero-note">
+
+              <span>
+                MAHBUBUR RAHMAN
+              </span>
+
+              <span>
+                LEGAL CLARITY
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           POSITIONING
+           ===================================================== -->
+
+      <section class="positioning-section">
+
+        <div class="container positioning-grid">
+
+          <div>
+
+            <p class="section-kicker">
+              THE POSITIONING
+            </p>
+
+            <h2>
+              Lawyer খোঁজার আগে
+              <span>problem টি বুঝুন।</span>
+            </h2>
+
+          </div>
+
+          <div>
+
+            <p class="large-copy">
+              Property-related decision-এ সবচেয়ে বড় সমস্যা সবসময়
+              information-এর অভাব নয়। অনেক সময় সমস্যা হলো — কোন
+              information আগে দেখতে হবে, কোন প্রশ্ন করতে হবে এবং
+              কোন gap decision-কে risky করে তুলতে পারে, সেটি পরিষ্কার
+              না থাকা।
+            </p>
+
+            <p>
+              এই platform-এর লক্ষ্য সেই gap কমানো — knowledge,
+              checklist, tools এবং structured consultation-এর মাধ্যমে।
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           ABOUT
+           ===================================================== -->
+
+      <section
+        id="about"
+        class="section section-light"
+      >
+
+        <div class="container about-grid">
+
+          <div>
+
+            <p class="section-kicker">
+              ABOUT MAHBUBUR RAHMAN
+            </p>
+
+            <h2>
+              Practical
+              <span>legal clarity.</span>
+            </h2>
+
+            <p class="lead">
+              Mahbubur Rahman একজন Advocate, যার professional focus
+              Civil Law, Property &amp; Land Law, Land Legal Due
+              Diligence, Property Documentation এবং Litigation-এর দিকে।
+            </p>
+
+            <p>
+              Website-টি শুধু profile দেখানোর জন্য নয়। এটি একটি
+              দীর্ঘমেয়াদি knowledge asset — যেখানে property-related
+              questions, legal concepts, practical checklists এবং
+              future interactive tools এক জায়গায় সংগঠিত হবে।
+            </p>
+
+            <a
+              href="#consultation"
+              class="text-link"
+            >
+              Consultation সম্পর্কে জানুন →
+            </a>
+
+          </div>
+
+
+          <div class="about-card">
+
+            <div class="about-card-label">
+              CORE FOCUS
+            </div>
+
+            <div class="focus-list">
+
+              <span>
+                Civil Law
+              </span>
+
+              <span>
+                Property &amp; Land
+              </span>
+
+              <span>
+                Due Diligence
+              </span>
+
+              <span>
+                Documentation
+              </span>
+
+              <span>
+                Litigation
+              </span>
+
+              <span>
+                Legal Research
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           PROPERTY & LAND
+           ===================================================== -->
+
+      <section
+        id="property"
+        class="section section-dark"
+      >
+
+        <div class="container">
+
+          <div class="section-heading">
+
+            <div>
+
+              <p class="section-kicker gold">
+                PROPERTY &amp; LAND
+              </p>
+
+              <h2>
+                Property decision-এর আগে
+                <span>৬টি জায়গা দেখুন।</span>
+              </h2>
+
+            </div>
+
+            <p>
+              কোনো property transaction-কে শুধু “দলিল আছে কি না”
+              দিয়ে দেখা যথেষ্ট নয়। একটি structured review আপনাকে
+              relevant information একসাথে দেখতে সাহায্য করতে পারে।
+            </p>
+
+          </div>
+
+
+          <div class="checkpoint-grid">
+
+            {
+              checkpointsForDecision.map((item) => (
+                <div class="checkpoint-card">
+
+                  <span>
+                    {item.number}
+                  </span>
+
+                  <h3>
+                    {item.title}
+                  </h3>
+
+                </div>
+              ))
+            }
+
+          </div>
+
+
+          <div class="property-bottom">
+
+            <div>
+
+              <p class="mini-label">
+                THE IDEA
+              </p>
+
+              <p>
+                Information → Structure → Understanding →
+                Better Question → Better Decision
+              </p>
+
+            </div>
+
+            <a
+              href="/tools/property-risk-checker/"
+              class="button button-outline"
+            >
+              Risk Checker শুরু করুন
+            </a>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           SERVICES
+           ===================================================== -->
+
+      <section
+        id="services"
+        class="section section-light"
+      >
+
+        <div class="container">
+
+          <div class="section-heading">
+
+            <div>
+
+              <p class="section-kicker">
+                PRACTICE AREAS
+              </p>
+
+              <h2>
+                Legal problem কে
+                <span>গুছিয়ে দেখুন।</span>
+              </h2>
+
+            </div>
+
+            <p>
+              প্রতিটি বিষয় আলাদা। তাই আগে situation বুঝতে হবে,
+              তারপর relevant legal pathway নির্ধারণ করতে হবে।
+            </p>
+
+          </div>
+
+
+          <div class="service-grid">
+
+            {
+              practiceAreas.map((service) => (
+                <article class="service-card">
+
+                  <span class="service-number">
+                    {service.number}
+                  </span>
+
+                  <h3>
+                    {service.title}
+                  </h3>
+
+                  <p>
+                    {service.text}
+                  </p>
+
+                  <a href="#consultation">
+                    বিস্তারিত আলোচনা করুন →
+                  </a>
+
+                </article>
+              ))
+            }
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           TOOLS
+           ===================================================== -->
+
+      <section
+        id="tools"
+        class="section tools-section"
+      >
+
+        <div class="container">
+
+          <div class="section-heading">
+
+            <div>
+
+              <p class="section-kicker gold">
+                LEGAL TOOLS
+              </p>
+
+              <h2>
+                শুধু information নয়।
+                <span>Useful tools-ও থাকবে।</span>
+              </h2>
+
+            </div>
+
+            <p>
+              Property legal ecosystem-এর লক্ষ্য হলো complex
+              information-কে মানুষের জন্য আরও structured এবং
+              usable করে তোলা।
+            </p>
+
+          </div>
+
+
+          <div class="tools-grid">
+
+            {
+              tools.map((tool) => (
+                <article class="tool-card">
+
+                  <div class="tool-top">
+
+                    <span>
+                      {tool.number}
+                    </span>
+
+                    <small>
+                      {tool.status}
+                    </small>
+
+                  </div>
+
+                  <h3>
+                    {tool.title}
+                  </h3>
+
+                  <p>
+                    {tool.text}
+                  </p>
+
+                  <a href={tool.href}>
+                    {tool.action}
+                  </a>
+
+                </article>
+              ))
+            }
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           PROPERTY RISK CHECKER
+           ===================================================== -->
+
+      <section
+        id="risk-checker"
+        class="risk-section"
+      >
+
+        <div class="container risk-grid">
+
+          <div class="risk-copy">
+
+            <p class="section-kicker gold">
+              PROPERTY RISK CHECKER
+            </p>
+
+            <h2>
+              Property নিয়ে
+              <span>অন্ধভাবে সিদ্ধান্ত নেবেন না।</span>
+            </h2>
+
+            <p>
+              আপনার basic information দিয়ে শুরু করুন। এই prototype-এর
+              লক্ষ্য হলো consultation-এর আগে relevant information
+              capture করা এবং পরবর্তী legal checklist flow তৈরি করা।
+            </p>
+
+
+            <div class="risk-points">
+
+              <div>
+
+                <strong>
+                  01
+                </strong>
+
+                <span>
+                  আপনার property situation identify করুন
+                </span>
+
+              </div>
+
+
+              <div>
+
+                <strong>
+                  02
+                </strong>
+
+                <span>
+                  Important information gap খুঁজে বের করুন
+                </span>
+
+              </div>
+
+
+              <div>
+
+                <strong>
+                  03
+                </strong>
+
+                <span>
+                  পরবর্তী প্রশ্নগুলো structured করুন
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="risk-form-card">
+
+            <div class="form-heading">
+
+              <span>
+                FREE RESOURCE
+              </span>
+
+              <h3>
+                Property Legal Checklist
+              </h3>
+
+              <p>
+                আপনার basic information দিন। পরবর্তী ধাপে checklist
+                ও consultation flow যুক্ত করা হবে।
+              </p>
+
+            </div>
+
+
+            <form
+              class="lead-form"
+              id="lead-form"
+            >
+
+              <label>
+
+                আপনার নাম
+
+                <input
+                  type="text"
+                  name="name"
+                  id="lead-name"
+                  placeholder="নাম লিখুন"
+                  autocomplete="name"
+                  required
+                />
+
+              </label>
+
+
+              <label>
+
+                মোবাইল নম্বর
+
+                <input
+                  type="tel"
+                  name="phone"
+                  id="lead-phone"
+                  placeholder="01XXXXXXXXX"
+                  autocomplete="tel"
+                  inputmode="tel"
+                  required
+                />
+
+              </label>
+
+
+              <label>
+
+                Property type
+
+                <select
+                  name="property"
+                  id="lead-property"
+                  required
+                >
+                  <option value="">
+                    নির্বাচন করুন
+                  </option>
+
+                  <option value="land">
+                    Land
+                  </option>
+
+                  <option value="flat">
+                    Flat
+                  </option>
+
+                  <option value="house">
+                    House
+                  </option>
+
+                  <option value="inherited-property">
+                    Inherited Property
+                  </option>
+
+                  <option value="commercial-property">
+                    Commercial Property
+                  </option>
+
+                  <option value="other">
+                    Other
+                  </option>
+
+                </select>
+
+              </label>
+
+
+              <button
+                type="submit"
+                class="button button-primary"
+              >
+                ফ্রি Legal Checklist নিন
+              </button>
+
+
+              <p
+                class="form-message"
+                id="lead-form-message"
+                role="status"
+                aria-live="polite"
+              ></p>
+
+
+              <small class="form-disclaimer">
+                আপনার তথ্য এই prototype-এ browser local storage-এ
+                রাখা হবে। Production CRM বা server-side storage
+                এখনো যুক্ত করা হয়নি।
+              </small>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           LEGAL KNOWLEDGE
+           ===================================================== -->
+
+      <section
+        id="knowledge"
+        class="section section-light"
+      >
+
+        <div class="container">
+
+          <div class="section-heading">
+
+            <div>
+
+              <p class="section-kicker">
+                LEGAL KNOWLEDGE
+              </p>
+
+              <h2>
+                Google-এ উত্তর খোঁজার বদলে
+                <span>একটি structured knowledge hub।</span>
+              </h2>
+
+            </div>
+
+            <p>
+              Property ও land law নিয়ে গুরুত্বপূর্ণ প্রশ্নগুলো topic,
+              procedure, document, risk এবং related tools-এর সাথে
+              connect করা হবে।
+            </p>
+
+          </div>
+
+
+          <div class="knowledge-grid">
+
+            {
+              knowledgeTopics.map((topic) => (
+                <article class="knowledge-card">
+
+                  <span>
+                    {topic.category}
+                  </span>
+
+                  <h3>
+                    {topic.title}
+                  </h3>
+
+                  <p>
+                    {topic.text}
+                  </p>
+
+                  <a href="#consultation">
+                    বিষয়টি বুঝুন →
+                  </a>
+
+                </article>
+              ))
+            }
+
+          </div>
+
+
+          <div class="knowledge-footer">
+
+            <div>
+
+              <p class="mini-label">
+                KNOWLEDGE ARCHITECTURE
+              </p>
+
+              <p>
+                Topic → Law → Procedure → Document →
+                Risk → FAQ → Tool → Consultation
+              </p>
+
+            </div>
+
+            <a
+              href="#consultation"
+              class="text-link"
+            >
+              Knowledge update request →
+            </a>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           NRB PROPERTY
+           ===================================================== -->
+
+      <section class="nrb-section">
+
+        <div class="container nrb-grid">
+
+          <div>
+
+            <p class="section-kicker gold">
+              NRB PROPERTY LEGAL
+            </p>
+
+            <h2>
+              বিদেশে থেকেও
+              <span>Bangladesh property বুঝুন।</span>
+            </h2>
+
+          </div>
+
+
+          <div>
+
+            <p>
+              NRB property owners-এর জন্য future content cluster-এ
+              থাকবে inherited property, Power of Attorney,
+              documentation, registration, mutation, ownership
+              verification এবং remote legal coordination-এর মতো বিষয়।
+            </p>
+
+            <a
+              href="#knowledge"
+              class="button button-outline"
+            >
+              NRB Knowledge Hub
+            </a>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           CUSTOMER JOURNEY
+           ===================================================== -->
+
+      <section
+        class="section section-dark journey-section"
+      >
+
+        <div class="container">
+
+          <div class="section-heading">
+
+            <div>
+
+              <p class="section-kicker gold">
+                HOW THIS PLATFORM WORKS
+              </p>
+
+              <h2>
+                Random marketing নয়।
+                <span>একটি customer journey।</span>
+              </h2>
+
+            </div>
+
+          </div>
+
+
+          <div class="journey-grid">
+
+            <div>
+
+              <span>
+                01
+              </span>
+
+              <h3>
+                Attention
+              </h3>
+
+              <p>
+                Relevant legal content দিয়ে সঠিক audience-কে
+                attract করা।
+              </p>
+
+            </div>
+
+
+            <div>
+
+              <span>
+                02
+              </span>
+
+              <h3>
+                Understanding
+              </h3>
+
+              <p>
+                Problem এবং risk সম্পর্কে clarity তৈরি করা।
+              </p>
+
+            </div>
+
+
+            <div>
+
+              <span>
+                03
+              </span>
+
+              <h3>
+                Micro Commitment
+              </h3>
+
+              <p>
+                Checklist, knowledge বা tool ব্যবহার করানো।
+              </p>
+
+            </div>
+
+
+            <div>
+
+              <span>
+                04
+              </span>
+
+              <h3>
+                Lead
+              </h3>
+
+              <p>
+                যাদের প্রয়োজন আছে তাদের relevant information
+                capture করা।
+              </p>
+
+            </div>
+
+
+            <div>
+
+              <span>
+                05
+              </span>
+
+              <h3>
+                Consultation
+              </h3>
+
+              <p>
+                Situation ও documents-এর ভিত্তিতে পরবর্তী discussion।
+              </p>
+
+            </div>
+
+
+            <div>
+
+              <span>
+                06
+              </span>
+
+              <h3>
+                Trust
+              </h3>
+
+              <p>
+                Consistent knowledge, experience এবং useful resources
+                দিয়ে trust তৈরি করা।
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           FAQ
+           ===================================================== -->
+
+      <section class="section section-light">
+
+        <div class="container faq-container">
+
+          <div class="section-heading">
+
+            <div>
+
+              <p class="section-kicker">
+                FAQ
+              </p>
+
+              <h2>
+                আগে থেকেই যেসব
+                <span>প্রশ্ন থাকে।</span>
+              </h2>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-list">
+
+            {
+              faqs.map((faq) => (
+                <details>
+
+                  <summary>
+                    {faq.q}
+                  </summary>
+
+                  <p>
+                    {faq.a}
+                  </p>
+
+                </details>
+              ))
+            }
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           CONSULTATION
+           ===================================================== -->
+
+      <section
+        id="consultation"
+        class="consultation"
+      >
+
+        <div class="container consultation-inner">
+
+          <div>
+
+            <p class="section-kicker gold">
+              LEGAL CONSULTATION
+            </p>
+
+            <h2>
+              আপনার বিষয়টি আগে
+              <span>গুছিয়ে নিন।</span>
+            </h2>
+
+            <p>
+              আপনার situation, documents এবং মূল প্রশ্নগুলো সংক্ষেপে
+              জানান। প্রয়োজন অনুযায়ী consultation-এর পরবর্তী ধাপ
+              নির্ধারণ করা যাবে।
+            </p>
+
+          </div>
+
+
+          <div class="consultation-actions">
+
+            <a
+              class="button button-primary"
+              href="mailto:contact@mahbuburrahman.bd"
+            >
+              Consultation Request
+            </a>
+
+            <a
+              class="button button-outline"
+              href="/tools/property-risk-checker/"
+            >
+              আগে Risk Check করুন
+            </a>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer class="site-footer">
+
+      <div class="container footer-grid">
+
+        <div>
+
+          <div class="footer-name">
+            Mahbubur Rahman
+          </div>
+
+          <p>
+            Advocate
+          </p>
+
+          <p>
+            Civil, Property &amp; Land Law
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <p class="footer-label">
+            POSITIONING
+          </p>
+
+          <p>
+            Legal Clarity
+          </p>
+
+          <p>
+            Practical. Structured. Evidence-based.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <p class="footer-label">
+            IMPORTANT
+          </p>
+
+          <p>
+            এই website-এর educational content individualized legal
+            opinion-এর বিকল্প নয়।
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <p class="footer-label">
+            NAVIGATION
+          </p>
+
+          <a href="#about">
+            About
+          </a>
+
+          <a href="#knowledge">
+            Legal Knowledge
+          </a>
+
+          <a href="#tools">
+            Tools
+          </a>
+
+          <a href="#consultation">
+            Consultation
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="container footer-bottom">
+
+        <span>
+          © {new Date().getFullYear()} Mahbubur Rahman
+        </span>
+
+        <span>
+          www.mahbuburrahman.bd
+        </span>
+
+      </div>
+
+    </footer>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script>
+      const menuToggle =
+        document.querySelector('.mobile-menu-toggle');
+
+      const mobileMenu =
+        document.querySelector('#mobile-menu');
+
+
+      if (menuToggle && mobileMenu) {
+
+        menuToggle.addEventListener(
+          'click',
+          () => {
+
+            const isOpen =
+              mobileMenu.classList.toggle(
+                'is-open'
+              );
+
+
+            menuToggle.setAttribute(
+              'aria-expanded',
+              String(isOpen)
+            );
+
+
+            menuToggle.setAttribute(
+              'aria-label',
+              isOpen
+                ? 'মেনু বন্ধ করুন'
+                : 'মেনু খুলুন'
+            );
+
+          }
+        );
+
+
+        mobileMenu
+          .querySelectorAll('a')
+          .forEach((link) => {
+
+            link.addEventListener(
+              'click',
+              () => {
+
+                mobileMenu.classList.remove(
+                  'is-open'
+                );
+
+
+                menuToggle.setAttribute(
+                  'aria-expanded',
+                  'false'
+                );
+
+
+                menuToggle.setAttribute(
+                  'aria-label',
+                  'মেনু খুলুন'
+                );
+
+              }
+            );
+
+          });
+
+      }
+
+
+      /* =====================================================
+         LEAD FORM — PROTOTYPE
+         ===================================================== */
+
+      const leadForm =
+        document.querySelector('#lead-form');
+
+      const leadMessage =
+        document.querySelector(
+          '#lead-form-message'
+        );
+
+
+      if (leadForm && leadMessage) {
+
+        leadForm.addEventListener(
+          'submit',
+          (event) => {
+
+            event.preventDefault();
+
+
+            const formData =
+              new FormData(leadForm);
+
+
+            const name =
+              String(
+                formData.get('name') || ''
+              ).trim();
+
+
+            const phone =
+              String(
+                formData.get('phone') || ''
+              ).trim();
+
+
+            const property =
+              String(
+                formData.get('property') || ''
+              ).trim();
+
+
+            if (
+              !name ||
+              !phone ||
+              !property
+            ) {
+
+              leadMessage.textContent =
+                'অনুগ্রহ করে সব তথ্য পূরণ করুন।';
+
+              leadMessage.classList.add(
+                'is-visible'
+              );
+
+              return;
+
+            }
+
+
+            const lead = {
+
+              name,
+
+              phone,
+
+              property,
+
+              source:
+                'property_risk_checker',
+
+              createdAt:
+                new Date().toISOString()
+
+            };
+
+
+            localStorage.setItem(
+              'mahbuburrahman_lead',
+              JSON.stringify(lead)
+            );
+
+
+            leadMessage.textContent =
+              'ধন্যবাদ। আপনার তথ্য সংরক্ষণ করা হয়েছে। পরবর্তী ধাপে Legal Checklist এবং consultation flow যুক্ত করা হবে।';
+
+
+            leadMessage.classList.add(
+              'is-visible'
+            );
+
+
+            leadForm.reset();
+
+          }
+        );
+
+      }
+    </script>
+
+  </body>
+</html>

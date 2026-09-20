@@ -1,0 +1,363 @@
+---
+import '../../styles/global.css';
+import '../../styles/property-legal-checklist.css';
+import { legalCheckpoints } from '../../data/property-legal-checklist.js';
+
+const leftCheckpoints = legalCheckpoints.slice(0, 14);
+const rightCheckpoints = legalCheckpoints.slice(14);
+---
+
+<!doctype html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Property Legal Checklist | Mahbubur Rahman</title>
+    <meta
+      name="description"
+      content="সম্পত্তি কেনার আগে 28টি গুরুত্বপূর্ণ Legal Checkpoint প্রাথমিকভাবে যাচাই করার structured checklist."
+    />
+  </head>
+
+  <body class="legal-checklist-page">
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="/" class="brand">
+          <strong>Mahbubur Rahman</strong>
+          <span>ADVOCATE</span>
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="/">Home</a>
+          <a href="/#about">About</a>
+          <a href="/#property">Property &amp; Land</a>
+          <a href="/#knowledge">Legal Knowledge</a>
+          <a href="/#tools">Tools</a>
+          <a href="/#services">Services</a>
+          <a href="/#consultation" class="nav-cta">আলোচনা করুন</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+
+      <section class="legal-checklist-hero">
+        <div class="container legal-checklist-hero-inner">
+
+          <div>
+            <div class="eyebrow">FREE LEGAL RESOURCE</div>
+
+            <h1>
+              Property Legal Checklist<br />
+              <span>সম্পত্তি কেনার আগে ২৮টি গুরুত্বপূর্ণ বিষয় যাচাই করুন</span>
+            </h1>
+
+            <p>
+              সম্পত্তি কেনা জীবনের একটি বড় সিদ্ধান্ত। নিচের checklist-টি
+              আপনাকে প্রাথমিকভাবে সম্ভাব্য ঝুঁকি চিহ্নিত করতে সাহায্য করবে।
+              এটি কোনো আইনী মতামত বা legal clearance নয়।
+            </p>
+          </div>
+
+          <aside class="checklist-note">
+            <h2>কেন এই Checklist?</h2>
+
+            <ul>
+              <li>সম্পত্তি কেনার আগে সম্ভাব্য ঝুঁকি চিনতে সাহায্য করে</li>
+              <li>কী কী যাচাই করতে হবে তা বুঝতে সাহায্য করে</li>
+              <li>সচেতন সিদ্ধান্ত নিতে সাহায্য করে</li>
+            </ul>
+          </aside>
+
+        </div>
+      </section>
+
+      <section class="checklist-wrapper">
+        <div class="container">
+
+          <div class="checklist-panel">
+
+            <div class="checklist-summary">
+              <div class="summary-item">
+                <span class="summary-number" id="checked-count">0/28</span>
+                <span class="summary-label">এখনও যাচাই করা হয়নি</span>
+              </div>
+
+              <div class="summary-item summary-safe">
+                <span class="summary-number" id="yes-count">0</span>
+                <span class="summary-label">হ্যাঁ</span>
+              </div>
+
+              <div class="summary-item summary-risk">
+                <span class="summary-number" id="no-count">0</span>
+                <span class="summary-label">না</span>
+              </div>
+
+              <div class="summary-item summary-unknown">
+                <span class="summary-number" id="unknown-count">28</span>
+                <span class="summary-label">জানি না</span>
+              </div>
+            </div>
+
+            <div class="checklist-grid">
+
+              <div class="checklist-column">
+
+                <div class="checklist-header">
+                  <span>#</span>
+                  <span>বিষয়</span>
+                  <span>হ্যাঁ</span>
+                  <span>না</span>
+                  <span>জানি না</span>
+                </div>
+
+                {leftCheckpoints.map((item) => (
+                  <div class="checklist-row">
+                    <span class="checklist-number">
+                      {String(item.number).padStart(2, '0')}
+                    </span>
+
+                    <span class="checklist-question">
+                      {item.label}
+                    </span>
+
+                    <label class="check-cell">
+                      <input
+                        class="check-input"
+                        type="radio"
+                        name={`checkpoint-${item.number}`}
+                        value="yes"
+                        aria-label={`Checkpoint ${item.number} হ্যাঁ`}
+                      />
+                    </label>
+
+                    <label class="check-cell">
+                      <input
+                        class="check-input"
+                        type="radio"
+                        name={`checkpoint-${item.number}`}
+                        value="no"
+                        aria-label={`Checkpoint ${item.number} না`}
+                      />
+                    </label>
+
+                    <label class="check-cell">
+                      <input
+                        class="check-input"
+                        type="radio"
+                        name={`checkpoint-${item.number}`}
+                        value="unknown"
+                        aria-label={`Checkpoint ${item.number} জানি না`}
+                      />
+                    </label>
+                  </div>
+                ))}
+
+              </div>
+
+              <div class="checklist-column">
+
+                <div class="checklist-header">
+                  <span>#</span>
+                  <span>বিষয়</span>
+                  <span>হ্যাঁ</span>
+                  <span>না</span>
+                  <span>জানি না</span>
+                </div>
+
+                {rightCheckpoints.map((item) => (
+                  <div class="checklist-row">
+                    <span class="checklist-number">
+                      {String(item.number).padStart(2, '0')}
+                    </span>
+
+                    <span class="checklist-question">
+                      {item.label}
+                    </span>
+
+                    <label class="check-cell">
+                      <input
+                        class="check-input"
+                        type="radio"
+                        name={`checkpoint-${item.number}`}
+                        value="yes"
+                        aria-label={`Checkpoint ${item.number} হ্যাঁ`}
+                      />
+                    </label>
+
+                    <label class="check-cell">
+                      <input
+                        class="check-input"
+                        type="radio"
+                        name={`checkpoint-${item.number}`}
+                        value="no"
+                        aria-label={`Checkpoint ${item.number} না`}
+                      />
+                    </label>
+
+                    <label class="check-cell">
+                      <input
+                        class="check-input"
+                        type="radio"
+                        name={`checkpoint-${item.number}`}
+                        value="unknown"
+                        aria-label={`Checkpoint ${item.number} জানি না`}
+                      />
+                    </label>
+                  </div>
+                ))}
+
+              </div>
+
+            </div>
+
+            <div class="check-result" id="check-result">
+
+  <div class="result-heading">
+    <span class="result-kicker">PROPERTY LEGAL REVIEW</span>
+
+    <h3>আপনার Property Legal Review</h3>
+
+    <p id="check-result-text">
+      আপনার ২৮টি checkpoint-এর review summary নিচে দেখুন।
+    </p>
+  </div>
+
+  <div class="result-completion">
+    <strong id="result-completed-count">28 / 28</strong>
+    <span>checkpoint review সম্পন্ন</span>
+  </div>
+
+  <div class="result-breakdown">
+
+    <div class="result-stat">
+      <div class="result-stat-top">
+        <span>হ্যাঁ</span>
+        <strong id="result-yes-count">0</strong>
+      </div>
+
+      <div class="result-bar">
+        <span
+          id="result-yes-bar"
+          class="result-bar-fill result-bar-yes"
+          style="width: 0%"
+        ></span>
+      </div>
+    </div>
+
+
+    <div class="result-stat">
+      <div class="result-stat-top">
+        <span>না</span>
+        <strong id="result-no-count">0</strong>
+      </div>
+
+      <div class="result-bar">
+        <span
+          id="result-no-bar"
+          class="result-bar-fill result-bar-no"
+          style="width: 0%"
+        ></span>
+      </div>
+    </div>
+
+
+    <div class="result-stat">
+      <div class="result-stat-top">
+        <span>জানি না</span>
+        <strong id="result-unknown-count">0</strong>
+      </div>
+
+      <div class="result-bar">
+        <span
+          id="result-unknown-bar"
+          class="result-bar-fill result-bar-unknown"
+          style="width: 0%"
+        ></span>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="result-meaning">
+
+    <h4>আপনার Review থেকে কী বোঝা যাচ্ছে?</h4>
+
+    <p id="result-meaning-text">
+      আপনার উত্তরের ভিত্তিতে কোন বিষয়গুলো পরবর্তী legal review-এর সময়
+      বিশেষভাবে দেখা প্রয়োজন হতে পারে তা এখানে দেখানো হবে।
+    </p>
+
+  </div>
+
+
+  <div class="result-consultation">
+
+    <div class="result-consultation-copy">
+
+      <span class="result-consultation-kicker">
+        NEXT STEP
+      </span>
+
+      <h4>
+        আরও পরিষ্কার সিদ্ধান্ত নিতে চান?
+      </h4>
+
+      <p>
+        আপনার “না” এবং “জানি না” checkpoint-গুলো নিয়ে
+        একজন property-focused lawyer-এর সঙ্গে আলোচনা করুন।
+      </p>
+
+    </div>
+
+    <a
+      class="button button-primary result-consultation-button"
+      href="/#consultation"
+    >
+      প্রপার্টি এক্সপার্ট আইনজীবীর পরামর্শ নিন →
+    </a>
+
+  </div>
+
+</div>
+
+            <div class="check-actions">
+
+              <button
+                type="button"
+                class="button check-reset"
+                id="reset-checklist"
+              >
+                সব রিসেট করুন
+              </button>
+
+              <button
+                type="button"
+                class="button button-primary"
+                id="show-result"
+              >
+                রেজাল্ট দেখুন →
+              </button>
+
+            </div>
+
+          </div>
+
+          <p class="check-disclaimer">
+            এই checklist-টি প্রাথমিক সচেতনতার জন্য। নির্দিষ্ট সিদ্ধান্তের আগে
+            একজন যোগ্য আইনজীবীর পরামর্শ নিন।
+          </p>
+
+        </div>
+      </section>
+
+    </main>
+
+    <script>
+      import '../../scripts/property-legal-checklist.js';
+    </script>
+
+  </body>
+</html>

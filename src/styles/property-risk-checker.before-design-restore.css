@@ -1,0 +1,632 @@
+/* =========================================================
+   PROPERTY RISK CHECKER V2
+   Design system:
+   Navy + Gold + Cream
+   ========================================================= */
+
+.risk-checker-page {
+  background: var(--cream-100, #f7f1e5);
+}
+
+.risk-screen {
+  width: 100%;
+}
+
+.risk-v2-header {
+  padding: 10px 0 28px;
+}
+
+.risk-v2-eyebrow {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: var(--gold-600, #b78d3c);
+  font-family: Inter, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.risk-v2-header h2,
+.risk-v2-checklist-head h2,
+.risk-v2-section h2,
+.risk-v2-result h2 {
+  margin: 0;
+  color: var(--navy-900, #081426);
+  font-family: "Noto Serif Bengali", serif;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.risk-v2-header h2 {
+  max-width: 920px;
+  font-size: clamp(2rem, 4vw, 3.7rem);
+}
+
+.risk-v2-header h2 span,
+.risk-v2-checklist-head h2 span {
+  color: var(--gold-600, #b78d3c);
+}
+
+.risk-v2-header p,
+.risk-v2-checklist-head p,
+.risk-v2-section p,
+.risk-v2-result-explanation {
+  max-width: 900px;
+  margin: 18px 0 0;
+  color: #657083;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.risk-v2-note {
+  margin-top: 22px;
+  padding-left: 16px;
+  border-left: 3px solid var(--gold-500, #caa45d);
+  color: #687486;
+  line-height: 1.7;
+}
+
+.risk-v2-start-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  margin-top: 30px;
+  padding: 28px;
+  background: #101b2c;
+  border: 1px solid rgba(202, 164, 93, 0.25);
+}
+
+.risk-v2-start-box h3,
+.risk-v2-result-cta h3 {
+  margin: 0;
+  color: #fff;
+  font-family: "Noto Serif Bengali", serif;
+}
+
+.risk-v2-start-box p {
+  max-width: 700px;
+  margin: 8px 0 0;
+  color: #aeb7c5;
+  line-height: 1.7;
+}
+
+.risk-v2-primary,
+.risk-v2-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 22px;
+  border-radius: 2px;
+  font-family: Inter, "Hind Siliguri", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.risk-v2-primary {
+  border: 1px solid var(--gold-500, #caa45d);
+  background: var(--gold-500, #caa45d);
+  color: #101010;
+}
+
+.risk-v2-primary:hover {
+  background: #d6b66f;
+}
+
+.risk-v2-secondary {
+  border: 1px solid rgba(202, 164, 93, 0.4);
+  background: transparent;
+  color: inherit;
+}
+
+.risk-v2-secondary:hover {
+  border-color: var(--gold-500, #caa45d);
+}
+
+
+/* =========================================================
+   SETUP
+   ========================================================= */
+
+.risk-v2-section {
+  padding: 10px 0 25px;
+}
+
+.risk-v2-field {
+  margin-top: 34px;
+}
+
+.risk-v2-field > label {
+  display: block;
+  margin-bottom: 12px;
+  color: #172238;
+  font-weight: 700;
+}
+
+.risk-v2-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.risk-v2-choice {
+  min-height: 56px;
+  padding: 14px;
+  border: 1px solid #d6dbe1;
+  background: #fff;
+  color: #182238;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+}
+
+.risk-v2-choice.is-selected {
+  border-color: var(--gold-500, #caa45d);
+  background: rgba(202, 164, 93, 0.12);
+}
+
+
+/* =========================================================
+   CHECKLIST
+   ========================================================= */
+
+.risk-v2-checklist {
+  background: #fff;
+  border: 1px solid #e4e6e9;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.risk-v2-checklist-head {
+  padding: 34px 34px 24px;
+}
+
+.risk-v2-checklist-head h2 {
+  font-size: clamp(1.6rem, 3vw, 2.5rem);
+}
+
+.risk-v2-stats {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  border-top: 1px solid #e3e6ea;
+  border-bottom: 1px solid #e3e6ea;
+}
+
+.risk-v2-progress,
+.risk-v2-stat {
+  min-height: 105px;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  border-right: 1px solid #e3e6ea;
+}
+
+.risk-v2-stat:last-child {
+  border-right: 0;
+}
+
+.risk-v2-progress-ring {
+  width: 70px;
+  height: 70px;
+  flex: 0 0 70px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background:
+    conic-gradient(
+      #269b62 var(--progress),
+      #e2e6e9 var(--progress)
+    );
+  position: relative;
+}
+
+.risk-v2-progress-ring::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.risk-v2-progress-ring strong {
+  position: relative;
+  z-index: 1;
+  color: #111d32;
+  font-family: Inter, sans-serif;
+  font-size: 0.9rem;
+}
+
+.risk-v2-progress strong,
+.risk-v2-stat strong {
+  display: block;
+  color: #101d34;
+  font-family: Inter, sans-serif;
+  font-size: 1.5rem;
+}
+
+.risk-v2-progress small,
+.risk-v2-stat span {
+  display: block;
+  margin-top: 4px;
+  color: #697487;
+}
+
+.risk-v2-stat {
+  justify-content: center;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.risk-v2-stat-yes strong {
+  color: #29985f;
+}
+
+.risk-v2-stat-no strong {
+  color: #e34b52;
+}
+
+.risk-v2-stat-unknown strong {
+  color: #78838f;
+}
+
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+.risk-v2-table {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.risk-v2-table-head,
+.risk-v2-row {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr) 70px 70px 90px;
+  align-items: center;
+}
+
+.risk-v2-table-head {
+  min-height: 48px;
+  padding: 0 20px;
+  background: #f5f6f4;
+  color: #273248;
+  font-family: Inter, "Hind Siliguri", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.risk-v2-row {
+  min-height: 55px;
+  padding: 0 20px;
+  border-top: 1px solid #e7e9eb;
+}
+
+.risk-v2-number {
+  color: #334158;
+  font-family: Inter, sans-serif;
+  font-size: 0.8rem;
+}
+
+.risk-v2-question {
+  padding: 9px 12px 9px 0;
+  color: #273248;
+  line-height: 1.55;
+}
+
+.risk-v2-answer {
+  width: 25px;
+  height: 25px;
+  justify-self: center;
+  padding: 0;
+  border: 2px solid #cfd5db;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  position: relative;
+}
+
+.risk-v2-answer-yes {
+  border-color: #5ab780;
+}
+
+.risk-v2-answer-no {
+  border-color: #f18a8f;
+}
+
+.risk-v2-answer-unknown {
+  border-color: #aeb8c2;
+}
+
+.risk-v2-answer.is-selected::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 2px;
+}
+
+.risk-v2-answer-yes.is-selected::after {
+  background: #29985f;
+}
+
+.risk-v2-answer-no.is-selected::after {
+  background: #e34b52;
+}
+
+.risk-v2-answer-unknown.is-selected::after {
+  background: #7b8792;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.risk-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 24px 0;
+}
+
+.risk-v2-navigation-left,
+.risk-v2-navigation-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+
+/* =========================================================
+   RESULT
+   ========================================================= */
+
+.risk-v2-result {
+  padding: 36px;
+  background: #101b2c;
+  color: #fff;
+  border: 1px solid rgba(202, 164, 93, 0.25);
+}
+
+.risk-v2-result-badge {
+  display: inline-block;
+  padding: 8px 13px;
+  border: 1px solid var(--gold-500, #caa45d);
+  color: var(--gold-500, #caa45d);
+  font-family: Inter, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.risk-v2-result h2 {
+  margin-top: 22px;
+  color: #fff;
+  font-size: clamp(1.8rem, 3vw, 3rem);
+}
+
+.risk-v2-result-explanation {
+  color: #b7c0cc;
+}
+
+.risk-v2-result-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.risk-v2-result-summary div {
+  padding: 22px;
+  border-right: 1px solid rgba(255,255,255,0.12);
+}
+
+.risk-v2-result-summary div:last-child {
+  border-right: 0;
+}
+
+.risk-v2-result-summary strong {
+  display: block;
+  color: var(--gold-500, #caa45d);
+  font-family: Inter, sans-serif;
+  font-size: 1.7rem;
+}
+
+.risk-v2-result-summary span {
+  color: #aeb8c4;
+}
+
+.risk-v2-result-section {
+  margin-top: 34px;
+}
+
+.risk-v2-result-section h3 {
+  color: #fff;
+  font-family: "Noto Serif Bengali", serif;
+}
+
+.risk-v2-flag-list {
+  margin-top: 15px;
+  display: grid;
+  gap: 8px;
+}
+
+.risk-v2-flag-item {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  align-items: center;
+  min-height: 50px;
+  padding: 8px 14px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.025);
+}
+
+.risk-v2-flag-item span {
+  color: var(--gold-500, #caa45d);
+  font-family: Inter, sans-serif;
+}
+
+.risk-v2-flag-item p {
+  margin: 0;
+  color: #c0c8d2;
+  line-height: 1.5;
+}
+
+.risk-v2-clean-result {
+  margin-top: 14px;
+  padding: 18px;
+  border: 1px solid rgba(41,152,95,0.35);
+  color: #b9d9c7;
+}
+
+.risk-v2-result-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: 38px;
+  padding: 26px;
+  border: 1px solid rgba(202,164,93,0.3);
+  background: rgba(202,164,93,0.06);
+}
+
+.risk-v2-result-cta p {
+  margin: 8px 0 0;
+  color: #9faaba;
+  line-height: 1.6;
+}
+
+.risk-v2-result-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .risk-v2-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .risk-v2-progress {
+    grid-column: 1 / -1;
+    border-bottom: 1px solid #e3e6ea;
+  }
+
+  .risk-v2-stat:nth-child(3) {
+    border-right: 0;
+  }
+
+  .risk-v2-table-head,
+  .risk-v2-row {
+    grid-template-columns: 45px minmax(0, 1fr) 48px 48px 60px;
+  }
+
+  .risk-v2-table-head {
+    padding: 0 12px;
+  }
+
+  .risk-v2-row {
+    padding: 0 12px;
+  }
+
+  .risk-v2-result-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+}
+
+
+@media (max-width: 700px) {
+
+  .risk-v2-header h2 {
+    font-size: 2rem;
+  }
+
+  .risk-v2-start-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .risk-v2-choice-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .risk-v2-checklist-head {
+    padding: 24px 18px;
+  }
+
+  .risk-v2-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .risk-v2-progress {
+    grid-column: 1 / -1;
+  }
+
+  .risk-v2-table {
+    overflow-x: auto;
+  }
+
+  .risk-v2-table-head,
+  .risk-v2-row {
+    min-width: 650px;
+  }
+
+  .risk-v2-navigation {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .risk-navigation {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .risk-v2-navigation-left,
+  .risk-v2-navigation-right {
+    width: 100%;
+  }
+
+  .risk-v2-navigation-left button,
+  .risk-v2-navigation-right button {
+    width: 100%;
+  }
+
+  .risk-v2-result {
+    padding: 24px 18px;
+  }
+
+  .risk-v2-result-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .risk-v2-result-summary div {
+    border-right: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+
+  .risk-v2-result-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .risk-v2-result-actions a {
+    width: 100%;
+  }
+
+}

@@ -1,0 +1,377 @@
+.risk-checker-page {
+  min-height: calc(100vh - 90px);
+  padding: 80px 20px 100px;
+  background: #f7f2e8;
+}
+
+.risk-checker-shell {
+  width: min(920px, 100%);
+  margin: 0 auto;
+}
+
+.risk-intro {
+  max-width: 760px;
+  margin-bottom: 50px;
+}
+
+.risk-intro h1 {
+  margin: 0 0 24px;
+  color: #101a2b;
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: clamp(2.4rem, 6vw, 4.4rem);
+  line-height: 1.16;
+  font-weight: 600;
+}
+
+.risk-intro h1 span {
+  color: #c8a45d;
+}
+
+.risk-intro > p:not(.section-kicker):not(.tool-disclaimer) {
+  max-width: 680px;
+  color: #667387;
+  font-size: 1.08rem;
+  line-height: 1.85;
+}
+
+.tool-disclaimer {
+  margin-top: 20px;
+  padding-left: 16px;
+  border-left: 3px solid #c8a45d;
+  color: #667387;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.risk-app {
+  overflow: hidden;
+  border: 1px solid rgba(200, 164, 93, 0.35);
+  background: #09111f;
+  box-shadow: 0 24px 70px rgba(7, 13, 24, 0.16);
+}
+
+.risk-progress {
+  padding: 22px 28px;
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+}
+
+.progress-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 10px;
+  color: rgba(255,255,255,0.68);
+  font-size: 0.82rem;
+}
+
+.progress-track {
+  height: 4px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.10);
+}
+
+.progress-bar {
+  width: 0;
+  height: 100%;
+  background: #c8a45d;
+  transition: width 0.25s ease;
+}
+
+.risk-screen {
+  min-height: 470px;
+  padding: 50px;
+}
+
+.screen-kicker {
+  margin: 0 0 14px;
+  color: #c8a45d;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.screen-title {
+  margin: 0 0 18px;
+  color: #fff;
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.3;
+}
+
+.screen-description {
+  max-width: 680px;
+  margin: 0 0 34px;
+  color: rgba(255,255,255,0.68);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.option-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.option-button {
+  min-height: 72px;
+  padding: 18px 20px;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.025);
+  color: #fff;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.option-button:hover {
+  border-color: #c8a45d;
+  background: rgba(200,164,93,0.08);
+  transform: translateY(-1px);
+}
+
+.option-button.selected {
+  border-color: #c8a45d;
+  background: rgba(200,164,93,0.14);
+}
+
+.option-button:focus-visible,
+.risk-navigation button:focus-visible,
+.risk-navigation a:focus-visible {
+  outline: 3px solid rgba(200,164,93,0.65);
+  outline-offset: 3px;
+}
+
+.answer-options {
+  display: grid;
+  gap: 14px;
+  max-width: 680px;
+}
+
+.answer-button {
+  width: 100%;
+  min-height: 70px;
+  padding: 18px 22px;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.025);
+  color: #fff;
+  font: inherit;
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.answer-button:hover,
+.answer-button.selected {
+  border-color: #c8a45d;
+  background: rgba(200,164,93,0.12);
+}
+
+.risk-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 22px 28px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+}
+
+.risk-navigation button,
+.risk-navigation a {
+  min-height: 48px;
+  padding: 12px 20px;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.risk-navigation .next-button {
+  border-color: #c8a45d;
+  background: #c8a45d;
+  color: #09111f;
+  font-weight: 700;
+}
+
+.risk-navigation .next-button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.review-list {
+  display: grid;
+  gap: 0;
+  margin: 30px 0 0;
+}
+
+.review-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 20px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+}
+
+.review-item span:first-child {
+  color: rgba(255,255,255,0.72);
+}
+
+.review-value {
+  color: #c8a45d;
+  font-weight: 600;
+  text-align: right;
+}
+
+.result-header {
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+}
+
+.result-badge {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 9px 13px;
+  border: 1px solid rgba(200,164,93,0.45);
+  color: #c8a45d;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.result-explanation {
+  max-width: 680px;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.8;
+}
+
+.result-section {
+  margin-top: 34px;
+}
+
+.result-section h3 {
+  margin: 0 0 18px;
+  color: #fff;
+  font-size: 1.15rem;
+}
+
+.result-check-list {
+  display: grid;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.result-check-list li {
+  padding: 15px 16px;
+  border: 1px solid rgba(255,255,255,0.10);
+  color: rgba(255,255,255,0.78);
+  line-height: 1.6;
+}
+
+.result-cta {
+  margin-top: 36px;
+  padding: 24px;
+  background: rgba(200,164,93,0.08);
+  border: 1px solid rgba(200,164,93,0.30);
+}
+
+.result-cta h3 {
+  margin: 0 0 8px;
+  color: #fff;
+}
+
+.result-cta p {
+  margin: 0 0 20px;
+  color: rgba(255,255,255,0.68);
+  line-height: 1.7;
+}
+
+.result-cta a {
+  display: inline-block;
+  padding: 13px 20px;
+  background: #c8a45d;
+  color: #09111f;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.result-disclaimer {
+  margin-top: 28px;
+  color: rgba(255,255,255,0.48);
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+
+.tool-footer {
+  padding: 40px 20px;
+  background: #09111f;
+  color: rgba(255,255,255,0.52);
+  text-align: center;
+  font-size: 0.82rem;
+}
+
+.tool-footer p {
+  margin: 4px 0;
+}
+
+@media (max-width: 700px) {
+
+  .risk-checker-page {
+    padding: 54px 14px 70px;
+  }
+
+  .risk-intro {
+    margin-bottom: 32px;
+  }
+
+  .risk-intro h1 {
+    font-size: clamp(2.2rem, 11vw, 3.2rem);
+  }
+
+  .risk-app {
+    border-left: 0;
+    border-right: 0;
+  }
+
+  .risk-progress {
+    padding: 18px;
+  }
+
+  .risk-screen {
+    min-height: 430px;
+    padding: 32px 20px;
+  }
+
+  .option-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .risk-navigation {
+    padding: 18px;
+  }
+
+  .risk-navigation button,
+  .risk-navigation a {
+    flex: 1;
+    text-align: center;
+  }
+
+  .review-item {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .review-value {
+    text-align: left;
+  }
+}

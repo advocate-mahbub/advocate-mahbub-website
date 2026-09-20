@@ -1,0 +1,173 @@
+---
+import '../../styles/global.css';
+import '../../styles/property-risk-checker.css';
+
+const site = {
+  name: 'Mahbubur Rahman',
+  designation: 'Advocate',
+  url: 'https://www.mahbuburrahman.bd/',
+};
+---
+
+<!doctype html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <title>
+      Property Risk Checker | {site.name}
+    </title>
+
+    <meta
+      name="description"
+      content="Property decision নেওয়ার আগে গুরুত্বপূর্ণ information gap চিহ্নিত করার preliminary awareness tool."
+    />
+
+    <link
+      rel="canonical"
+      href={`${site.url}tools/property-risk-checker/`}
+    />
+
+    <meta
+      name="robots"
+      content="index, follow"
+    />
+  </head>
+
+  <body>
+
+    <header class="tool-header">
+
+      <div class="tool-header-inner">
+
+        <a
+          href="/"
+          class="tool-brand"
+        >
+          <span>
+            Mahbubur Rahman
+          </span>
+
+          <small>
+            ADVOCATE
+          </small>
+        </a>
+
+        <a
+          href="/"
+          class="tool-back"
+        >
+          Website-এ ফিরুন
+        </a>
+
+      </div>
+
+    </header>
+
+
+    <main class="risk-checker-page">
+
+      <section class="risk-checker-shell">
+
+        <div class="risk-intro">
+
+          <p class="section-kicker gold">
+            PROPERTY RISK CHECKER
+          </p>
+
+          <h1>
+            Property নিয়ে সিদ্ধান্ত নেওয়ার
+            আগে <span>ঝুঁকিটা বুঝুন।</span>
+          </h1>
+
+          <p>
+            কয়েকটি প্রশ্নের মাধ্যমে আপনার property situation-এর
+            গুরুত্বপূর্ণ information gap চিহ্নিত করুন।
+          </p>
+
+          <p class="tool-disclaimer">
+            এটি একটি preliminary awareness tool।
+            এটি formal legal opinion নয়।
+          </p>
+
+        </div>
+
+
+        <div
+          class="risk-app"
+          id="risk-app"
+        >
+
+          <!-- PROGRESS -->
+
+          <div class="risk-progress">
+
+            <div class="progress-top">
+
+              <span id="progress-label">
+                শুরু
+              </span>
+
+              <span id="progress-count">
+                0 / 8
+              </span>
+
+            </div>
+
+            <div class="progress-track">
+
+              <div
+                class="progress-bar"
+                id="progress-bar"
+              ></div>
+
+            </div>
+
+          </div>
+
+
+          <!-- SCREEN -->
+
+          <div
+            id="risk-screen"
+            class="risk-screen"
+          ></div>
+
+
+          <!-- NAVIGATION -->
+
+          <div
+            id="risk-navigation"
+            class="risk-navigation"
+          ></div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+
+    <footer class="tool-footer">
+
+      <p>
+        Mahbubur Rahman, Advocate
+      </p>
+
+      <p>
+        Property &amp; Land Law · Legal Clarity
+      </p>
+
+    </footer>
+
+
+    <script>  
+    import '../../scripts/property-risk-checker.js';
+    </script>
+  </body>
+</html>
