@@ -1,0 +1,162 @@
+---
+import '../../styles/global.css';
+import '../../styles/legal-knowledge.css';
+import { legalKnowledgeCategories } from '../../data/legal-knowledge.js';
+
+export function getStaticPaths() {
+  return legalKnowledgeCategories.map((category) => ({
+    params: {
+      slug: category.slug,
+    },
+    props: {
+      category,
+    },
+  }));
+}
+
+const { category } = Astro.props;
+
+const siteName = 'Mahbubur Rahman';
+
+const pageTitle = `${category.title} | Legal Knowledge | ${siteName}`;
+
+const pageDescription =
+  `${category.description} Practical legal knowledge by ${siteName}, Advocate.`;
+---
+
+<!doctype html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{pageTitle}</title>
+
+    <meta
+      name="description"
+      content={pageDescription}
+    />
+
+    <link
+      rel="canonical"
+      href={`https://www.mahbuburrahman.bd/legal-knowledge/${category.slug}/`}
+    />
+  </head>
+
+  <body>
+    <main class="knowledge-page">
+
+      <section class="knowledge-hero">
+        <div class="knowledge-container">
+
+          <p class="knowledge-eyebrow">
+            LEGAL KNOWLEDGE
+          </p>
+
+          <h1>
+            {category.title}
+          </h1>
+
+          <p class="knowledge-intro">
+            {category.description}
+          </p>
+
+          <a
+            href="/legal-knowledge/"
+            class="knowledge-secondary-cta"
+          >
+            ← সব Legal Knowledge দেখুন
+          </a>
+
+        </div>
+      </section>
+
+
+      <section class="knowledge-content">
+        <div class="knowledge-container">
+
+          <section class="knowledge-consultation">
+
+            <p class="knowledge-eyebrow">
+              KNOWLEDGE HUB
+            </p>
+
+            <h2>
+              এই বিষয় নিয়ে practical legal knowledge আসছে।
+            </h2>
+
+            <p>
+              এই section-এ আমরা {category.title.toLowerCase()}
+              নিয়ে গুরুত্বপূর্ণ প্রশ্ন, document checklist,
+              common mistakes, risk এবং decision-making guidance
+              ধাপে ধাপে যুক্ত করব।
+            </p>
+
+          </section>
+
+
+          <section class="knowledge-tools">
+
+            <div>
+
+              <p class="knowledge-eyebrow">
+                CHECK BEFORE YOU DECIDE
+              </p>
+
+              <h2>
+                Property decision নেওয়ার আগে
+                riskটা বুঝুন।
+              </h2>
+
+              <p>
+                কোনো property কেনা, বিক্রি বা ownership নিয়ে
+                এগোনোর আগে initial risk screening-এর জন্য
+                Property Risk Checker ব্যবহার করতে পারেন।
+              </p>
+
+            </div>
+
+            <a
+              href="/tools/property-risk-checker/"
+              class="knowledge-primary-cta"
+            >
+              Property Risk Checker
+              <span aria-hidden="true">→</span>
+            </a>
+
+          </section>
+
+
+          <section class="knowledge-consultation">
+
+            <p class="knowledge-eyebrow">
+              NEED CLARITY?
+            </p>
+
+            <h2>
+              আপনার specific situation নিয়ে
+              আলোচনা করতে চান?
+            </h2>
+
+            <p>
+              Generic information আপনার situation-এর জন্য
+              যথেষ্ট না হলে specific issue নিয়ে consultation
+              request করতে পারেন।
+            </p>
+
+            <a
+              href="/#consultation"
+              class="knowledge-secondary-cta"
+            >
+              Consultation Request
+              <span aria-hidden="true">→</span>
+            </a>
+
+          </section>
+
+        </div>
+      </section>
+
+    </main>
+  </body>
+</html>

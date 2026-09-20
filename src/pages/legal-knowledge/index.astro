@@ -1,0 +1,251 @@
+---
+import '../../styles/global.css';
+import '../../styles/legal-knowledge.css';
+import { legalKnowledgeCategories } from '../../data/legal-knowledge.js';
+
+const site = {
+  name: 'Mahbubur Rahman',
+  title: 'Advocate',
+};
+
+const pageTitle = 'Legal Knowledge';
+const pageDescription =
+  'Property, land and civil law নিয়ে practical legal knowledge—যাতে সিদ্ধান্ত নেওয়ার আগে ঝুঁকিটা বুঝতে পারেন.';
+---
+
+<!doctype html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{pageTitle} | {site.name}</title>
+
+    <meta
+      name="description"
+      content={pageDescription}
+    />
+
+    <link rel="canonical" href="https://www.mahbuburrahman.bd/legal-knowledge/" />
+  </head>
+
+  <body>
+    <main class="knowledge-page">
+
+      <section class="knowledge-hero">
+        <div class="knowledge-container">
+
+          <p class="knowledge-eyebrow">
+            LEGAL KNOWLEDGE
+          </p>
+
+          <h1>
+            সিদ্ধান্ত নেওয়ার আগে
+            <span>আইনটা বুঝুন।</span>
+          </h1>
+
+          <p class="knowledge-intro">
+            Property, land ownership, documents, inheritance,
+            registration এবং dispute নিয়ে practical legal knowledge—
+            সহজ ভাষায়, decision নেওয়ার জন্য।
+          </p>
+
+          <div class="knowledge-search">
+            <label for="knowledge-search">
+              আপনি কী জানতে চান?
+            </label>
+
+            <input
+              id="knowledge-search"
+              type="search"
+              placeholder="যেমন: ownership, khatian, mutation, inheritance..."
+              autocomplete="off"
+            />
+          </div>
+
+        </div>
+      </section>
+
+
+      <section class="knowledge-content">
+        <div class="knowledge-container">
+
+          <div class="knowledge-section-heading">
+            <div>
+              <p class="knowledge-eyebrow">
+                EXPLORE
+              </p>
+
+              <h2>
+                আপনার প্রয়োজনের বিষয়টি বেছে নিন
+              </h2>
+            </div>
+
+            <p>
+              প্রতিটি বিষয়কে আমরা এমনভাবে সাজাব,
+              যাতে শুধু তথ্য নয়—পরবর্তী decision নেওয়ার clarity তৈরি হয়।
+            </p>
+          </div>
+
+
+          <div
+            class="knowledge-grid"
+            id="knowledge-grid"
+          >
+
+            {
+              legalKnowledgeCategories.map((category) => (
+                <article
+                  class="knowledge-card"
+                  data-search={`${category.title} ${category.description} ${category.slug}`}
+                >
+
+                  <div class="knowledge-card-top">
+                    <span class="knowledge-card-number">
+                      {String(
+                        legalKnowledgeCategories.indexOf(category) + 1
+                      ).padStart(2, '0')}
+                    </span>
+
+                    <span class="knowledge-card-status">
+                      {category.count}
+                    </span>
+                  </div>
+
+                  <h3>
+                    {category.title}
+                  </h3>
+
+                  <p>
+                    {category.description}
+                  </p>
+
+                  <a
+                    href={`/legal-knowledge/${category.slug}/`}
+                    class="knowledge-card-link"
+                  >
+                    বিষয়টি দেখুন
+                    <span aria-hidden="true">→</span>
+                  </a>
+
+                </article>
+              ))
+            }
+
+          </div>
+
+
+          <div
+            class="knowledge-empty"
+            id="knowledge-empty"
+            hidden
+          >
+            <h3>
+              এই বিষয়ে এখনো কোনো resource পাওয়া যাচ্ছে না।
+            </h3>
+
+            <p>
+              অন্য keyword দিয়ে search করুন অথবা consultation-এর জন্য যোগাযোগ করুন।
+            </p>
+          </div>
+
+
+          <section class="knowledge-tools">
+
+            <div>
+              <p class="knowledge-eyebrow">
+                CHECK BEFORE YOU DECIDE
+              </p>
+
+              <h2>
+                শুধু পড়লেই হবে না।
+                আপনার property-এর risk-ও বুঝুন।
+              </h2>
+
+              <p>
+                কোনো property কেনা, বিক্রি বা ownership নিয়ে এগোনোর আগে
+                initial risk screening-এর জন্য Property Risk Checker ব্যবহার করুন।
+              </p>
+            </div>
+
+            <a
+              href="/tools/property-risk-checker/"
+              class="knowledge-primary-cta"
+            >
+              Property Risk Checker
+              <span aria-hidden="true">→</span>
+            </a>
+
+          </section>
+
+
+          <section class="knowledge-consultation">
+
+            <p class="knowledge-eyebrow">
+              NEED CLARITY?
+            </p>
+
+            <h2>
+              আপনার situation আলাদা হলে
+              generic information যথেষ্ট নাও হতে পারে।
+            </h2>
+
+            <p>
+              Property, land, ownership বা legal documentation নিয়ে
+              সিদ্ধান্তের আগে আপনার specific issue নিয়ে আলোচনা করুন।
+            </p>
+
+            <a
+              href="/#consultation"
+              class="knowledge-secondary-cta"
+            >
+              Consultation Request
+              <span aria-hidden="true">→</span>
+            </a>
+
+          </section>
+
+        </div>
+      </section>
+
+    </main>
+
+
+    <script>
+      const searchInput =
+        document.querySelector('#knowledge-search');
+
+      const cards =
+        Array.from(document.querySelectorAll('.knowledge-card'));
+
+      const emptyState =
+        document.querySelector('#knowledge-empty');
+
+      searchInput?.addEventListener('input', () => {
+        const query =
+          searchInput.value.trim().toLowerCase();
+
+        let visibleCards = 0;
+
+        cards.forEach((card) => {
+          const searchableText =
+            card.dataset.search?.toLowerCase() || '';
+
+          const matches =
+            !query || searchableText.includes(query);
+
+          card.hidden = !matches;
+
+          if (matches) {
+            visibleCards++;
+          }
+        });
+
+        if (emptyState) {
+          emptyState.hidden = visibleCards !== 0;
+        }
+      });
+    </script>
+
+  </body>
+</html>

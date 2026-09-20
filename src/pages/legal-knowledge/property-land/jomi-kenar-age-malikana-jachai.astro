@@ -1,0 +1,586 @@
+---
+import '../../../styles/global.css';
+import '../../../styles/legal-knowledge-article.css';
+import { legalKnowledgeArticles } from '../../../data/legal-knowledge-articles.js';
+
+const article = legalKnowledgeArticles.find(
+  (item) => item.slug === 'jomi-kenar-age-malikana-jachai'
+);
+
+if (!article) {
+  throw new Error('Article not found');
+}
+
+const siteName = 'Mahbubur Rahman';
+const canonicalUrl =
+  `https://www.mahbuburrahman.bd/legal-knowledge/property-land/${article.slug}/`;
+---
+
+<!doctype html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{article.metaTitle}</title>
+
+    <meta
+      name="description"
+      content={article.metaDescription}
+    />
+
+    <meta
+      name="keywords"
+      content={article.keywords.join(', ')}
+    />
+
+    <link
+      rel="canonical"
+      href={canonicalUrl}
+    />
+
+    <meta
+      property="og:title"
+      content={article.metaTitle}
+    />
+
+    <meta
+      property="og:description"
+      content={article.metaDescription}
+    />
+
+    <meta
+      property="og:type"
+      content="article"
+    />
+
+    <meta
+      property="og:url"
+      content={canonicalUrl}
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: article.title,
+      description: article.metaDescription,
+      author: {
+        '@type': 'Person',
+        name: siteName,
+      },
+      publisher: {
+        '@type': 'Person',
+        name: siteName,
+      },
+      mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': canonicalUrl,
+      },
+      datePublished: '2026-09-20',
+      dateModified: '2026-09-20',
+    })} />
+  </head>
+
+  <body>
+
+    <main class="legal-article-page">
+
+      <!-- ARTICLE HERO -->
+
+      <section class="legal-article-hero">
+        <div class="legal-article-container">
+
+          <div class="article-breadcrumb">
+            <a href="/legal-knowledge/">
+              Legal Knowledge
+            </a>
+
+            <span>/</span>
+
+            <a href="/legal-knowledge/property-land/">
+              Property & Land
+            </a>
+          </div>
+
+          <p class="article-eyebrow">
+            PROPERTY & LAND
+          </p>
+
+          <h1>
+            {article.title}
+          </h1>
+
+          <p class="article-excerpt">
+            {article.excerpt}
+          </p>
+
+          <div class="article-meta">
+            <span>
+              Mahbubur Rahman, Advocate
+            </span>
+
+            <span>•</span>
+
+            <span>
+              {article.readTime} পড়তে সময় লাগবে
+            </span>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- ARTICLE BODY -->
+
+      <section class="legal-article-content">
+
+        <div class="legal-article-layout">
+
+          <article class="article-body">
+
+            <div class="article-lead-box">
+              <strong>
+                সংক্ষেপে:
+              </strong>
+
+              জমি কেনার আগে শুধু একটি দলিল দেখে সিদ্ধান্ত নেওয়া
+              নিরাপদ নয়। মালিকানা, ownership chain, খতিয়ান,
+              দাগ, নামজারি, ভূমি উন্নয়ন কর, দখল এবং সম্ভাব্য
+              বিরোধ—সবকিছু মিলিয়ে দেখা প্রয়োজন।
+            </div>
+
+
+            <h2>
+              জমি কেনার আগে মালিকানা যাচাই কেন গুরুত্বপূর্ণ?
+            </h2>
+
+            <p>
+              একজন বিক্রেতা আপনাকে একটি বৈধ-looking দলিল দেখাতে
+              পারেন। কিন্তু আসল প্রশ্ন হলো—
+            </p>
+
+            <p class="article-question">
+              তিনি কি সত্যিই এই জমি বিক্রি করার আইনগত অধিকার রাখেন?
+            </p>
+
+            <p>
+              এই প্রশ্নের উত্তর খুঁজতে শুধু একটি document নয়,
+              বরং মালিকানা, রেকর্ড, দলিলের ধারাবাহিকতা,
+              নামজারি, ভূমি উন্নয়ন কর, জমির পরিচয়, দখল এবং
+              সম্ভাব্য বিরোধ—সবকিছু একসঙ্গে যাচাই করা প্রয়োজন।
+            </p>
+
+            <p>
+              তাই property purchase-এর আগে লক্ষ্য হওয়া উচিত
+              শুধু একটি document পাওয়া নয়; বরং ownership-এর
+              একটি পরিষ্কার chain তৈরি করা।
+            </p>
+
+
+            <h2>
+              জমি কেনার আগে ১০টি বিষয় যাচাই করুন
+            </h2>
+
+
+            <h3>
+              ১. বিক্রেতা আসলে কে?
+            </h3>
+
+            <p>
+              প্রথম প্রশ্ন খুব সাধারণ:
+              যিনি জমি বিক্রি করছেন, তিনিই কি প্রকৃত মালিক
+              বা বৈধভাবে বিক্রির অধিকারী ব্যক্তি?
+            </p>
+
+            <p>
+              বিক্রেতার পরিচয়, ownership document, সংশ্লিষ্ট
+              খতিয়ান, নামজারি record এবং পূর্বের transfer
+              document-এর তথ্য যতটা সম্ভব cross-check করুন।
+            </p>
+
+            <p>
+              বিশেষ করে inherited property হলে আরও সতর্ক হতে হবে।
+              একজন উত্তরাধিকারী একা property বিক্রি করছেন কিনা,
+              নাকি অন্যদেরও স্বার্থ রয়েছে—এটি আলাদাভাবে যাচাই
+              করা প্রয়োজন।
+            </p>
+
+
+            <h3>
+              ২. মূল দলিল এবং আগের দলিলগুলো দেখুন
+            </h3>
+
+            <p>
+              বর্তমান বিক্রেতার দলিল দেখেই থেমে যাবেন না।
+            </p>
+
+            <p>
+              প্রশ্ন করুন:
+              <strong>এই মালিক জমিটি পেলেন কীভাবে?</strong>
+            </p>
+
+            <p>
+              ক্রয়, উত্তরাধিকার, হেবা, বণ্টন বা অন্য কোনো
+              transfer-এর মাধ্যমে property বর্তমান মালিকের
+              কাছে এসে থাকতে পারে।
+            </p>
+
+            <p>
+              তাই প্রয়োজন অনুযায়ী আগের দলিলগুলোর ধারাবাহিকতা
+              দেখুন। সহজ ভাষায় এটিই ownership chain।
+            </p>
+
+            <div class="article-diagram">
+              <span>Original Owner</span>
+              <b>↓</b>
+              <span>Transfer / Inheritance</span>
+              <b>↓</b>
+              <span>Current Owner</span>
+              <b>↓</b>
+              <span>Proposed Buyer</span>
+            </div>
+
+
+            <h3>
+              ৩. খতিয়ান যাচাই করুন
+            </h3>
+
+            <p>
+              জমির ক্ষেত্রে খতিয়ান গুরুত্বপূর্ণ record।
+              তবে শুধু “খতিয়ানে নাম আছে” বললেই যাচাই শেষ নয়।
+            </p>
+
+            <ul>
+              <li>কোন জরিপের খতিয়ান?</li>
+              <li>খতিয়ান নম্বর কত?</li>
+              <li>দাগ নম্বর কী?</li>
+              <li>জমির পরিমাণ কত?</li>
+              <li>মালিকের নাম কী?</li>
+              <li>জমির শ্রেণি কী?</li>
+              <li>বর্তমান document-এর সঙ্গে তথ্য মেলে কি না?</li>
+            </ul>
+
+
+            <h3>
+              ৪. দাগ নম্বর ও জমির পরিমাণ মিলিয়ে দেখুন
+            </h3>
+
+            <p>
+              কাগজে যে জমি দেখানো হচ্ছে, সেটি বাস্তবে যে জমি
+              দেখানো হচ্ছে—দুটো একই property কি না, সেটি
+              নিশ্চিত হওয়া দরকার।
+            </p>
+
+            <p>
+              তাই দলিল, খতিয়ান, দাগ, জমির পরিমাণ এবং location
+              পরস্পরের সঙ্গে মিলিয়ে দেখুন।
+            </p>
+
+            <p>
+              প্রয়োজন অনুযায়ী সংশ্লিষ্ট map বা record-এর
+              সঙ্গেও মিলিয়ে দেখা যেতে পারে।
+            </p>
+
+
+            <h3>
+              ৫. নামজারি হয়েছে কি না দেখুন
+            </h3>
+
+            <p>
+              জমি transfer হওয়ার পর record update-এর বিষয়টি
+              গুরুত্বপূর্ণ।
+            </p>
+
+            <p>
+              সরকারি ভূমি সেবা ব্যবস্থায় নামজারি, জমাভাগ এবং
+              জমা একত্রীকরণ land administration-এর গুরুত্বপূর্ণ
+              সেবার অংশ।
+            </p>
+
+            <p>
+              তাই বর্তমান মালিকের নামে নামজারি আছে কি না এবং
+              সংশ্লিষ্ট record-এর সঙ্গে deed ও অন্যান্য তথ্য
+              সামঞ্জস্যপূর্ণ কি না—তা যাচাই করুন।
+            </p>
+
+
+            <h3>
+              ৬. ভূমি উন্নয়ন কর বা খাজনার record দেখুন
+            </h3>
+
+            <p>
+              ভূমি উন্নয়ন কর পরিশোধের পর দাখিলা পাওয়া যায়।
+              Property review-এর সময় সংশ্লিষ্ট দাখিলা এবং
+              record-এর তথ্য cross-check করা যেতে পারে।
+            </p>
+
+            <p>
+              তবে একটি গুরুত্বপূর্ণ বিষয় মনে রাখুন:
+              <strong>
+                খাজনা বা দাখিলা দেখেই একা ownership conclusively
+                ধরে নেওয়া উচিত নয়।
+              </strong>
+            </p>
+
+            <p>
+              এটি broader due diligence-এর একটি অংশ।
+            </p>
+
+
+            <h3>
+              ৭. জমিতে অন্য কারও দখল আছে কি না দেখুন
+            </h3>
+
+            <p>
+              Document review-এর পাশাপাশি বাস্তব property condition
+              দেখাও গুরুত্বপূর্ণ।
+            </p>
+
+            <p>
+              কাগজে জমি এক ব্যক্তির নামে থাকলেও বাস্তবে সেখানে
+              অন্য কেউ বসবাস, চাষাবাদ বা দখল করতে পারে।
+              Boundary নিয়েও সমস্যা থাকতে পারে।
+            </p>
+
+            <p>
+              তাই সম্ভব হলে property সরেজমিনে দেখে document-এর
+              description এবং বাস্তব property-এর অবস্থার
+              সামঞ্জস্য যাচাই করুন।
+            </p>
+
+
+            <h3>
+              ৮. কোনো মামলা বা বিরোধ আছে কি না খুঁজে দেখুন
+            </h3>
+
+            <p>
+              Property transaction-এর আগে একটি গুরুত্বপূর্ণ প্রশ্ন:
+            </p>
+
+            <p class="article-question">
+              এই জমি নিয়ে কোনো dispute আছে কি?
+            </p>
+
+            <p>
+              Ownership, inheritance, boundary, possession,
+              partition বা অন্য কোনো civil dispute থাকতে পারে।
+            </p>
+
+            <p>
+              কোনো dispute পাওয়া গেলে শুধু “মামলা আছে” বা
+              “মামলা নেই”—এটুকু জানা যথেষ্ট নয়।
+            </p>
+
+            <p>
+              মামলাটি কী নিয়ে, কোন property-এর বিরুদ্ধে,
+              কারা পক্ষ এবং proposed transaction-এর ওপর
+              এর সম্ভাব্য প্রভাব কী—এসব বুঝতে হবে।
+            </p>
+
+
+            <h3>
+              ৯. উত্তরাধিকার জড়িত হলে আলাদা সতর্কতা নিন
+            </h3>
+
+            <p>
+              Inherited property অনেক সময় সাধারণ sale-এর
+              চেয়ে বেশি complex হতে পারে।
+            </p>
+
+            <p>
+              মৃত মালিকের উত্তরাধিকারী কারা, কার কত interest,
+              partition হয়েছে কি না এবং transaction-এ প্রয়োজনীয়
+              পক্ষগুলো যুক্ত আছে কি না—এসব বিষয় review করা
+              প্রয়োজন হতে পারে।
+            </p>
+
+
+            <h3>
+              ১০. সব document একসঙ্গে review করুন
+            </h3>
+
+            <p>
+              সবশেষে সবচেয়ে গুরুত্বপূর্ণ বিষয় হলো—
+              প্রতিটি document আলাদা করে ভালো দেখালেই
+              transaction safe ধরে নেওয়া উচিত নয়।
+            </p>
+
+            <p>
+              দেখতে হবে documents-গুলোর মধ্যে consistency আছে কি না।
+            </p>
+
+            <div class="article-checklist">
+
+              <div>
+                <strong>Ownership</strong>
+                <span>বর্তমান মালিক কে?</span>
+              </div>
+
+              <div>
+                <strong>Ownership Chain</strong>
+                <span>মালিকানা কীভাবে বর্তমান ব্যক্তির কাছে এসেছে?</span>
+              </div>
+
+              <div>
+                <strong>Deed</strong>
+                <span>Transfer document কী?</span>
+              </div>
+
+              <div>
+                <strong>Khatian</strong>
+                <span>Record কী বলছে?</span>
+              </div>
+
+              <div>
+                <strong>Dag & Area</strong>
+                <span>দাগ ও জমির পরিমাণ মিলছে?</span>
+              </div>
+
+              <div>
+                <strong>Mutation</strong>
+                <span>Record update হয়েছে?</span>
+              </div>
+
+              <div>
+                <strong>Possession</strong>
+                <span>বাস্তবে দখলে কে?</span>
+              </div>
+
+              <div>
+                <strong>Dispute</strong>
+                <span>কোনো মামলা বা বিরোধ আছে?</span>
+              </div>
+
+            </div>
+
+
+            <h2>
+              শুধু “দলিল ঠিক আছে” শুনে জমি কিনবেন না
+            </h2>
+
+            <p>
+              জমি কেনার আগে শুধু “দলিল আছে?”, “খতিয়ান আছে?”,
+              “নামজারি আছে?”—এই কয়েকটি প্রশ্ন করলেই due diligence
+              সম্পূর্ণ হয় না।
+            </p>
+
+            <p>
+              আসল প্রশ্ন হলো:
+            </p>
+
+            <p class="article-question">
+              এই সব তথ্য একসঙ্গে মিলিয়ে property-এর ownership
+              এবং legal position কতটা পরিষ্কার?
+            </p>
+
+
+            <h2>
+              কখন একজন Civil Lawyer-এর সাহায্য নেওয়া উচিত?
+            </h2>
+
+            <p>
+              বিশেষ করে নিচের কোনো বিষয় থাকলে professional
+              legal review প্রয়োজন হতে পারে:
+            </p>
+
+            <ul>
+              <li>ownership chain দীর্ঘ বা জটিল</li>
+              <li>inherited property</li>
+              <li>একাধিক মালিক</li>
+              <li>পুরোনো দলিল</li>
+              <li>record-এ inconsistency</li>
+              <li>নামজারি নিয়ে সমস্যা</li>
+              <li>দখল নিয়ে প্রশ্ন</li>
+              <li>boundary dispute</li>
+              <li>মামলা বা litigation history</li>
+              <li>বড় অঙ্কের property transaction</li>
+              <li>Power of Attorney-এর মাধ্যমে transaction</li>
+            </ul>
+
+
+            <!-- RISK CHECKER CTA -->
+
+            <section class="article-tool-cta">
+
+              <p class="article-eyebrow">
+                CHECK BEFORE YOU DECIDE
+              </p>
+
+              <h2>
+                আপনার Property-এর risk আগে বুঝুন।
+              </h2>
+
+              <p>
+                Initial screening-এর জন্য Property Risk Checker
+                ব্যবহার করুন। এটি কোনো final legal opinion নয়;
+                বরং কোন জায়গাগুলো আরও review করা দরকার তা
+                বুঝতে সাহায্য করবে।
+              </p>
+
+              <a
+                href="/tools/property-risk-checker/"
+                class="article-primary-cta"
+              >
+                Property Risk Checker →
+              </a>
+
+            </section>
+
+
+            <!-- CONSULTATION CTA -->
+
+            <section class="article-consultation">
+
+              <p class="article-eyebrow">
+                NEED LEGAL CLARITY?
+              </p>
+
+              <h2>
+                আপনার Property-এর বিষয়টি Specific হলে
+                আলোচনা করুন।
+              </h2>
+
+              <p>
+                Internet-এর কোনো general article আপনার property-এর
+                সব facts জানতে পারে না। Documents, ownership chain,
+                records বা dispute নিয়ে specific concern থাকলে
+                professional legal review প্রয়োজন হতে পারে।
+              </p>
+
+              <a
+                href="/#consultation"
+                class="article-secondary-cta"
+              >
+                Civil Lawyer Consultation →
+              </a>
+
+            </section>
+
+
+            <div class="article-disclaimer">
+
+              <strong>
+                গুরুত্বপূর্ণ নোট
+              </strong>
+
+              <p>
+                এই article সাধারণ legal information এবং preliminary
+                due-diligence guidance হিসেবে লেখা। নির্দিষ্ট property-এর
+                ownership, title, litigation, inheritance বা transaction
+                সম্পর্কে সিদ্ধান্ত নেওয়ার আগে সংশ্লিষ্ট documents,
+                records এবং facts পরীক্ষা করা প্রয়োজন হতে পারে।
+                প্রযোজ্য আইন ও সরকারি procedures পরিবর্তিত হতে পারে;
+                তাই transaction-এর সময় সর্বশেষ তথ্য যাচাই করা উচিত।
+              </p>
+
+            </div>
+
+          </article>
+
+        </div>
+      </section>
+
+    </main>
+
+  </body>
+</html>

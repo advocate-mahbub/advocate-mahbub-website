@@ -1,0 +1,264 @@
+.legal-article-page {
+  background: #f6f1e8;
+  color: #111827;
+  min-height: 100vh;
+}
+
+.legal-article-container,
+.legal-article-layout {
+  width: min(900px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.legal-article-hero {
+  padding: 70px 0 80px;
+  background: #0b1424;
+  color: #f8f3e8;
+}
+
+.article-breadcrumb {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 42px;
+  font-size: 13px;
+}
+
+.article-breadcrumb a {
+  color: #c7a66a;
+  text-decoration: none;
+}
+
+.article-eyebrow {
+  margin: 0 0 16px;
+  color: #b9975b;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.legal-article-hero h1 {
+  max-width: 850px;
+  margin: 0;
+  font-size: clamp(40px, 6vw, 68px);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+.article-excerpt {
+  max-width: 760px;
+  margin: 28px 0 0;
+  color: #cbd1db;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+  color: #9fa8b7;
+  font-size: 13px;
+}
+
+.legal-article-content {
+  padding: 80px 0 120px;
+}
+
+.article-body {
+  font-size: 17px;
+  line-height: 1.9;
+}
+
+.article-body h2 {
+  margin: 65px 0 22px;
+  font-size: clamp(30px, 4vw, 44px);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+.article-body h3 {
+  margin: 48px 0 15px;
+  font-size: 25px;
+  line-height: 1.3;
+}
+
+.article-body p {
+  margin: 0 0 20px;
+  color: #424b5a;
+}
+
+.article-body ul {
+  margin: 20px 0 30px;
+  padding-left: 25px;
+  color: #424b5a;
+}
+
+.article-body li {
+  margin: 8px 0;
+}
+
+.article-lead-box {
+  margin-bottom: 50px;
+  padding: 28px 30px;
+  background: #fffdf8;
+  border-left: 4px solid #b9975b;
+  color: #3d4654;
+}
+
+.article-question {
+  padding-left: 22px;
+  border-left: 3px solid #c7a66a;
+  color: #111827 !important;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.article-diagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 35px 0;
+  padding: 28px;
+  background: #0b1424;
+  color: #f8f3e8;
+}
+
+.article-diagram span {
+  padding: 10px 14px;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.article-diagram b {
+  color: #c7a66a;
+}
+
+.article-checklist {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  margin: 35px 0;
+  background: #ded6c8;
+  border: 1px solid #ded6c8;
+}
+
+.article-checklist div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 22px;
+  background: #fffdf8;
+}
+
+.article-checklist strong {
+  color: #111827;
+}
+
+.article-checklist span {
+  color: #697282;
+  font-size: 14px;
+}
+
+.article-tool-cta,
+.article-consultation {
+  margin-top: 65px;
+  padding: 45px;
+}
+
+.article-tool-cta {
+  background: #0b1424;
+  color: #f8f3e8;
+}
+
+.article-tool-cta h2,
+.article-consultation h2 {
+  margin: 0;
+  font-size: clamp(30px, 4vw, 44px);
+  line-height: 1.15;
+}
+
+.article-tool-cta p:not(.article-eyebrow),
+.article-consultation p:not(.article-eyebrow) {
+  max-width: 700px;
+  margin: 18px 0 0;
+  line-height: 1.8;
+}
+
+.article-tool-cta p:not(.article-eyebrow) {
+  color: #cbd1db;
+}
+
+.article-primary-cta,
+.article-secondary-cta {
+  display: inline-flex;
+  margin-top: 28px;
+  padding: 15px 21px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.article-primary-cta {
+  background: #c7a66a;
+  color: #0b1424;
+}
+
+.article-consultation {
+  background: #fffdf8;
+  border: 1px solid #e1d9ca;
+}
+
+.article-secondary-cta {
+  border: 1px solid #b9975b;
+  color: #8c6c32;
+}
+
+.article-disclaimer {
+  margin-top: 55px;
+  padding: 28px;
+  background: #eee7da;
+  color: #596273;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.article-disclaimer strong {
+  color: #111827;
+}
+
+.article-disclaimer p {
+  margin: 10px 0 0;
+}
+
+@media (max-width: 640px) {
+  .legal-article-container,
+  .legal-article-layout {
+    width: min(100% - 28px, 900px);
+  }
+
+  .legal-article-hero {
+    padding: 50px 0 60px;
+  }
+
+  .legal-article-content {
+    padding: 55px 0 80px;
+  }
+
+  .article-body {
+    font-size: 16px;
+  }
+
+  .article-checklist {
+    grid-template-columns: 1fr;
+  }
+
+  .article-tool-cta,
+  .article-consultation {
+    padding: 30px 24px;
+  }
+
+  .article-diagram {
+    flex-direction: column;
+  }
+}
