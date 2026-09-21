@@ -140,6 +140,11 @@ h2 span {
   color: var(--gold-400);
 }
 
+h1 span::before,
+h2 span::before {
+  content: " ";
+}
+
 .section-kicker {
   margin-bottom: 18px;
 
