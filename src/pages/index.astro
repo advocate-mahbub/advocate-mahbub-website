@@ -79,6 +79,15 @@ const checkpoints = [
   'মামলা বা বিরোধের সম্ভাবনা',
 ];
 
+const knowledgeTopicLinks = {
+  PROPERTY: '/legal-knowledge/property-land/jomi-kenar-age-malikana-jachai/',
+  'LAND RECORD': '/legal-knowledge/khatian-mutation/',
+  'DUE DILIGENCE': '/legal-knowledge/due-diligence/',
+  MUTATION: '/legal-knowledge/khatian-mutation/',
+  INHERITANCE: '/legal-knowledge/inheritance/',
+  'NRB PROPERTY': '/legal-knowledge/property-land/',
+};
+
 const knowledgeTopics = [
   {
     category: 'PROPERTY',
@@ -997,7 +1006,7 @@ const faqs = [
                     {topic.text}
                   </p>
 
-                  <a href="#consultation">
+                  <a href={knowledgeTopicLinks[topic.category]}>
                     বিষয়টি বুঝুন →
                   </a>
 
