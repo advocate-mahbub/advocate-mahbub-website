@@ -1,0 +1,921 @@
+:root {
+  --hissa-navy-950: #050a12;
+  --hissa-navy-900: #07101c;
+  --hissa-navy-850: #0b1625;
+  --hissa-navy-800: #101d2d;
+
+  --hissa-cream-50: #faf8f2;
+  --hissa-cream-100: #f3efe5;
+  --hissa-cream-200: #e8e1d3;
+
+  --hissa-gold-300: #dfc58c;
+  --hissa-gold-400: #d4b56e;
+  --hissa-gold-500: #c8a45d;
+  --hissa-gold-600: #a9823e;
+
+  --hissa-text-dark: #18202b;
+  --hissa-text-muted: #68717d;
+
+  --hissa-border-light: rgba(24, 32, 43, 0.12);
+  --hissa-border-dark: rgba(255, 255, 255, 0.11);
+
+  --hissa-shadow-soft:
+    0 20px 60px rgba(5, 10, 18, 0.08);
+
+  --hissa-radius-sm: 4px;
+  --hissa-radius-md: 8px;
+  --hissa-radius-lg: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--hissa-cream-50);
+  color: var(--hissa-text-dark);
+  font-family:
+    "Hind Siliguri",
+    system-ui,
+    sans-serif;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.hissa-page {
+  min-height: 100vh;
+}
+
+.hissa-container {
+  width: min(
+    1180px,
+    calc(100% - 40px)
+  );
+
+  margin: 0 auto;
+}
+
+/* --------------------------------
+   Hero
+-------------------------------- */
+
+.hissa-hero {
+  position: relative;
+
+  padding:
+    96px
+    0
+    84px;
+
+  color: var(--hissa-cream-50);
+
+  background:
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(212, 181, 110, 0.11),
+      transparent 34%
+    ),
+    linear-gradient(
+      135deg,
+      var(--hissa-navy-950),
+      var(--hissa-navy-900)
+    );
+}
+
+.hissa-kicker,
+.hissa-section-kicker {
+  margin: 0 0 14px;
+
+  color: var(--hissa-gold-400);
+
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.hissa-hero h1 {
+  max-width: 760px;
+
+  margin: 0;
+
+  font-family:
+    "Noto Serif Bengali",
+    serif;
+
+  font-size:
+    clamp(42px, 6vw, 76px);
+
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.hissa-hero h1 span {
+  color: var(--hissa-gold-400);
+}
+
+.hissa-hero-text {
+  max-width: 650px;
+
+  margin: 24px 0 0;
+
+  color:
+    rgba(244, 241, 232, 0.82);
+
+  font-size: 19px;
+  line-height: 1.75;
+}
+
+.hissa-hero-note {
+  max-width: 700px;
+
+  margin: 18px 0 0;
+
+  color:
+    rgba(244, 241, 232, 0.58);
+
+  font-size: 14px;
+}
+
+/* --------------------------------
+   Workspace
+-------------------------------- */
+
+.hissa-workspace {
+  padding:
+    72px
+    0
+    110px;
+}
+
+.hissa-mode-switch {
+  display: flex;
+
+  width: min(
+    560px,
+    100%
+  );
+
+  margin:
+    0
+    auto
+    28px;
+
+  padding: 5px;
+
+  border:
+    1px solid
+    var(--hissa-border-light);
+
+  border-radius:
+    var(--hissa-radius-lg);
+
+  background:
+    var(--hissa-cream-100);
+}
+
+.hissa-mode-button {
+  flex: 1;
+
+  min-height: 48px;
+
+  border: 0;
+
+  border-radius:
+    var(--hissa-radius-md);
+
+  background: transparent;
+
+  color:
+    var(--hissa-text-muted);
+
+  font-weight: 600;
+
+  transition:
+    180ms ease;
+}
+
+.hissa-mode-button:hover {
+  color:
+    var(--hissa-text-dark);
+}
+
+.hissa-mode-button.is-active {
+  background:
+    var(--hissa-navy-900);
+
+  color:
+    var(--hissa-cream-50);
+
+  box-shadow:
+    0 8px 24px
+    rgba(5, 10, 18, 0.12);
+}
+
+/* --------------------------------
+   Cards
+-------------------------------- */
+
+.hissa-card,
+.hissa-result {
+  width: min(
+    900px,
+    100%
+  );
+
+  margin: 0 auto;
+
+  padding: 34px;
+
+  border:
+    1px solid
+    var(--hissa-border-light);
+
+  border-radius:
+    var(--hissa-radius-lg);
+
+  background: #fff;
+
+  box-shadow:
+    var(--hissa-shadow-soft);
+}
+
+.hissa-card-header,
+.hissa-result-header,
+.hissa-share-header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 24px;
+}
+
+.hissa-card-header h2,
+.hissa-result-header h2,
+.hissa-share-header h3 {
+  margin: 0;
+
+  font-family:
+    "Noto Serif Bengali",
+    serif;
+
+  line-height: 1.25;
+}
+
+.hissa-card-header h2 {
+  font-size: 28px;
+}
+
+.hissa-result-header h2 {
+  font-size: 28px;
+}
+
+.hissa-share-header {
+  margin-top: 48px;
+}
+
+.hissa-share-header h3 {
+  font-size: 23px;
+}
+
+.hissa-mode-badge {
+  flex: 0 0 auto;
+
+  padding:
+    8px
+    12px;
+
+  border:
+    1px solid
+    rgba(200, 164, 93, 0.35);
+
+  border-radius:
+    999px;
+
+  background:
+    rgba(200, 164, 93, 0.09);
+
+  color:
+    var(--hissa-gold-600);
+
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* --------------------------------
+   Total land
+-------------------------------- */
+
+.hissa-total-land {
+  margin-top: 34px;
+}
+
+.hissa-total-land label {
+  display: block;
+
+  margin-bottom: 9px;
+
+  font-weight: 600;
+}
+
+.hissa-land-input {
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    160px;
+
+  gap: 10px;
+}
+
+.hissa-land-input input,
+.hissa-land-input select,
+.hissa-name-field input,
+.hissa-unit-field input {
+  width: 100%;
+
+  min-height: 48px;
+
+  border:
+    1px solid
+    var(--hissa-border-light);
+
+  border-radius:
+    var(--hissa-radius-md);
+
+  background: #fff;
+
+  color:
+    var(--hissa-text-dark);
+
+  outline: none;
+
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.hissa-land-input input,
+.hissa-land-input select,
+.hissa-name-field input {
+  padding:
+    0
+    14px;
+}
+
+.hissa-land-input input:focus,
+.hissa-land-input select:focus,
+.hissa-name-field input:focus,
+.hissa-unit-field input:focus {
+  border-color:
+    var(--hissa-gold-500);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(200, 164, 93, 0.12);
+}
+
+/* --------------------------------
+   Rows
+-------------------------------- */
+
+.hissa-rows {
+  display: grid;
+
+  gap: 16px;
+
+  margin-top: 18px;
+}
+
+.hissa-row {
+  padding: 20px;
+
+  border:
+    1px solid
+    var(--hissa-border-light);
+
+  border-radius:
+    var(--hissa-radius-md);
+
+  background:
+    var(--hissa-cream-50);
+}
+
+.hissa-row-top {
+  display: flex;
+
+  align-items: end;
+
+  gap: 14px;
+}
+
+.hissa-name-field {
+  flex: 1;
+}
+
+.hissa-name-field label,
+.hissa-unit-field span {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color:
+    var(--hissa-text-muted);
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.hissa-unit-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, 1fr);
+
+  gap: 10px;
+
+  margin-top: 14px;
+}
+
+.hissa-unit-field input {
+  padding:
+    0
+    10px;
+
+  text-align: center;
+}
+
+.hissa-remove-button {
+  width: 44px;
+  height: 44px;
+
+  border:
+    1px solid
+    var(--hissa-border-light);
+
+  border-radius:
+    var(--hissa-radius-md);
+
+  background: #fff;
+
+  color:
+    var(--hissa-text-muted);
+
+  font-size: 23px;
+}
+
+.hissa-remove-button:hover {
+  border-color:
+    var(--hissa-gold-500);
+
+  color:
+    var(--hissa-gold-600);
+}
+
+.hissa-add-button {
+  min-height: 42px;
+
+  padding:
+    0
+    16px;
+
+  border:
+    1px solid
+    rgba(200, 164, 93, 0.45);
+
+  border-radius:
+    var(--hissa-radius-md);
+
+  background:
+    rgba(200, 164, 93, 0.08);
+
+  color:
+    var(--hissa-gold-600);
+
+  font-weight: 700;
+}
+
+/* --------------------------------
+   Actions
+-------------------------------- */
+
+.hissa-actions {
+  display: flex;
+
+  gap: 12px;
+
+  margin-top: 28px;
+}
+
+.hissa-calculate-button {
+  flex: 1;
+
+  min-height: 54px;
+
+  border: 0;
+
+  border-radius:
+    var(--hissa-radius-md);
+
+  background:
+    var(--hissa-gold-500);
+
+  color:
+    var(--hissa-navy-950);
+
+  font-weight: 700;
+
+  box-shadow:
+    0 12px 30px
+    rgba(200, 164, 93, 0.18);
+}
+
+.hissa-calculate-button:hover {
+  background:
+    var(--hissa-gold-400);
+}
+
+.hissa-reset-button {
+  min-height: 54px;
+
+  padding:
+    0
+    22px;
+
+  border:
+    1px solid
+    var(--hissa-border-light);
+
+  border-radius:
+    var(--hissa-radius-md);
+
+  background: #fff;
+
+  color:
+    var(--hissa-text-muted);
+}
+
+/* --------------------------------
+   Error
+-------------------------------- */
+
+.hissa-error {
+  margin: 18px 0 0;
+
+  padding:
+    14px
+    16px;
+
+  border:
+    1px solid
+    rgba(160, 80, 60, 0.22);
+
+  border-radius:
+    var(--hissa-radius-md);
+
+  background:
+    rgba(160, 80, 60, 0.06);
+
+  color:
+    #7d4032;
+
+  font-size: 14px;
+}
+
+/* --------------------------------
+   Result
+-------------------------------- */
+
+.hissa-result {
+  margin-top: 28px;
+}
+
+.hissa-result-rows {
+  display: grid;
+
+  gap: 12px;
+
+  margin-top: 28px;
+}
+
+.hissa-result-row {
+  display: grid;
+
+  grid-template-columns:
+    1.3fr
+    1fr;
+
+  gap: 10px;
+
+  padding: 20px;
+
+  border:
+    1px solid
+    var(--hissa-border-light);
+
+  border-radius:
+    var(--hissa-radius-md);
+
+  background:
+    var(--hissa-cream-50);
+}
+
+.hissa-result-person {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+.hissa-result-index {
+  display: grid;
+
+  width: 32px;
+  height: 32px;
+
+  place-items: center;
+
+  border-radius: 50%;
+
+  background:
+    var(--hissa-navy-900);
+
+  color:
+    var(--hissa-cream-50);
+
+  font-size: 13px;
+}
+
+.hissa-result-land {
+  display: flex;
+
+  justify-content: flex-end;
+  align-items: baseline;
+
+  gap: 6px;
+}
+
+.hissa-result-land strong {
+  font-family:
+    "Noto Serif Bengali",
+    serif;
+
+  font-size: 24px;
+
+  color:
+    var(--hissa-navy-900);
+}
+
+.hissa-result-land span {
+  color:
+    var(--hissa-text-muted);
+
+  font-size: 13px;
+}
+
+.hissa-result-meta {
+  grid-column: 1 / -1;
+
+  display: flex;
+
+  gap: 18px;
+
+  color:
+    var(--hissa-text-muted);
+
+  font-size: 12px;
+}
+
+/* --------------------------------
+   Calculation trace
+-------------------------------- */
+
+.hissa-trace {
+  margin-top: 28px;
+
+  border-top:
+    1px solid
+    var(--hissa-border-light);
+}
+
+.hissa-trace-toggle {
+  display: flex;
+
+  width: 100%;
+
+  justify-content: space-between;
+  align-items: center;
+
+  min-height: 58px;
+
+  border: 0;
+
+  background: transparent;
+
+  color:
+    var(--hissa-text-dark);
+
+  font-weight: 700;
+
+  text-align: left;
+}
+
+.hissa-trace-toggle span {
+  color:
+    var(--hissa-gold-600);
+
+  font-size: 22px;
+}
+
+.hissa-trace-content {
+  padding:
+    4px
+    0
+    18px;
+}
+
+.hissa-trace-step {
+  display: flex;
+
+  gap: 12px;
+
+  padding:
+    12px
+    0;
+}
+
+.hissa-trace-step > span {
+  display: grid;
+
+  width: 28px;
+  height: 28px;
+
+  flex: 0 0 28px;
+
+  place-items: center;
+
+  border-radius: 50%;
+
+  background:
+    rgba(200, 164, 93, 0.12);
+
+  color:
+    var(--hissa-gold-600);
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.hissa-trace-step p {
+  margin: 3px 0 0;
+
+  color:
+    var(--hissa-text-muted);
+
+  font-size: 14px;
+}
+
+/* --------------------------------
+   Disclaimer
+-------------------------------- */
+
+.hissa-disclaimer {
+  margin-top: 24px;
+
+  padding:
+    16px
+    18px;
+
+  border:
+    1px solid
+    rgba(200, 164, 93, 0.25);
+
+  border-radius:
+    var(--hissa-radius-md);
+
+  background:
+    rgba(200, 164, 93, 0.07);
+
+  color:
+    var(--hissa-text-muted);
+
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.hissa-disclaimer strong {
+  color:
+    var(--hissa-text-dark);
+}
+
+/* --------------------------------
+   Mobile
+-------------------------------- */
+
+@media (max-width: 700px) {
+  .hissa-container {
+    width:
+      min(
+        100% - 28px,
+        1180px
+      );
+  }
+
+  .hissa-hero {
+    padding:
+      70px
+      0
+      60px;
+  }
+
+  .hissa-workspace {
+    padding:
+      48px
+      0
+      80px;
+  }
+
+  .hissa-card,
+  .hissa-result {
+    padding: 22px;
+  }
+
+  .hissa-card-header,
+  .hissa-result-header,
+  .hissa-share-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .hissa-mode-badge {
+    align-self: flex-start;
+  }
+
+  .hissa-land-input {
+    grid-template-columns: 1fr;
+  }
+
+  .hissa-row-top {
+    align-items: stretch;
+  }
+
+  .hissa-unit-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .hissa-result-row {
+    grid-template-columns: 1fr;
+  }
+
+  .hissa-result-land {
+    justify-content: flex-start;
+  }
+
+  .hissa-result-meta {
+    flex-direction: column;
+
+    gap: 5px;
+  }
+
+  .hissa-actions {
+    flex-direction: column;
+  }
+
+  .hissa-reset-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  .hissa-unit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hissa-mode-switch {
+    flex-direction: column;
+  }
+}
