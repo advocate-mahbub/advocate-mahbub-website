@@ -4521,20 +4521,6 @@ button {
   }
 }
 
-
-/* ------------------------------------------------------------
-   CLEAN UP PREVIOUS NON-FUNCTIONAL OVERRIDES
-   ------------------------------------------------------------ */
-
-.hissa-metric-real-row {
-  /* Kept harmless for backwards compatibility.
-     Actual Metric rows are targeted above through
-     .hissa-row.metric-row */
-}
-
-
-
-
 /* ============================================================
    METRIC MODE
    WARNING STATE
@@ -4591,3 +4577,1008 @@ button {
   white-space: nowrap !important;
 }
 
+
+
+/* ============================================================
+   HISSA MOBILE — DESIGNED-FOR-MOBILE LAYOUT — MERGED
+   ============================================================ */
+
+@media (max-width: 700px) {
+
+  .hissa-container {
+    width: calc(100% - 28px);
+    max-width: none;
+  }
+
+  .hissa-workspace {
+    padding-top: 32px;
+    padding-bottom: 56px;
+  }
+
+  .hissa-mode-switch {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 0 18px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .hissa-mode-switch > button {
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    padding: 0 6px !important;
+    border-radius: 8px !important;
+    font-size: 12px !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .hissa-card {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 18px !important;
+    box-sizing: border-box !important;
+    border-radius: var(--hissa-radius-lg);
+    overflow: hidden;
+  }
+
+  .hissa-card-header {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    align-items: start !important;
+    gap: 12px !important;
+    flex-direction: unset !important;
+  }
+
+  .hissa-card-header h2 {
+    font-size: 23px !important;
+    line-height: 1.35 !important;
+  }
+
+  .hissa-mode-badge {
+    align-self: start !important;
+    padding: 7px 9px !important;
+    font-size: 10px !important;
+    white-space: nowrap !important;
+  }
+
+  .hissa-total-land {
+    margin-top: 24px !important;
+  }
+
+  .hissa-land-input {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .hissa-land-input input,
+  .hissa-land-input select {
+    width: 100% !important;
+    min-height: 48px !important;
+    box-sizing: border-box !important;
+  }
+
+  .hissa-share-header {
+    margin-top: 28px !important;
+    display: block !important;
+    flex-direction: unset !important;
+  }
+
+  .hissa-share-header h3 {
+    font-size: 21px !important;
+    line-height: 1.35 !important;
+  }
+
+  .hissa-rows {
+    display: grid !important;
+    gap: 14px !important;
+    margin-top: 14px !important;
+  }
+
+  .hissa-row {
+    width: 100% !important;
+    padding: 14px !important;
+    box-sizing: border-box !important;
+    border-radius: var(--hissa-radius-md) !important;
+    overflow: hidden;
+  }
+
+  .hissa-row-top {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 42px !important;
+    grid-template-areas:
+      "label remove"
+      "input input" !important;
+    align-items: center !important;
+    gap: 7px 10px !important;
+  }
+
+  .hissa-name-field {
+    display: contents !important;
+  }
+
+  .hissa-name-field label {
+    grid-area: label !important;
+    margin: 0 !important;
+    font-size: 12px !important;
+    line-height: 1.25 !important;
+  }
+
+  .hissa-name-field input {
+    grid-area: input !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 48px !important;
+    box-sizing: border-box !important;
+  }
+
+  .hissa-remove-button {
+    grid-area: remove !important;
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    min-height: 40px !important;
+    justify-self: end !important;
+    font-size: 21px !important;
+  }
+
+  .hissa-unit-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    margin-top: 12px !important;
+    width: 100% !important;
+  }
+
+  .hissa-unit-field {
+    min-width: 0 !important;
+  }
+
+  .hissa-unit-field span {
+    margin-bottom: 5px !important;
+    font-size: 12px !important;
+  }
+
+  .hissa-unit-field input {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 48px !important;
+    box-sizing: border-box !important;
+    padding: 0 8px !important;
+  }
+
+  .hissa-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    width: 100% !important;
+    margin-top: 24px !important;
+  }
+
+  .hissa-actions > button {
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 54px !important;
+    min-height: 54px !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+  }
+
+  .hissa-actions > .hissa-add-button {
+    order: 1 !important;
+    background: #2F6B4F !important;
+    color: #fff !important;
+    border-color: #2F6B4F !important;
+  }
+
+  .hissa-actions > .hissa-calculate-button {
+    order: 2 !important;
+    background: var(--hissa-gold-500) !important;
+    color: var(--hissa-navy-950) !important;
+    border-color: var(--hissa-gold-500) !important;
+  }
+
+  .hissa-actions > .hissa-reset-button {
+    order: 3 !important;
+    background: #A94442 !important;
+    color: #fff !important;
+    border-color: #A94442 !important;
+    font-weight: 700 !important;
+  }
+
+  .hissa-actions > .hissa-add-button:hover {
+    background: #24553E !important;
+    border-color: #24553E !important;
+  }
+
+  .hissa-actions > .hissa-calculate-button:hover {
+    background: var(--hissa-gold-400) !important;
+  }
+
+  .hissa-actions > .hissa-reset-button:hover {
+    background: #873633 !important;
+    border-color: #873633 !important;
+  }
+
+  .hissa-actions > .hissa-add-button:focus-visible {
+    outline: 3px solid rgba(47, 107, 79, .30) !important;
+    outline-offset: 2px !important;
+  }
+
+  .hissa-actions > .hissa-calculate-button:focus-visible {
+    outline: 3px solid rgba(200, 164, 93, .32) !important;
+    outline-offset: 2px !important;
+  }
+
+  .hissa-actions > .hissa-reset-button:focus-visible {
+    outline: 3px solid rgba(169, 68, 66, .30) !important;
+    outline-offset: 2px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hissa-card { padding: 16px !important; }
+
+  .hissa-mode-switch { gap: 6px !important; }
+
+  .hissa-mode-switch > button {
+    height: 43px !important;
+    min-height: 43px !important;
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+    font-size: 11.5px !important;
+  }
+
+  .hissa-card-header {
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    gap: 8px !important;
+  }
+
+  .hissa-card-header h2 { font-size: 21px !important; }
+
+  .hissa-mode-badge {
+    padding: 6px 8px !important;
+    font-size: 9px !important;
+  }
+
+  .hissa-row { padding: 13px !important; }
+
+  .hissa-unit-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 9px !important;
+  }
+
+  .hissa-unit-field input { min-height: 47px !important; }
+
+  .hissa-actions > button {
+    height: 54px !important;
+    min-height: 54px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .hissa-container {
+    width: calc(100% - 20px) !important;
+  }
+
+  .hissa-card { padding: 14px !important; }
+
+  .hissa-mode-switch { gap: 5px !important; }
+
+  .hissa-mode-switch > button {
+    height: 42px !important;
+    min-height: 42px !important;
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+    font-size: 10.5px !important;
+  }
+
+  .hissa-card-header h2 { font-size: 20px !important; }
+
+  .hissa-row { padding: 12px !important; }
+
+  .hissa-unit-grid { gap: 8px !important; }
+
+  .hissa-unit-field input { min-height: 46px !important; }
+}
+
+
+/* ============================================================
+   Hissa Reference Responsive UX Patch
+   Principle:
+   PROPORTIONAL COMPRESSION, NOT LAYOUT REFLOW
+   ============================================================ */
+
+:root {
+  --hissa-ref-radius: clamp(7px, 0.65vw, 12px);
+}
+
+/* Keep existing component architecture intact. */
+.hissa-calculator-content {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.hissa-calculator-content *,
+.hissa-calculator-content *::before,
+.hissa-calculator-content *::after {
+  box-sizing: border-box;
+}
+
+.hissa-calculator-content input,
+.hissa-calculator-content select {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* ============================================================
+   ACTION BUTTONS
+   IMPORTANT: these rules DO NOT change their order.
+   ============================================================ */
+
+.hissa-action-add,
+.hissa-action-calculate,
+.hissa-action-reset {
+  min-width: 0;
+  min-height: clamp(38px, 3.2vw, 52px);
+  padding-inline: clamp(7px, 1.3vw, 20px);
+  padding-block: clamp(7px, 0.75vw, 13px);
+  border-radius: var(--hissa-ref-radius);
+  font-size: clamp(11px, 1.05vw, 17px);
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition:
+    background-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 120ms ease;
+}
+
+.hissa-action-add {
+  background: #2F6B4F;
+  color: #fff;
+}
+
+.hissa-action-calculate {
+  background: #CDAA5A;
+  color: #111;
+}
+
+.hissa-action-reset {
+  background: #A94442;
+  color: #fff;
+}
+
+.hissa-action-add:hover {
+  background: #285C44;
+}
+
+.hissa-action-calculate:hover {
+  background: #BD9A4D;
+}
+
+.hissa-action-reset:hover {
+  background: #963B39;
+}
+
+.hissa-action-add:focus-visible,
+.hissa-action-calculate:focus-visible,
+.hissa-action-reset:focus-visible {
+  outline: 3px solid color-mix(in srgb, currentColor 30%, transparent);
+  outline-offset: 2px;
+}
+
+.hissa-action-add:active,
+.hissa-action-calculate:active,
+.hissa-action-reset:active {
+  transform: translateY(1px);
+}
+
+/* ============================================================
+   COMPACT FIRST
+   Shrink controls before considering layout reflow.
+   ============================================================ */
+
+@media (max-width: 900px) {
+  .hissa-calculator-content input,
+  .hissa-calculator-content select {
+    font-size: clamp(13px, 1.8vw, 16px);
+  }
+
+  .hissa-action-add,
+  .hissa-action-calculate,
+  .hissa-action-reset {
+    font-size: clamp(11px, 1.7vw, 15px);
+    padding-inline: clamp(5px, 1.4vw, 13px);
+  }
+}
+
+@media (max-width: 600px) {
+  .hissa-calculator-content input,
+  .hissa-calculator-content select {
+    min-height: clamp(34px, 8vw, 44px);
+    padding-inline: clamp(6px, 1.8vw, 11px);
+    border-radius: clamp(6px, 1.8vw, 9px);
+  }
+
+  .hissa-action-add,
+  .hissa-action-calculate,
+  .hissa-action-reset {
+    min-height: clamp(36px, 9.5vw, 46px);
+    padding-inline: clamp(4px, 1.4vw, 9px);
+    font-size: clamp(10px, 2.7vw, 14px);
+  }
+}
+
+@media (max-width: 430px) {
+  /*
+   * NEVER reorder the three buttons.
+   * Do not force a vertical stack here.
+   */
+
+  .hissa-action-add,
+  .hissa-action-calculate,
+  .hissa-action-reset {
+    min-width: 0;
+    padding-inline: 4px;
+    font-size: clamp(9px, 2.55vw, 12px);
+  }
+}
+
+@media (max-width: 360px) {
+  .hissa-action-add,
+  .hissa-action-calculate,
+  .hissa-action-reset {
+    padding-inline: 3px;
+    font-size: 9px;
+  }
+}
+
+/* ============================================================
+   HISSA FINAL REFERENCE RESPONSIVE OVERRIDE v1
+   Principle:
+   SAME DESIGN SYSTEM
+   + PROPORTIONAL COMPRESSION
+   - UNNECESSARY LAYOUT REFLOW
+   ============================================================ */
+
+/*
+ * This is intentionally the final CSS layer.
+ * The project currently contains several older responsive blocks.
+ * These rules therefore act as the authoritative final visual layer.
+ *
+ * NO JavaScript / calculation logic is changed.
+ */
+
+/* ------------------------------------------------------------
+   1. GLOBAL COMPONENT COMPRESSION
+   ------------------------------------------------------------ */
+
+.hissa-card,
+.hissa-row,
+.hissa-actions,
+.hissa-land-input,
+.hissa-unit-grid,
+.hissa-row-top,
+.hissa-share-header {
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.hissa-card *,
+.hissa-row *,
+.hissa-actions *,
+.hissa-land-input *,
+.hissa-unit-grid * {
+  box-sizing: border-box !important;
+}
+
+/* ------------------------------------------------------------
+   2. TOTAL LAND — KEEP INPUT + UNIT ON ONE ROW
+   ------------------------------------------------------------ */
+
+.hissa-land-input {
+  display: grid !important;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(110px, 0.30fr) !important;
+  gap: clamp(8px, 1.2vw, 14px) !important;
+  align-items: end !important;
+}
+
+.hissa-land-input input,
+.hissa-land-input select {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+
+/* ------------------------------------------------------------
+   3. FIVE LAND-SHARE FIELDS — LOCK HORIZONTAL RELATIONSHIP
+   ------------------------------------------------------------ */
+
+.hissa-unit-grid {
+  display: grid !important;
+  grid-template-columns:
+    repeat(5, minmax(0, 1fr)) !important;
+  gap: clamp(5px, 0.85vw, 10px) !important;
+  width: 100% !important;
+  min-width: 0 !important;
+}
+
+.hissa-unit-field {
+  min-width: 0 !important;
+  width: 100% !important;
+}
+
+.hissa-unit-field span {
+  display: block !important;
+  min-width: 0 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: clip !important;
+  font-size: clamp(10px, 0.9vw, 13px) !important;
+  line-height: 1.2 !important;
+}
+
+.hissa-unit-field input {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  min-height: clamp(34px, 3.3vw, 48px) !important;
+  height: clamp(34px, 3.3vw, 48px) !important;
+  padding-inline: clamp(3px, 0.65vw, 10px) !important;
+  font-size: clamp(11px, 1vw, 15px) !important;
+}
+
+/* ------------------------------------------------------------
+   4. SHAREHOLDER NAME + REMOVE BUTTON
+      Preserve relationship; compact rather than stack further.
+   ------------------------------------------------------------ */
+
+.hissa-row-top {
+  min-width: 0 !important;
+}
+
+.hissa-name-field,
+.hissa-name-field input {
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+
+.hissa-remove-button {
+  flex: 0 0 auto !important;
+}
+
+/* ------------------------------------------------------------
+   5. ACTION BUTTONS
+      DOM / visual order is LOCKED:
+      ADD → CALCULATE → RESET
+   ------------------------------------------------------------ */
+
+.hissa-actions {
+  display: grid !important;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr)) !important;
+  gap: clamp(7px, 1.2vw, 16px) !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  align-items: stretch !important;
+}
+
+/*
+ * Critical:
+ * Do NOT use CSS order to rearrange these buttons.
+ * Their natural DOM order is the visual order.
+ */
+.hissa-actions > .hissa-add-button,
+.hissa-actions > .hissa-calculate-button,
+.hissa-actions > .hissa-reset-button {
+  order: initial !important;
+  min-width: 0 !important;
+  width: 100% !important;
+  height: clamp(40px, 4.1vw, 54px) !important;
+  min-height: clamp(40px, 4.1vw, 54px) !important;
+  margin: 0 !important;
+  padding-inline: clamp(3px, 1vw, 16px) !important;
+  padding-block: clamp(5px, 0.7vw, 10px) !important;
+  border-radius: clamp(7px, 0.65vw, 10px) !important;
+  font-size: clamp(9px, 1vw, 16px) !important;
+  line-height: 1.15 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+/* Color identity */
+.hissa-actions > .hissa-add-button {
+  background: #2F6B4F !important;
+  color: #fff !important;
+  border-color: #2F6B4F !important;
+}
+
+.hissa-actions > .hissa-calculate-button {
+  background: var(--hissa-gold-500) !important;
+  color: var(--hissa-navy-950) !important;
+  border-color: var(--hissa-gold-500) !important;
+}
+
+.hissa-actions > .hissa-reset-button {
+  background: #A94442 !important;
+  color: #fff !important;
+  border-color: #A94442 !important;
+}
+
+/* ------------------------------------------------------------
+   6. SMALL SCREEN = SAME STRUCTURE, MORE COMPACT
+   ------------------------------------------------------------ */
+
+@media (max-width: 700px) {
+
+  .hissa-card {
+    padding: clamp(12px, 3.2vw, 18px) !important;
+  }
+
+  .hissa-card-header {
+    gap: clamp(7px, 2vw, 12px) !important;
+  }
+
+  .hissa-card-header h2 {
+    font-size: clamp(19px, 5.3vw, 23px) !important;
+    line-height: 1.28 !important;
+  }
+
+  .hissa-total-land {
+    margin-top: clamp(16px, 4vw, 24px) !important;
+  }
+
+  /*
+   * Override the old mobile 1-column rule.
+   * Input + unit stay side-by-side.
+   */
+  .hissa-land-input {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(86px, 0.30fr) !important;
+    gap: clamp(6px, 2vw, 10px) !important;
+  }
+
+  .hissa-land-input input,
+  .hissa-land-input select {
+    min-height: clamp(38px, 10vw, 48px) !important;
+    height: clamp(38px, 10vw, 48px) !important;
+    padding-inline: clamp(6px, 2vw, 10px) !important;
+    font-size: clamp(12px, 3.3vw, 16px) !important;
+  }
+
+  .hissa-share-header {
+    margin-top: clamp(20px, 5vw, 28px) !important;
+  }
+
+  .hissa-share-header h3 {
+    font-size: clamp(19px, 5vw, 21px) !important;
+    line-height: 1.3 !important;
+  }
+
+  .hissa-row {
+    padding: clamp(10px, 2.8vw, 14px) !important;
+  }
+
+  /*
+   * Override old mobile 2-column rule.
+   * Five fields remain one horizontal row.
+   */
+  .hissa-unit-grid {
+    grid-template-columns:
+      repeat(5, minmax(0, 1fr)) !important;
+    gap: clamp(3px, 1.5vw, 8px) !important;
+    margin-top: clamp(8px, 2.5vw, 12px) !important;
+  }
+
+  .hissa-unit-field span {
+    font-size: clamp(8px, 2.35vw, 12px) !important;
+    line-height: 1.15 !important;
+  }
+
+  .hissa-unit-field input {
+    min-height: clamp(32px, 8.8vw, 46px) !important;
+    height: clamp(32px, 8.8vw, 46px) !important;
+    padding-inline: 2px !important;
+    font-size: clamp(10px, 2.8vw, 14px) !important;
+  }
+
+  /*
+   * Override old mobile vertical action stack.
+   * Keep all three buttons in one row.
+   */
+  .hissa-actions {
+    display: grid !important;
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr)) !important;
+    gap: clamp(5px, 1.8vw, 10px) !important;
+    margin-top: clamp(16px, 4.5vw, 24px) !important;
+  }
+
+  .hissa-actions > .hissa-add-button,
+  .hissa-actions > .hissa-calculate-button,
+  .hissa-actions > .hissa-reset-button {
+    order: initial !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    height: clamp(38px, 10vw, 50px) !important;
+    min-height: clamp(38px, 10vw, 50px) !important;
+    padding-inline: clamp(2px, 1.1vw, 7px) !important;
+    font-size: clamp(8px, 2.55vw, 13px) !important;
+    line-height: 1.1 !important;
+    white-space: nowrap !important;
+  }
+}
+
+/* ------------------------------------------------------------
+   7. 480px AND BELOW — COMPACT, STILL SAME STRUCTURE
+   ------------------------------------------------------------ */
+
+@media (max-width: 480px) {
+
+  .hissa-card {
+    padding: clamp(11px, 3vw, 16px) !important;
+  }
+
+  .hissa-land-input {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(78px, 0.30fr) !important;
+    gap: 6px !important;
+  }
+
+  .hissa-land-input input,
+  .hissa-land-input select {
+    min-height: 38px !important;
+    height: 38px !important;
+    font-size: clamp(11px, 3vw, 14px) !important;
+  }
+
+  .hissa-row {
+    padding: clamp(9px, 2.5vw, 13px) !important;
+  }
+
+  .hissa-unit-grid {
+    grid-template-columns:
+      repeat(5, minmax(0, 1fr)) !important;
+    gap: 4px !important;
+  }
+
+  .hissa-unit-field span {
+    font-size: clamp(7.5px, 2.2vw, 10px) !important;
+  }
+
+  .hissa-unit-field input {
+    height: clamp(31px, 8vw, 40px) !important;
+    min-height: clamp(31px, 8vw, 40px) !important;
+    font-size: clamp(9px, 2.6vw, 12px) !important;
+  }
+
+  .hissa-actions {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr)) !important;
+    gap: 5px !important;
+  }
+
+  .hissa-actions > .hissa-add-button,
+  .hissa-actions > .hissa-calculate-button,
+  .hissa-actions > .hissa-reset-button {
+    height: clamp(37px, 9vw, 44px) !important;
+    min-height: clamp(37px, 9vw, 44px) !important;
+    padding-inline: 2px !important;
+    font-size: clamp(7.5px, 2.35vw, 11px) !important;
+  }
+}
+
+/* ------------------------------------------------------------
+   8. VERY SMALL SCREEN — DO NOT CHANGE STRUCTURE
+   ------------------------------------------------------------ */
+
+@media (max-width: 360px) {
+
+  .hissa-container {
+    width: calc(100% - 16px) !important;
+  }
+
+  .hissa-card {
+    padding: 10px !important;
+  }
+
+  .hissa-land-input {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(70px, 0.30fr) !important;
+    gap: 5px !important;
+  }
+
+  .hissa-land-input input,
+  .hissa-land-input select {
+    min-height: 35px !important;
+    height: 35px !important;
+    padding-inline: 5px !important;
+    font-size: 10px !important;
+  }
+
+  .hissa-unit-grid {
+    grid-template-columns:
+      repeat(5, minmax(0, 1fr)) !important;
+    gap: 3px !important;
+  }
+
+  .hissa-unit-field span {
+    font-size: 7px !important;
+  }
+
+  .hissa-unit-field input {
+    height: 29px !important;
+    min-height: 29px !important;
+    padding-inline: 1px !important;
+    font-size: 9px !important;
+  }
+
+  .hissa-actions {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr)) !important;
+    gap: 4px !important;
+  }
+
+  .hissa-actions > .hissa-add-button,
+  .hissa-actions > .hissa-calculate-button,
+  .hissa-actions > .hissa-reset-button {
+    height: 35px !important;
+    min-height: 35px !important;
+    padding-inline: 1px !important;
+    font-size: 7px !important;
+    letter-spacing: -0.1px !important;
+  }
+}
+
+
+/* ============================================================
+   HISSA ACTION BUTTON ORDER LOCK v1
+   REQUIRED VISUAL ORDER — ALL SCREEN SIZES:
+
+   1. পুনরায় হিসাব করুন  = RESET / RED
+   2. হিসাব করুন           = CALCULATE / GOLD
+   3. + শরিক যোগ করুন      = ADD / GREEN
+
+   Same order on Desktop, Tablet and Mobile.
+   Only size may change; sequence must not.
+   ============================================================ */
+
+.hissa-actions {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  align-items: stretch !important;
+}
+
+/* LOCKED VISUAL ORDER */
+.hissa-actions > .hissa-reset-button {
+  order: 1 !important;
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+}
+
+.hissa-actions > .hissa-calculate-button {
+  order: 2 !important;
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+}
+
+.hissa-actions > .hissa-add-button {
+  order: 3 !important;
+  grid-column: 3 !important;
+  grid-row: 1 !important;
+}
+
+.hissa-actions > .hissa-reset-button,
+.hissa-actions > .hissa-calculate-button,
+.hissa-actions > .hissa-add-button {
+  width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+}
+
+/* Same row on small screens; only compact the dimensions. */
+@media (max-width: 700px) {
+  .hissa-actions {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    grid-auto-flow: row !important;
+    gap: clamp(5px, 1.8vw, 10px) !important;
+  }
+
+  .hissa-actions > .hissa-reset-button {
+    order: 1 !important;
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+  }
+
+  .hissa-actions > .hissa-calculate-button {
+    order: 2 !important;
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+  }
+
+  .hissa-actions > .hissa-add-button {
+    order: 3 !important;
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+  }
+
+  .hissa-actions > .hissa-reset-button,
+  .hissa-actions > .hissa-calculate-button,
+  .hissa-actions > .hissa-add-button {
+    min-width: 0 !important;
+    width: 100% !important;
+    height: clamp(37px, 9vw, 48px) !important;
+    min-height: clamp(37px, 9vw, 48px) !important;
+    padding-inline: clamp(2px, 1vw, 8px) !important;
+    padding-block: 4px !important;
+    white-space: nowrap !important;
+    font-size: clamp(8px, 2.5vw, 13px) !important;
+    line-height: 1.1 !important;
+  }
+}
+
+/* Even at very narrow widths, do not reorder or stack. */
+@media (max-width: 360px) {
+  .hissa-actions {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 4px !important;
+  }
+
+  .hissa-actions > .hissa-reset-button {
+    order: 1 !important;
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+  }
+
+  .hissa-actions > .hissa-calculate-button {
+    order: 2 !important;
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+  }
+
+  .hissa-actions > .hissa-add-button {
+    order: 3 !important;
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+  }
+
+  .hissa-actions > .hissa-reset-button,
+  .hissa-actions > .hissa-calculate-button,
+  .hissa-actions > .hissa-add-button {
+    height: 35px !important;
+    min-height: 35px !important;
+    padding-inline: 1px !important;
+    font-size: 7px !important;
+  }
+}
+
+/* ============================================================
+   RESET BUTTON — TYPOGRAPHY ONLY
+   ============================================================ */
+
+.hissa-reset-button {
+  font-weight: 700;
+}
