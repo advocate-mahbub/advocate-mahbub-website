@@ -2,6 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 
 import { calculateNormal } from "../../src/domain/hissa/modes/normal.js";
+import { calculateGroupLine } from "../../src/domain/hissa/modes/groupline.js";
 import { goldenCases } from "../../src/data/hissa/golden-cases.js";
 
 test("normal 126 case preserves proportional allocation", () => {
@@ -30,7 +31,7 @@ test("normal 126 case preserves proportional allocation", () => {
 });
 
 test("normal Karam case allocates against listed share total", () => {
-  const result = calculateNormal(
+  const result = calculateGroupLine(
     goldenCases.normalKaram
   );
 
@@ -48,7 +49,7 @@ test("normal Karam case allocates against listed share total", () => {
 });
 
 test("normal Baten case allocates against listed share total", () => {
-  const result = calculateNormal(
+  const result = calculateGroupLine(
     goldenCases.normalBaten
   );
 
@@ -64,3 +65,63 @@ test("normal Baten case allocates against listed share total", () => {
     ) < 0.001
   );
 });
+
+test("normal requires exactly 16 Anna", () => {
+  const belowFull = {
+    totalLand: 100,
+    rows: [
+      {
+        name: "Karim",
+        anna: 15,
+        gonda: 19,
+        kora: 3,
+        kranti: 2,
+        til: 18,
+      },
+    ],
+  };
+
+  assert.throws(
+    () => calculateNormal(belowFull),
+    /১৬ আনার কম/
+  );
+
+  const exactFull = {
+    totalLand: 100,
+    rows: [
+      {
+        name: "Karim",
+        anna: 15,
+        gonda: 19,
+        kora: 3,
+        kranti: 2,
+        til: 19,
+      },
+    ],
+  };
+
+  const result = calculateNormal(exactFull);
+
+  assert.equal(result.totalListedShareTil, 76800n);
+});
+
+test("normal rejects more than 16 Anna", () => {
+  assert.throws(
+    () =>
+      calculateNormal({
+        totalLand: 100,
+        rows: [
+          {
+            name: "Karim",
+            anna: 15,
+            gonda: 19,
+            kora: 3,
+            kranti: 3,
+            til: 0,
+          },
+        ],
+      }),
+    /১৬ আনার বেশি/
+  );
+});
+

@@ -31,7 +31,7 @@ import "../../styles/hissa-calculator.css";
           </h1>
 
           <p class="hissa-hero-text">
-            শরিকদের হিস্যা অনুযায়ী জমির আনুপাতিক অংশ
+            শরীকদের হিস্যা অনুযায়ী জমির আনুপাতিক অংশ
             সহজভাবে হিসাব করুন।
           </p>
 
@@ -46,6 +46,8 @@ import "../../styles/hissa-calculator.css";
         <div class="hissa-container">
 
           <!-- MODE SWITCH -->
+
+          <div class="hissa-calculator-content">
 
           <div class="hissa-mode-switch" role="tablist">
             <button
@@ -67,9 +69,40 @@ import "../../styles/hissa-calculator.css";
             >
               GroupLine Mode
             </button>
+
+<button
+              type="button"
+              class="hissa-mode-button"
+              data-mode="metric"
+              role="tab"
+              aria-selected="false"
+            >
+              Metric Mode
+            </button>
           </div>
 
-          <!-- CALCULATOR CARD -->
+
+      <section id="hissa-metric-panel" class="hissa-metric-panel" hidden>
+        <div class="hissa-metric-header">
+          <span class="hissa-eyebrow">METRIC MODE</span>
+          <h2>১০০০ ভিত্তিতে শরীকের হিস্যা দিন</h2>
+          <p>City / BS খতিয়ানের জন্য মোট হিস্যা ১০০০-এর ভিত্তিতে দিন।</p>
+        </div>
+
+        <div class="hissa-metric-summary">
+          <strong>মোট হিস্যা:</strong>
+          <span id="hissa-metric-total">০</span>
+          <span>/ ১০০০</span>
+        </div>
+
+        <div id="hissa-metric-rows" class="hissa-metric-rows"></div>
+
+        <button type="button" id="hissa-metric-add-row" class="hissa-secondary-button">
+          + শরীক যোগ করুন
+        </button>
+      </section>
+
+<!-- CALCULATOR CARD -->
 
           <div class="hissa-card">
 
@@ -80,7 +113,7 @@ import "../../styles/hissa-calculator.css";
                 </p>
 
                 <h2>
-                  মোট জমি ও শরিকদের হিস্যা দিন
+                  মোট জমি ও শরীকদের হিস্যা দিন
                 </h2>
               </div>
 
@@ -126,17 +159,9 @@ import "../../styles/hissa-calculator.css";
                 </p>
 
                 <h3>
-                  শরিকদের হিস্যা
+                  শরীকদের হিস্যা
                 </h3>
               </div>
-
-              <button
-                type="button"
-                class="hissa-add-button"
-                id="hissa-add-row"
-              >
-                + শরিক যোগ করুন
-              </button>
             </div>
 
             <div
@@ -165,9 +190,20 @@ import "../../styles/hissa-calculator.css";
                 class="hissa-reset-button"
                 id="hissa-reset"
               >
-                Reset
+                পুনরায় হিসাব করুন
+              
               </button>
-            </div>
+            
+              <button
+                type="button"
+                class="hissa-add-button"
+                id="hissa-add-row"
+              >
+                + শরীক যোগ করুন
+              </button>
+</div>
+
+          </div>
 
           </div>
 
@@ -236,5 +272,9 @@ import "../../styles/hissa-calculator.css";
     </main>
 
     <script src="../../scripts/hissa-calculator.js"></script>
-  </body>
+
+    <script type="module">
+  import "../../scripts/hissa-metric-ui.js";
+</script>
+</body>
 </html>

@@ -38,7 +38,7 @@ export function calculateMetric({
   }
 
   const parsedRows = rows.map((row, index) => ({
-    name: String(row?.name ?? '').trim() || `শরিক ${index + 1}`,
+    name: String(row?.name ?? '').trim() || `শরীক ${index + 1}`,
     share: parseMetricNumber(row?.share),
   }));
 
@@ -51,7 +51,7 @@ export function calculateMetric({
 
   if (listedShare !== metricTotal) {
     throw new Error(
-      `মোট হিস্যার সঙ্গে শরিকদের হিস্যার যোগফল মিলছে না। বর্তমান যোগফল ${listedShare}।`
+      `মোট হিস্যার সঙ্গে শরীকদের হিস্যার যোগফল মিলছে না। বর্তমান যোগফল ${listedShare}।`
     );
   }
 

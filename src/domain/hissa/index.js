@@ -16,3 +16,5 @@ export {
   formatLand,
   formatPercent,
 } from "./result/formatter.js";
+
+export { calculateMetric } from "./modes/metric.js";

@@ -3,6 +3,8 @@ import { allocateLand } from "../allocation/land-allocation.js";
 import {
   validateTotalLand,
   validateRows,
+  getTotalShareTil,
+  getGroupLineTotalShareNote,
 } from "../validation/input.js";
 
 export function calculateGroupLine({
@@ -29,6 +31,10 @@ export function calculateGroupLine({
     throw new RangeError(rowCheck.message);
   }
 
+  const totalShareTil = getTotalShareTil(normalizedRows);
+  const totalShareNote =
+    getGroupLineTotalShareNote(totalShareTil);
+
   const allocated = allocateLand(
     totalLand,
     normalizedRows
@@ -37,10 +43,8 @@ export function calculateGroupLine({
   return {
     mode: "groupline",
     totalLand: Number(totalLand),
-    totalListedShareTil: allocated.reduce(
-      (sum, row) => sum + row.shareTil,
-      0n
-    ),
+    totalListedShareTil: totalShareTil,
+    totalShareNote,
     rows: allocated,
   };
 }

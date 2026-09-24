@@ -181,7 +181,7 @@ function renderRow(row) {
   wrapper.innerHTML = `
     <div class="hissa-row-top">
       <div class="hissa-name-field">
-        <label>শরিক / Group</label>
+        <label>শরীক / Group</label>
 
         <input
           type="text"
@@ -195,7 +195,7 @@ function renderRow(row) {
         type="button"
         class="hissa-remove-button"
         data-remove-row
-        aria-label="এই শরিক বাদ দিন"
+        aria-label="এই শরীক বাদ দিন"
       >
         ×
       </button>
@@ -303,10 +303,17 @@ function calculate() {
       rows: current.rows,
     };
 
+    const validatedRows = validateCurrentRows(payload.rows);
+
+    const validatedPayload = {
+      ...payload,
+      rows: validatedRows,
+    };
+
     const result =
       state.activeMode === "normal"
-        ? calculateNormal(payload)
-        : calculateGroupLine(payload);
+        ? calculateNormal(validatedPayload)
+        : calculateGroupLine(validatedPayload);
 
     renderResult(result);
 
@@ -319,38 +326,40 @@ function calculate() {
 }
 
 function renderResult(result) {
-  const unit =
-    getCurrentState().landUnit;
+  const unit = getCurrentState().landUnit || "শতক";
+
+  const noteHtml = result.totalShareNote
+    ? `<div class="hissa-mode-note" role="note">${escapeHtml(result.totalShareNote)}</div>`
+    : "";
 
   elements.resultRows.innerHTML =
-    result.rows.map(
-      (row, index) => `
+    noteHtml +
+    result.rows
+    .map((row, index) => {
+      const sourceRow = getCurrentState().rows[index] || {};
+      const hissa = formatInputHissa(sourceRow);
+
+      return `
         <article class="hissa-result-row">
           <div class="hissa-result-person">
-            <span class="hissa-result-index">
-              ${banglaNumber(index + 1)}
-            </span>
-
-            <strong>
-              ${escapeHtml(row.name)}
-            </strong>
+            <span class="hissa-result-index">${banglaNumber(index + 1)}</span>
+            <strong>${escapeHtml(
+              row.name || sourceRow.name || `শরীক ${banglaNumber(index + 1)}`
+            )}</strong>
           </div>
 
           <div class="hissa-result-land">
-            <strong>
-              ${formatLand(row.allocatedLand)}
-            </strong>
-
-            <span>
-              ${unit}
-            </span>
+            <strong>${formatLand(row.allocatedLand)}</strong>
+            <span>${escapeHtml(unit)}</span>
           </div>
 
           <div class="hissa-result-meta">
             <span>
               হিস্যার অংশ:
-              ${formatPercent(row.allocationRatio)}
+              <strong>${escapeHtml(hissa.symbol)}</strong>
             </span>
+
+            <small>(${escapeHtml(hissa.text)})</small>
 
             <span>
               দশমিকে অংশ:
@@ -358,40 +367,155 @@ function renderResult(result) {
             </span>
           </div>
         </article>
-      `
-    ).join("");
-
-  const explanation =
-    buildExplanation(result);
-
-  elements.traceList.innerHTML =
-    explanation.steps.map(
-      (step, index) => `
-        <div class="hissa-trace-step">
-          <span>${banglaNumber(index + 1)}</span>
-          <p>${step}</p>
-        </div>
-      `
-    ).join("");
-
-  elements.traceContent.hidden = true;
-
-  elements.traceToggle
-    .setAttribute(
-      "aria-expanded",
-      "false"
-    );
-
-  elements.traceToggle.querySelector(
-    "span"
-  ).textContent = "+";
+      `;
+    })
+    .join("");
 
   elements.result.hidden = false;
 
-  elements.result.scrollIntoView({
-    behavior: "smooth",
-    block: "start",
+  if (elements.traceList) {
+    elements.traceList.innerHTML = buildBanglaTrace(result);
+  }
+}
+
+function normalizeIntegerInput(value) {
+  const raw = String(value ?? "").trim();
+  if (!raw) return null;
+
+  const normalized = raw
+    .replace(/[০-৯]/g, (d) => "০১২৩৪৫৬৭৮৯".indexOf(d))
+    .replace(/[٬,]/g, "");
+
+  if (!/^\d+$/.test(normalized)) return null;
+  return Number(normalized);
+}
+
+const HissaLimits = Object.freeze({
+  anna: { min: 0, max: 15, label: "আনা" },
+  gonda: { min: 0, max: 19, label: "গন্ডা" },
+  kora: { min: 0, max: 3, label: "কড়া" },
+  kranti: { min: 0, max: 2, label: "ক্রান্তি" },
+  til: { min: 0, max: 19, label: "তিল" },
+});
+
+function validateHissaField(value, key) {
+  const limit = HissaLimits[key];
+  if (!limit) return null;
+
+  const raw = String(value ?? "").trim();
+  if (!raw) return 0;
+
+  const number = normalizeIntegerInput(raw);
+
+  if (number === null) {
+    throw new Error(`${limit.label}-এ শুধু ০–৯ পর্যন্ত সংখ্যা ব্যবহার করুন।`);
+  }
+
+  if (number < limit.min || number > limit.max) {
+    throw new Error(
+      `${limit.label}-এর মান ${limit.min} থেকে ${limit.max}-এর মধ্যে হতে হবে।`
+    );
+  }
+
+  return number;
+}
+
+function validateCurrentRows(rows) {
+  return rows.map((row, index) => ({
+    ...row,
+    name: String(row.name ?? "").trim(),
+    anna: validateHissaField(row.anna, "anna"),
+    gonda: validateHissaField(row.gonda, "gonda"),
+    kora: validateHissaField(row.kora, "kora"),
+    kranti: validateHissaField(row.kranti, "kranti"),
+    til: validateHissaField(row.til, "til"),
+    __index: index,
+  }));
+}
+
+const ANNA_SYMBOLS = Object.freeze({
+  0: "",
+  1: "⁄",
+  2: "৵",
+  3: "৶",
+  4: "৷",
+  5: "৷⁄",
+  6: "৷৵",
+  7: "৷৶",
+  8: "৷৷",
+  9: "৷৷⁄",
+  10: "৷৷৵",
+  11: "৷৷৶",
+  12: "৸",
+  13: "৸⁄",
+  14: "৸৵",
+  15: "৸৶",
+  16: "১",
+});
+
+const KORA_SYMBOLS = Object.freeze({
+  0: "",
+  1: "৷",
+  2: "৷৷",
+  3: "৸",
+});
+
+const KRANTI_SYMBOLS = Object.freeze({
+  0: "",
+  1: "৴",
+  2: "৴৴",
+});
+
+function formatInputHissa(row) {
+  const anna = normalizeIntegerInput(row.anna) ?? 0;
+  const gonda = normalizeIntegerInput(row.gonda) ?? 0;
+  const kora = normalizeIntegerInput(row.kora) ?? 0;
+  const kranti = normalizeIntegerInput(row.kranti) ?? 0;
+  const til = normalizeIntegerInput(row.til) ?? 0;
+
+  const symbol =
+    `${ANNA_SYMBOLS[anna] ?? ""}` +
+    `${gonda ? banglaNumber(gonda) : ""}` +
+    `${KORA_SYMBOLS[kora] ?? ""}` +
+    `${KRANTI_SYMBOLS[kranti] ?? ""}` +
+    `${til ? banglaNumber(til) : ""}`;
+
+  return {
+    symbol: symbol || "০",
+    text:
+      `${banglaNumber(anna)} আনা ` +
+      `${banglaNumber(gonda)} গন্ডা ` +
+      `${banglaNumber(kora)} কড়া ` +
+      `${banglaNumber(kranti)} ক্রান্তি ` +
+      `${banglaNumber(til)} তিল`,
+  };
+}
+
+function buildBanglaTrace(result) {
+  const rows = result.rows || [];
+  const stateNow = getCurrentState();
+  const unit = stateNow.landUnit || "শতক";
+
+  const items = [
+    "প্রতিটি শরীকের হিস্যাংশ তিলে কনভার্ট করে হিসাব করা হয়েছে।",
+    `মোট শেয়ার: ${formatTraceNumber(result.totalListedShare ?? 0)} তিল-ভিত্তিক একক।`,
+    `মোট ${formatLand(result.totalLand ?? stateNow.totalLand)} ${unit} জমি শরীকদের হিস্যার অনুপাতে বণ্টন করা হয়েছে।`,
+  ];
+
+  rows.forEach((row, index) => {
+    items.push(
+      `${banglaNumber(index + 1)} নম্বর শরীকের হিস্যা অনুযায়ী ` +
+      `${formatLand(row.allocatedLand)} ${unit} নির্ধারণ করা হয়েছে।`
+    );
   });
+
+  return items.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+}
+
+function formatTraceNumber(value) {
+  const n = Number(value);
+  if (!Number.isFinite(n)) return "০";
+  return banglaNumber(n.toLocaleString("en-US"));
 }
 
 function resetCalculator() {

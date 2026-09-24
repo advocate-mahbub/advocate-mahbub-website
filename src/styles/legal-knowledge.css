@@ -313,3 +313,171 @@
     justify-content: center;
   }
 }
+
+/* =========================================
+   FEATURED ARTICLE — PROPERTY & LAND
+   ========================================= */
+
+.knowledge-featured-article {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  margin-top: 70px;
+  padding: 50px;
+  background: #fffdf8;
+  border: 1px solid #e4dccd;
+}
+
+.knowledge-featured-copy {
+  max-width: 820px;
+}
+
+.knowledge-featured-copy h2 {
+  max-width: 760px;
+}
+
+.knowledge-featured-copy > p:not(.knowledge-eyebrow) {
+  max-width: 760px;
+  margin: 20px 0 0;
+  color: #596273;
+  line-height: 1.8;
+}
+
+.knowledge-featured-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  margin-top: 22px;
+  color: #8c6c32;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.knowledge-featured-meta span {
+  display: inline-block;
+}
+
+.knowledge-featured-article .knowledge-primary-cta {
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .knowledge-featured-article {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 28px;
+    padding: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .knowledge-featured-article {
+    margin-top: 50px;
+    padding: 28px 22px;
+  }
+
+  .knowledge-featured-meta {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+/* =========================================
+   DYNAMIC LEGAL KNOWLEDGE ARTICLES
+   ========================================= */
+
+.knowledge-article-list {
+  margin-top: 70px;
+}
+
+.knowledge-article-list-heading {
+  max-width: 760px;
+}
+
+.knowledge-article-list-heading h2 {
+  max-width: 760px;
+}
+
+.knowledge-article-list-heading > p:not(.knowledge-eyebrow) {
+  max-width: 700px;
+  margin: 18px 0 0;
+  color: #596273;
+  line-height: 1.8;
+}
+
+.knowledge-article-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.knowledge-article-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 290px;
+  padding: 32px;
+  background: #fffdf8;
+  border: 1px solid #e4dccd;
+  color: #0b1424;
+  text-decoration: none;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.knowledge-article-card:hover {
+  transform: translateY(-3px);
+  border-color: #c7a66a;
+  box-shadow: 0 14px 35px rgba(11, 20, 36, 0.08);
+}
+
+.knowledge-article-card-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  color: #8c6c32;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.knowledge-article-card h3 {
+  margin: 28px 0 0;
+  max-width: 620px;
+  color: #0b1424;
+  font-size: 1.45rem;
+  line-height: 1.35;
+}
+
+.knowledge-article-card p {
+  margin: 16px 0 0;
+  color: #596273;
+  line-height: 1.75;
+}
+
+.knowledge-article-card-link {
+  margin-top: auto;
+  padding-top: 28px;
+  color: #8c6c32;
+  font-weight: 700;
+}
+
+@media (max-width: 700px) {
+  .knowledge-article-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .knowledge-article-card {
+    min-height: 250px;
+    padding: 26px 22px;
+  }
+
+  .knowledge-article-card h3 {
+    font-size: 1.3rem;
+  }
+}

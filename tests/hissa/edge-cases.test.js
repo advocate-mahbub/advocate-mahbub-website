@@ -3,18 +3,18 @@ import assert from "node:assert/strict";
 
 import { calculateNormal } from "../../src/domain/hissa/modes/normal.js";
 
-test("blank name gets a temporary label", () => {
+test("blank name gets a temporary label with a full 16 Anna share", () => {
   const result = calculateNormal({
     totalLand: 10,
 
     rows: [
       {
         name: "",
-        anna: 1,
-        gonda: 0,
-        kora: 0,
-        kranti: 0,
-        til: 0,
+        anna: 15,
+        gonda: 19,
+        kora: 3,
+        kranti: 2,
+        til: 19,
       },
     ],
   });
@@ -30,7 +30,13 @@ test("zero-share rows do not affect allocation", () => {
     totalLand: 10,
 
     rows: [
-      { anna: 1 },
+      {
+        anna: 15,
+        gonda: 19,
+        kora: 3,
+        kranti: 2,
+        til: 19,
+      },
 
       {
         anna: 0,

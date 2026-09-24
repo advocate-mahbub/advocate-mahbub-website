@@ -2,6 +2,7 @@
 import '../../styles/global.css';
 import '../../styles/legal-knowledge.css';
 import { legalKnowledgeCategories } from '../../data/legal-knowledge.js';
+import { legalKnowledgeArticles } from '../../data/legal-knowledge-articles.js';
 
 export function getStaticPaths() {
   return legalKnowledgeCategories.map((category) => ({
@@ -15,6 +16,13 @@ export function getStaticPaths() {
 }
 
 const { category } = Astro.props;
+
+const categoryArticles = legalKnowledgeArticles.filter(
+  (article) => article.category === category.slug
+);
+
+const featuredArticle = categoryArticles[0];
+const remainingArticles = categoryArticles.slice(1);
 
 const siteName = 'Mahbubur Rahman';
 
@@ -75,24 +83,117 @@ const pageDescription =
       <section class="knowledge-content">
         <div class="knowledge-container">
 
-          <section class="knowledge-consultation">
+          {featuredArticle && (
+            <>
+              <section class="knowledge-featured-article">
 
-            <p class="knowledge-eyebrow">
-              KNOWLEDGE HUB
-            </p>
+                <div class="knowledge-featured-copy">
 
-            <h2>
-              এই বিষয় নিয়ে practical legal knowledge আসছে।
-            </h2>
+                  <p class="knowledge-eyebrow">
+                    FEATURED KNOWLEDGE
+                  </p>
 
-            <p>
-              এই section-এ আমরা {category.title.toLowerCase()}
-              নিয়ে গুরুত্বপূর্ণ প্রশ্ন, document checklist,
-              common mistakes, risk এবং decision-making guidance
-              ধাপে ধাপে যুক্ত করব।
-            </p>
+                  <h2>
+                    {featuredArticle.title}
+                  </h2>
 
-          </section>
+                  <p>
+                    {featuredArticle.excerpt}
+                  </p>
+
+                  <div class="knowledge-featured-meta">
+                    <span>
+                      {category.title}
+                    </span>
+                  </div>
+
+                </div>
+
+                <a
+                  href={`/legal-knowledge/${featuredArticle.category}/${featuredArticle.slug}/`}
+                  class="knowledge-primary-cta"
+                >
+                  পুরো article পড়ুন
+                  <span aria-hidden="true">→</span>
+                </a>
+
+              </section>
+
+              {remainingArticles.length > 0 && (
+                <section class="knowledge-article-list">
+
+                  <div class="knowledge-article-list-heading">
+
+                    <p class="knowledge-eyebrow">
+                      MORE KNOWLEDGE
+                    </p>
+
+                    <h2>
+                      {category.title} নিয়ে আরও জানুন
+                    </h2>
+
+                    <p>
+                      এই বিষয়ের আরও practical legal guidance,
+                      checklist এবং decision-making insights এখানে
+                      ধাপে ধাপে যুক্ত হবে।
+                    </p>
+
+                  </div>
+
+                  <div class="knowledge-article-grid">
+
+                    {remainingArticles.map((article) => (
+                      <a
+                        href={`/legal-knowledge/${article.category}/${article.slug}/`}
+                        class="knowledge-article-card"
+                      >
+
+                        <div class="knowledge-article-card-meta">
+                          <span>{category.title}</span>
+                        </div>
+
+                        <h3>
+                          {article.title}
+                        </h3>
+
+                        <p>
+                          {article.excerpt}
+                        </p>
+
+                        <span class="knowledge-article-card-link">
+                          Article পড়ুন →
+                        </span>
+
+                      </a>
+                    ))}
+
+                  </div>
+
+                </section>
+              )}
+            </>
+          )}
+
+          {categoryArticles.length === 0 && (
+            <section class="knowledge-consultation">
+
+              <p class="knowledge-eyebrow">
+                KNOWLEDGE HUB
+              </p>
+
+              <h2>
+                এই বিষয় নিয়ে practical legal knowledge আসছে।
+              </h2>
+
+              <p>
+                এই section-এ আমরা {category.title.toLowerCase()}
+                নিয়ে গুরুত্বপূর্ণ প্রশ্ন, document checklist,
+                common mistakes, risk এবং decision-making guidance
+                ধাপে ধাপে যুক্ত করব।
+              </p>
+
+            </section>
+          )}
 
 
           <section class="knowledge-tools">

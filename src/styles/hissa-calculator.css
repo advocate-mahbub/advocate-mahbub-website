@@ -919,3 +919,3675 @@ button {
     flex-direction: column;
   }
 }
+
+.hissa-metric-panel {
+  margin: 0 0 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(198, 157, 78, 0.28);
+  border-radius: 18px;
+  background: #fbf8f1;
+}
+.hissa-metric-panel[hidden] { display: none; }
+.hissa-metric-summary {
+  display: flex;
+  gap: .4rem;
+  align-items: baseline;
+  margin: 1rem 0;
+}
+.hissa-metric-row {
+  display: grid;
+  grid-template-columns: 2rem minmax(0,1fr) minmax(120px,.35fr) 42px;
+  gap: .7rem;
+  align-items: center;
+  margin-bottom: .75rem;
+}
+.hissa-metric-row input {
+  min-height: 48px;
+  padding: .7rem .85rem;
+  border: 1px solid rgba(0,0,0,.12);
+  border-radius: 10px;
+  background: #fff;
+}
+.hissa-metric-remove {
+  min-height: 42px;
+  border: 1px solid rgba(0,0,0,.12);
+  border-radius: 10px;
+  background: #fff;
+}
+#hissa-metric-total[data-over-limit="true"] { color: #a33; }
+@media (max-width: 640px) {
+  .hissa-metric-row { grid-template-columns: 2rem 1fr 42px; }
+  .hissa-metric-row input[data-field="share"] { grid-column: 2; }
+}
+
+/* Metric Mode V1 */
+.metric-fields {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(180px, .7fr);
+  gap: 12px;
+}
+
+.metric-fields input {
+  width: 100%;
+}
+
+.metric-row-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.metric-row-head label {
+  font-weight: 700;
+}
+
+.metric-remove {
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .metric-fields {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ============================================================
+   Hissa Calculator UX Correction
+   2026-09-23
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   Mode Switch
+   Three independent touch targets with balanced spacing.
+   ------------------------------------------------------------ */
+
+.hissa-mode-switch {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 18px !important;
+  width: 100%;
+  align-items: stretch;
+}
+
+.hissa-mode-switch > * {
+  min-width: 0;
+}
+
+
+/* ------------------------------------------------------------
+   Bottom Action Row
+   Desired order:
+   পুনরায় হিসাব করুন | হিসাব করুন | শরীক যোগ করুন
+   ------------------------------------------------------------ */
+
+.hissa-actions,
+.hissa-action-row,
+.hissa-form-actions {
+  display: grid !important;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1.6fr)
+    minmax(0, 1fr) !important;
+
+  gap: 18px !important;
+  width: 100%;
+  align-items: stretch;
+}
+
+
+/* All three buttons get the same height and independent
+   clickable areas. */
+
+.hissa-actions > button,
+.hissa-action-row > button,
+.hissa-form-actions > button {
+  width: 100%;
+  min-width: 0;
+  min-height: 58px;
+  margin: 0 !important;
+  box-sizing: border-box;
+}
+
+
+/* ------------------------------------------------------------
+   Primary action
+   ------------------------------------------------------------ */
+
+.hissa-actions > button[data-action="calculate"],
+.hissa-action-row > button[data-action="calculate"],
+.hissa-form-actions > button[data-action="calculate"] {
+  min-height: 62px;
+}
+
+
+/* ------------------------------------------------------------
+   Responsive
+   ------------------------------------------------------------ */
+
+@media (max-width: 760px) {
+
+  .hissa-mode-switch {
+    gap: 10px !important;
+  }
+
+  .hissa-actions,
+  .hissa-action-row,
+  .hissa-form-actions {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1.35fr)
+      minmax(0, 1fr) !important;
+
+    gap: 10px !important;
+  }
+
+  .hissa-actions > button,
+  .hissa-action-row > button,
+  .hissa-form-actions > button {
+    min-height: 54px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+
+/* ------------------------------------------------------------
+   Very small screens
+   Keep the three actions separate and tappable.
+   ------------------------------------------------------------ */
+
+@media (max-width: 520px) {
+
+  .hissa-mode-switch {
+    gap: 8px !important;
+  }
+
+  .hissa-mode-switch > button {
+    min-height: 52px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .hissa-actions,
+  .hissa-action-row,
+  .hissa-form-actions {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .hissa-actions > button,
+  .hissa-action-row > button,
+  .hissa-form-actions > button {
+    width: 100%;
+  }
+}
+
+
+
+/* ============================================================
+   Hissa Calculator - Exact UX Layout
+   2026-09-23
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   MODE SWITCH
+   ------------------------------------------------------------ */
+
+.hissa-mode-switch {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 18px !important;
+  width: 100%;
+  align-items: stretch;
+}
+
+.hissa-mode-switch > button {
+  width: 100%;
+  min-width: 0;
+}
+
+
+/* ------------------------------------------------------------
+   BOTTOM ACTION ROW
+   Final order:
+   পুনরায় হিসাব করুন | হিসাব করুন | শরীক যোগ করুন
+   ------------------------------------------------------------ */
+
+.hissa-actions {
+  display: grid !important;
+
+  /*
+   Left  = equal
+   Center = larger
+   Right = equal
+  */
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1.55fr)
+    minmax(0, 1fr) !important;
+
+  gap: 18px !important;
+
+  width: 100%;
+  align-items: stretch;
+}
+
+
+/* ------------------------------------------------------------
+   All three action buttons
+   ------------------------------------------------------------ */
+
+.hissa-actions > button {
+  width: 100%;
+  min-width: 0;
+  min-height: 58px;
+  margin: 0 !important;
+
+  box-sizing: border-box;
+}
+
+
+/* ------------------------------------------------------------
+   Primary Calculate button
+   ------------------------------------------------------------ */
+
+.hissa-actions > .hissa-calculate-button {
+  min-height: 62px;
+}
+
+
+/* ------------------------------------------------------------
+   Left and Right secondary buttons
+   ------------------------------------------------------------ */
+
+.hissa-actions > .hissa-reset-button,
+.hissa-actions > .hissa-add-button {
+  min-height: 58px;
+}
+
+
+/* ------------------------------------------------------------
+   Mobile
+   Keep three actions visually separated.
+   ------------------------------------------------------------ */
+
+@media (max-width: 760px) {
+
+  .hissa-mode-switch {
+    gap: 12px !important;
+  }
+
+  .hissa-actions {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1.35fr)
+      minmax(0, 1fr) !important;
+
+    gap: 12px !important;
+  }
+
+  .hissa-actions > button {
+    min-height: 56px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+
+/* ------------------------------------------------------------
+   Small mobile
+   ------------------------------------------------------------ */
+
+@media (max-width: 520px) {
+
+  .hissa-mode-switch {
+    gap: 8px !important;
+  }
+
+  .hissa-mode-switch > button {
+    min-height: 50px;
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  .hissa-actions {
+    /*
+     Still three separate buttons.
+     They become full-width rows only when the screen
+     becomes too narrow for safe touch targets.
+    */
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .hissa-actions > button {
+    width: 100%;
+  }
+}
+
+
+
+/* ============================================================
+   Hissa Calculator
+   FINAL ACTION ORDER
+   ============================================================
+
+   Visual order:
+
+   পুনরায় হিসাব করুন | হিসাব করুন | + শরীক যোগ করুন
+
+   HTML/JS order is intentionally preserved.
+   Only visual order is changed.
+   ============================================================ */
+
+.hissa-actions {
+  display: grid !important;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1.55fr)
+    minmax(0, 1fr) !important;
+
+  gap: 18px !important;
+
+  width: 100% !important;
+  align-items: stretch !important;
+}
+
+
+/* LEFT: পুনরায় হিসাব করুন */
+
+.hissa-actions > .hissa-reset-button {
+  order: 1 !important;
+}
+
+
+/* CENTER: হিসাব করুন */
+
+.hissa-actions > .hissa-calculate-button {
+  order: 2 !important;
+}
+
+
+/* RIGHT: + শরীক যোগ করুন */
+
+.hissa-actions > .hissa-add-button {
+  order: 3 !important;
+}
+
+
+/* Equal outer button sizing */
+
+.hissa-actions > .hissa-reset-button,
+.hissa-actions > .hissa-add-button {
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 58px !important;
+  margin: 0 !important;
+}
+
+
+/* Primary center button */
+
+.hissa-actions > .hissa-calculate-button {
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 62px !important;
+  margin: 0 !important;
+}
+
+
+/* ------------------------------------------------------------
+   Tablet / smaller screens
+   ------------------------------------------------------------ */
+
+@media (max-width: 760px) {
+
+  .hissa-actions {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1.35fr)
+      minmax(0, 1fr) !important;
+
+    gap: 12px !important;
+  }
+
+}
+
+
+/* ------------------------------------------------------------
+   Very small mobile
+   ------------------------------------------------------------ */
+
+@media (max-width: 520px) {
+
+  .hissa-actions {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .hissa-actions > .hissa-reset-button {
+    order: 1 !important;
+  }
+
+  .hissa-actions > .hissa-calculate-button {
+    order: 2 !important;
+  }
+
+  .hissa-actions > .hissa-add-button {
+    order: 3 !important;
+  }
+
+}
+
+
+
+/* ============================================================
+   Hissa Calculator
+   MODE SWITCH — FINAL UX
+   ============================================================
+
+   Design:
+
+   [ Normal Mode ]    [ GroupLine Mode ]    [ Metric Mode ]
+
+   Each mode is an independent touch target.
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   MODE SWITCH WRAPPER
+   ------------------------------------------------------------ */
+
+.hissa-mode-switch {
+  display: grid !important;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr)) !important;
+
+  gap: 18px !important;
+
+  width: 100% !important;
+
+  padding: 0 !important;
+
+  background: transparent !important;
+
+  border: 0 !important;
+  border-radius: 0 !important;
+
+  box-shadow: none !important;
+
+  align-items: stretch !important;
+}
+
+
+/* ------------------------------------------------------------
+   EACH MODE BUTTON
+   ------------------------------------------------------------ */
+
+.hissa-mode-switch > button {
+  position: relative;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: 100% !important;
+  min-width: 0 !important;
+
+  min-height: 58px !important;
+
+  margin: 0 !important;
+
+  padding: 12px 18px !important;
+
+  box-sizing: border-box !important;
+
+  border-radius: 12px !important;
+
+  cursor: pointer;
+
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    color 160ms ease,
+    transform 120ms ease !important;
+}
+
+
+/* ------------------------------------------------------------
+   INACTIVE MODE
+   ------------------------------------------------------------ */
+
+.hissa-mode-switch > button:not(.active):not([aria-selected="true"]):not([data-active="true"]) {
+  background: #f8f5ec !important;
+
+  border: 1px solid #ddd6c5 !important;
+
+  color: #647080 !important;
+
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03) !important;
+}
+
+
+/* ------------------------------------------------------------
+   ACTIVE MODE
+   ------------------------------------------------------------
+
+   Support the common active-state patterns already used
+   by the calculator without changing JavaScript behavior.
+   ------------------------------------------------------------ */
+
+.hissa-mode-switch > button.active,
+.hissa-mode-switch > button[aria-selected="true"],
+.hissa-mode-switch > button[data-active="true"] {
+  background: #07111f !important;
+
+  border: 1px solid #07111f !important;
+
+  color: #ffffff !important;
+
+  box-shadow:
+    0 6px 16px rgba(7, 17, 31, 0.16) !important;
+}
+
+
+/* ------------------------------------------------------------
+   HOVER
+   ------------------------------------------------------------ */
+
+.hissa-mode-switch > button:hover {
+  transform: translateY(-1px);
+}
+
+
+/* ------------------------------------------------------------
+   KEYBOARD FOCUS
+   ------------------------------------------------------------ */
+
+.hissa-mode-switch > button:focus-visible {
+  outline: 3px solid rgba(190, 151, 72, 0.35) !important;
+  outline-offset: 3px !important;
+}
+
+
+/* ------------------------------------------------------------
+   ACTIVE HOVER
+   ------------------------------------------------------------ */
+
+.hissa-mode-switch > button.active:hover,
+.hissa-mode-switch > button[aria-selected="true"]:hover,
+.hissa-mode-switch > button[data-active="true"]:hover {
+  background: #0b1728 !important;
+}
+
+
+/* ------------------------------------------------------------
+   TABLET
+   ------------------------------------------------------------ */
+
+@media (max-width: 760px) {
+
+  .hissa-mode-switch {
+    gap: 12px !important;
+  }
+
+  .hissa-mode-switch > button {
+    min-height: 54px !important;
+
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+}
+
+
+/* ------------------------------------------------------------
+   SMALL MOBILE
+   ------------------------------------------------------------ */
+
+@media (max-width: 520px) {
+
+  .hissa-mode-switch {
+    gap: 8px !important;
+  }
+
+  .hissa-mode-switch > button {
+    min-height: 50px !important;
+
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+
+    font-size: 0.9rem !important;
+
+    border-radius: 10px !important;
+  }
+}
+
+
+
+/* ============================================================
+   Hissa Calculator
+   MODE SWITCH — COMPACT / BALANCED VERSION
+   ============================================================ */
+
+
+/*
+ * The switch wrapper follows the calculator content width,
+ * but the buttons themselves remain compact.
+ */
+
+.hissa-mode-switch {
+  display: flex !important;
+
+  justify-content: center !important;
+  align-items: center !important;
+
+  gap: 18px !important;
+
+  width: 100% !important;
+
+  margin: 0 auto !important;
+
+  padding: 0 !important;
+
+  background: transparent !important;
+
+  border: 0 !important;
+
+  box-shadow: none !important;
+}
+
+
+/*
+ * Each mode button becomes a compact independent control.
+ */
+
+.hissa-mode-switch > button {
+  flex: 0 0 auto !important;
+
+  width: 28% !important;
+
+  min-width: 0 !important;
+
+  max-width: 230px !important;
+
+  min-height: 54px !important;
+
+  margin: 0 !important;
+
+  padding: 10px 18px !important;
+
+  box-sizing: border-box !important;
+
+  border-radius: 12px !important;
+
+  white-space: nowrap !important;
+
+  text-align: center !important;
+}
+
+
+/*
+ * Active mode
+ */
+
+.hissa-mode-switch > button.active,
+.hissa-mode-switch > button[aria-selected="true"],
+.hissa-mode-switch > button[data-active="true"] {
+  background: #07111f !important;
+
+  color: #ffffff !important;
+
+  border-color: #07111f !important;
+
+  box-shadow:
+    0 5px 14px rgba(7, 17, 31, 0.14) !important;
+}
+
+
+/*
+ * Inactive modes
+ */
+
+.hissa-mode-switch > button:not(.active):not([aria-selected="true"]):not([data-active="true"]) {
+  background: #f8f5ec !important;
+
+  color: #657080 !important;
+
+  border: 1px solid #ddd6c5 !important;
+
+  box-shadow: none !important;
+}
+
+
+/*
+ * Hover
+ */
+
+.hissa-mode-switch > button:hover {
+  transform: translateY(-1px);
+}
+
+
+/*
+ * Keyboard focus
+ */
+
+.hissa-mode-switch > button:focus-visible {
+  outline: 3px solid rgba(190, 151, 72, 0.30) !important;
+
+  outline-offset: 3px !important;
+}
+
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+
+@media (max-width: 900px) {
+
+  .hissa-mode-switch {
+    gap: 14px !important;
+  }
+
+  .hissa-mode-switch > button {
+    width: 29% !important;
+
+    max-width: 210px !important;
+
+    min-height: 52px !important;
+
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 640px) {
+
+  .hissa-mode-switch {
+    gap: 10px !important;
+  }
+
+  .hissa-mode-switch > button {
+    width: 31% !important;
+
+    max-width: none !important;
+
+    min-height: 50px !important;
+
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+
+    font-size: 0.88rem !important;
+
+    border-radius: 10px !important;
+  }
+}
+
+
+/* ============================================================
+   VERY SMALL MOBILE
+   ============================================================ */
+
+@media (max-width: 430px) {
+
+  .hissa-mode-switch {
+    gap: 7px !important;
+  }
+
+  .hissa-mode-switch > button {
+    width: calc((100% - 14px) / 3) !important;
+
+    min-height: 48px !important;
+
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+
+    font-size: 0.78rem !important;
+  }
+}
+
+
+
+/* ============================================================
+   Hissa Calculator
+   MODE SWITCH — FINAL COMPACT / CONTENT-ALIGNED VERSION
+   ============================================================ */
+
+
+/*
+ * IMPORTANT:
+ *
+ * The calculator card has its own internal content width.
+ * The Mode Switch should visually follow that same width.
+ *
+ * But the buttons themselves must remain compact.
+ */
+
+.hissa-mode-switch {
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: space-between !important;
+
+  width: 100% !important;
+
+  max-width: 100% !important;
+
+  margin: 0 auto !important;
+
+  padding: 0 !important;
+
+  gap: 24px !important;
+
+  background: transparent !important;
+
+  border: 0 !important;
+
+  border-radius: 0 !important;
+
+  box-shadow: none !important;
+}
+
+
+/* ============================================================
+   INDIVIDUAL MODE BUTTON
+   ============================================================ */
+
+.hissa-mode-switch > button {
+  flex: 0 0 220px !important;
+
+  width: 220px !important;
+
+  max-width: 220px !important;
+
+  min-width: 220px !important;
+
+  height: 50px !important;
+
+  min-height: 50px !important;
+
+  max-height: 50px !important;
+
+  margin: 0 !important;
+
+  padding: 8px 16px !important;
+
+  box-sizing: border-box !important;
+
+  border-radius: 11px !important;
+
+  font-size: 16px !important;
+
+  font-weight: 600 !important;
+
+  line-height: 1.2 !important;
+
+  white-space: nowrap !important;
+
+  text-align: center !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: center !important;
+
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease,
+    transform 120ms ease !important;
+}
+
+
+/* ============================================================
+   ACTIVE MODE
+   ============================================================ */
+
+.hissa-mode-switch > button.active,
+.hissa-mode-switch > button[aria-selected="true"],
+.hissa-mode-switch > button[data-active="true"] {
+  background: #07111f !important;
+
+  color: #ffffff !important;
+
+  border-color: #07111f !important;
+
+  box-shadow:
+    0 4px 12px rgba(7, 17, 31, 0.14) !important;
+}
+
+
+/* ============================================================
+   INACTIVE MODE
+   ============================================================ */
+
+.hissa-mode-switch > button:not(.active):not([aria-selected="true"]):not([data-active="true"]) {
+  background: #f8f5ec !important;
+
+  color: #647080 !important;
+
+  border: 1px solid #ddd6c5 !important;
+
+  box-shadow: none !important;
+}
+
+
+/* ============================================================
+   HOVER
+   ============================================================ */
+
+.hissa-mode-switch > button:hover {
+  transform: translateY(-1px);
+}
+
+
+/* ============================================================
+   FOCUS
+   ============================================================ */
+
+.hissa-mode-switch > button:focus-visible {
+  outline: 3px solid rgba(190, 151, 72, 0.28) !important;
+
+  outline-offset: 3px !important;
+}
+
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+
+@media (max-width: 1000px) {
+
+  .hissa-mode-switch {
+    gap: 18px !important;
+  }
+
+  .hissa-mode-switch > button {
+    flex-basis: 190px !important;
+
+    width: 190px !important;
+
+    min-width: 190px !important;
+
+    max-width: 190px !important;
+
+    height: 48px !important;
+
+    min-height: 48px !important;
+
+    max-height: 48px !important;
+
+    font-size: 15px !important;
+  }
+}
+
+
+/* ============================================================
+   SMALL TABLET / LARGE MOBILE
+   ============================================================ */
+
+@media (max-width: 760px) {
+
+  .hissa-mode-switch {
+    gap: 12px !important;
+  }
+
+  .hissa-mode-switch > button {
+    flex: 1 1 0 !important;
+
+    width: auto !important;
+
+    min-width: 0 !important;
+
+    max-width: none !important;
+
+    height: 48px !important;
+
+    min-height: 48px !important;
+
+    max-height: 48px !important;
+
+    padding-left: 8px !important;
+
+    padding-right: 8px !important;
+
+    font-size: 14px !important;
+  }
+}
+
+
+/* ============================================================
+   SMALL MOBILE
+   ============================================================ */
+
+@media (max-width: 520px) {
+
+  .hissa-mode-switch {
+    gap: 8px !important;
+  }
+
+  .hissa-mode-switch > button {
+    height: 46px !important;
+
+    min-height: 46px !important;
+
+    max-height: 46px !important;
+
+    padding-left: 5px !important;
+
+    padding-right: 5px !important;
+
+    font-size: 12.5px !important;
+
+    border-radius: 9px !important;
+  }
+}
+
+
+/* ============================================================
+   VERY SMALL MOBILE
+   ============================================================ */
+
+@media (max-width: 380px) {
+
+  .hissa-mode-switch {
+    gap: 6px !important;
+  }
+
+  .hissa-mode-switch > button {
+    height: 44px !important;
+
+    min-height: 44px !important;
+
+    max-height: 44px !important;
+
+    font-size: 11.5px !important;
+  }
+}
+
+
+
+/* ============================================================
+   Hissa Calculator
+   MODE SWITCH — FINAL CORRECTION
+   ============================================================
+
+   DESIGN RULE
+
+   The Mode Switch is a compact three-button group.
+
+   It should NOT:
+   - stretch each button across the page
+   - touch the viewport edges
+   - float outside the calculator content
+   - become a giant navigation bar
+
+   It SHOULD:
+   - stay centered
+   - use a controlled content width
+   - keep three independent buttons
+   - keep equal button widths
+   - keep balanced gaps
+   - visually align with the calculator card
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   MODE SWITCH CONTAINER
+   ------------------------------------------------------------ */
+
+.hissa-mode-switch {
+  display: grid !important;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr)) !important;
+
+  gap: 18px !important;
+
+  /*
+   * Controlled width.
+   *
+   * This is intentionally NOT 100% of the page.
+   * It keeps the mode group visually compact.
+   */
+  width: min(100%, 960px) !important;
+
+  max-width: 960px !important;
+
+  margin-left: auto !important;
+  margin-right: auto !important;
+
+  padding: 0 !important;
+
+  background: transparent !important;
+
+  border: 0 !important;
+
+  border-radius: 0 !important;
+
+  box-shadow: none !important;
+
+  box-sizing: border-box !important;
+
+  align-items: center !important;
+}
+
+
+/* ------------------------------------------------------------
+   MODE BUTTONS
+   ------------------------------------------------------------ */
+
+.hissa-mode-switch > button {
+  width: 100% !important;
+
+  min-width: 0 !important;
+
+  max-width: none !important;
+
+  height: 50px !important;
+
+  min-height: 50px !important;
+
+  max-height: 50px !important;
+
+  margin: 0 !important;
+
+  padding: 8px 14px !important;
+
+  box-sizing: border-box !important;
+
+  border-radius: 11px !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: center !important;
+
+  text-align: center !important;
+
+  white-space: nowrap !important;
+
+  font-size: 15px !important;
+
+  font-weight: 600 !important;
+
+  line-height: 1.2 !important;
+
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease !important;
+}
+
+
+/* ------------------------------------------------------------
+   ACTIVE
+   ------------------------------------------------------------ */
+
+.hissa-mode-switch > button.active,
+.hissa-mode-switch > button[aria-selected="true"],
+.hissa-mode-switch > button[data-active="true"] {
+
+  background: #07111f !important;
+
+  color: #ffffff !important;
+
+  border-color: #07111f !important;
+
+  box-shadow:
+    0 4px 10px rgba(7, 17, 31, 0.12) !important;
+}
+
+
+/* ------------------------------------------------------------
+   INACTIVE
+   ------------------------------------------------------------ */
+
+.hissa-mode-switch > button:not(.active):not([aria-selected="true"]):not([data-active="true"]) {
+
+  background: #f8f5ec !important;
+
+  color: #647080 !important;
+
+  border: 1px solid #ddd6c5 !important;
+
+  box-shadow: none !important;
+}
+
+
+/* ------------------------------------------------------------
+   HOVER
+   ------------------------------------------------------------ */
+
+.hissa-mode-switch > button:hover {
+  transform: translateY(-1px);
+}
+
+
+/* ------------------------------------------------------------
+   FOCUS
+   ------------------------------------------------------------ */
+
+.hissa-mode-switch > button:focus-visible {
+
+  outline: 3px solid rgba(190, 151, 72, 0.28) !important;
+
+  outline-offset: 3px !important;
+}
+
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+
+@media (max-width: 1000px) {
+
+  .hissa-mode-switch {
+
+    width: min(100%, 820px) !important;
+
+    max-width: 820px !important;
+
+    gap: 14px !important;
+  }
+
+  .hissa-mode-switch > button {
+
+    height: 48px !important;
+
+    min-height: 48px !important;
+
+    max-height: 48px !important;
+
+    font-size: 14px !important;
+  }
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 700px) {
+
+  .hissa-mode-switch {
+
+    width: 100% !important;
+
+    max-width: 100% !important;
+
+    gap: 10px !important;
+  }
+
+  .hissa-mode-switch > button {
+
+    height: 48px !important;
+
+    min-height: 48px !important;
+
+    max-height: 48px !important;
+
+    padding-left: 7px !important;
+
+    padding-right: 7px !important;
+
+    font-size: 13px !important;
+
+    border-radius: 10px !important;
+  }
+}
+
+
+/* ============================================================
+   SMALL MOBILE
+   ============================================================ */
+
+@media (max-width: 480px) {
+
+  .hissa-mode-switch {
+
+    gap: 7px !important;
+  }
+
+  .hissa-mode-switch > button {
+
+    height: 46px !important;
+
+    min-height: 46px !important;
+
+    max-height: 46px !important;
+
+    padding-left: 4px !important;
+
+    padding-right: 4px !important;
+
+    font-size: 11.5px !important;
+
+    border-radius: 9px !important;
+  }
+}
+
+
+
+/* ============================================================
+   Hissa Calculator
+   MODE SWITCH = ACTION ROW ALIGNMENT
+   ============================================================
+
+   The Mode Switch intentionally follows the exact visual
+   geometry of the bottom action row.
+
+   Bottom action row:
+   ------------------------------------------------------------
+   1fr | 1.55fr | 1fr
+   ------------------------------------------------------------
+
+   Therefore Mode Switch:
+   ------------------------------------------------------------
+   1fr | 1.55fr | 1fr
+   ------------------------------------------------------------
+
+   This keeps both rows visually aligned.
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   MODE SWITCH WRAPPER
+   ------------------------------------------------------------ */
+
+.hissa-mode-switch {
+
+  display: grid !important;
+
+  /*
+   * EXACTLY the same column relationship as .hissa-actions
+   */
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1.55fr)
+    minmax(0, 1fr) !important;
+
+  /*
+   * Same gap as the approved bottom action row
+   */
+  gap: 18px !important;
+
+  /*
+   * IMPORTANT:
+   * Do not stretch this independently of the calculator
+   * content. Keep it centered and separated from the card.
+   */
+  width: min(100%, 960px) !important;
+
+  margin-left: auto !important;
+  margin-right: auto !important;
+
+  /*
+   * Space between Mode Switch and Calculator Card.
+   * This prevents visual overlap.
+   */
+  margin-bottom: 24px !important;
+
+  padding: 0 !important;
+
+  background: transparent !important;
+
+  border: 0 !important;
+
+  border-radius: 0 !important;
+
+  box-shadow: none !important;
+
+  box-sizing: border-box !important;
+
+  align-items: stretch !important;
+}
+
+
+/* ------------------------------------------------------------
+   MODE BUTTONS
+   ------------------------------------------------------------ */
+
+.hissa-mode-switch > button {
+
+  width: 100% !important;
+
+  min-width: 0 !important;
+
+  max-width: none !important;
+
+  height: 52px !important;
+
+  min-height: 52px !important;
+
+  max-height: 52px !important;
+
+  margin: 0 !important;
+
+  padding: 8px 14px !important;
+
+  box-sizing: border-box !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: center !important;
+
+  text-align: center !important;
+
+  white-space: nowrap !important;
+
+  border-radius: 11px !important;
+
+  font-size: 15px !important;
+
+  font-weight: 600 !important;
+
+  line-height: 1.2 !important;
+
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease !important;
+}
+
+
+/* ------------------------------------------------------------
+   ACTIVE MODE
+   ------------------------------------------------------------ */
+
+.hissa-mode-switch > button.active,
+.hissa-mode-switch > button[aria-selected="true"],
+.hissa-mode-switch > button[data-active="true"] {
+
+  background: #07111f !important;
+
+  color: #ffffff !important;
+
+  border-color: #07111f !important;
+
+  box-shadow:
+    0 4px 10px rgba(7, 17, 31, 0.12) !important;
+}
+
+
+/* ------------------------------------------------------------
+   INACTIVE MODE
+   ------------------------------------------------------------ */
+
+.hissa-mode-switch > button:not(.active):not([aria-selected="true"]):not([data-active="true"]) {
+
+  background: #f8f5ec !important;
+
+  color: #647080 !important;
+
+  border: 1px solid #ddd6c5 !important;
+
+  box-shadow: none !important;
+}
+
+
+/* ------------------------------------------------------------
+   HOVER
+   ------------------------------------------------------------ */
+
+.hissa-mode-switch > button:hover {
+  transform: translateY(-1px);
+}
+
+
+/* ------------------------------------------------------------
+   KEYBOARD FOCUS
+   ------------------------------------------------------------ */
+
+.hissa-mode-switch > button:focus-visible {
+
+  outline: 3px solid rgba(190, 151, 72, 0.28) !important;
+
+  outline-offset: 3px !important;
+}
+
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+
+@media (max-width: 760px) {
+
+  .hissa-mode-switch {
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1.35fr)
+      minmax(0, 1fr) !important;
+
+    gap: 12px !important;
+
+    margin-bottom: 18px !important;
+  }
+
+  .hissa-mode-switch > button {
+
+    height: 50px !important;
+
+    min-height: 50px !important;
+
+    max-height: 50px !important;
+
+    padding-left: 8px !important;
+
+    padding-right: 8px !important;
+
+    font-size: 14px !important;
+  }
+}
+
+
+/* ============================================================
+   SMALL MOBILE
+   ============================================================ */
+
+@media (max-width: 520px) {
+
+  .hissa-mode-switch {
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1.25fr)
+      minmax(0, 1fr) !important;
+
+    gap: 9px !important;
+
+    margin-bottom: 16px !important;
+  }
+
+  .hissa-mode-switch > button {
+
+    height: 48px !important;
+
+    min-height: 48px !important;
+
+    max-height: 48px !important;
+
+    padding-left: 5px !important;
+
+    padding-right: 5px !important;
+
+    font-size: 12.5px !important;
+
+    border-radius: 9px !important;
+  }
+}
+
+
+/* ============================================================
+   VERY SMALL MOBILE
+   ============================================================ */
+
+@media (max-width: 380px) {
+
+  .hissa-mode-switch {
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1.2fr)
+      minmax(0, 1fr) !important;
+
+    gap: 7px !important;
+  }
+
+  .hissa-mode-switch > button {
+
+    height: 46px !important;
+
+    min-height: 46px !important;
+
+    max-height: 46px !important;
+
+    font-size: 11.5px !important;
+  }
+}
+
+
+
+/* ============================================================
+   Hissa Calculator
+   MODE SWITCH = ACTION ROW ALIGNMENT
+   ============================================================
+
+   The Mode Switch intentionally follows the exact visual
+   geometry of the bottom action row.
+
+   Bottom action row:
+   ------------------------------------------------------------
+   1fr | 1.55fr | 1fr
+   ------------------------------------------------------------
+
+   Therefore Mode Switch:
+   ------------------------------------------------------------
+   1fr | 1.55fr | 1fr
+   ------------------------------------------------------------
+
+   This keeps both rows visually aligned.
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   MODE SWITCH WRAPPER
+   ------------------------------------------------------------ */
+
+.hissa-mode-switch {
+
+  display: grid !important;
+
+  /*
+   * EXACTLY the same column relationship as .hissa-actions
+   */
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1.55fr)
+    minmax(0, 1fr) !important;
+
+  /*
+   * Same gap as the approved bottom action row
+   */
+  gap: 18px !important;
+
+  /*
+   * IMPORTANT:
+   * Do not stretch this independently of the calculator
+   * content. Keep it centered and separated from the card.
+   */
+  width: min(100%, 960px) !important;
+
+  margin-left: auto !important;
+  margin-right: auto !important;
+
+  /*
+   * Space between Mode Switch and Calculator Card.
+   * This prevents visual overlap.
+   */
+  margin-bottom: 24px !important;
+
+  padding: 0 !important;
+
+  background: transparent !important;
+
+  border: 0 !important;
+
+  border-radius: 0 !important;
+
+  box-shadow: none !important;
+
+  box-sizing: border-box !important;
+
+  align-items: stretch !important;
+}
+
+
+/* ------------------------------------------------------------
+   MODE BUTTONS
+   ------------------------------------------------------------ */
+
+.hissa-mode-switch > button {
+
+  width: 100% !important;
+
+  min-width: 0 !important;
+
+  max-width: none !important;
+
+  height: 52px !important;
+
+  min-height: 52px !important;
+
+  max-height: 52px !important;
+
+  margin: 0 !important;
+
+  padding: 8px 14px !important;
+
+  box-sizing: border-box !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: center !important;
+
+  text-align: center !important;
+
+  white-space: nowrap !important;
+
+  border-radius: 11px !important;
+
+  font-size: 15px !important;
+
+  font-weight: 600 !important;
+
+  line-height: 1.2 !important;
+
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease !important;
+}
+
+
+/* ------------------------------------------------------------
+   ACTIVE MODE
+   ------------------------------------------------------------ */
+
+.hissa-mode-switch > button.active,
+.hissa-mode-switch > button[aria-selected="true"],
+.hissa-mode-switch > button[data-active="true"] {
+
+  background: #07111f !important;
+
+  color: #ffffff !important;
+
+  border-color: #07111f !important;
+
+  box-shadow:
+    0 4px 10px rgba(7, 17, 31, 0.12) !important;
+}
+
+
+/* ------------------------------------------------------------
+   INACTIVE MODE
+   ------------------------------------------------------------ */
+
+.hissa-mode-switch > button:not(.active):not([aria-selected="true"]):not([data-active="true"]) {
+
+  background: #f8f5ec !important;
+
+  color: #647080 !important;
+
+  border: 1px solid #ddd6c5 !important;
+
+  box-shadow: none !important;
+}
+
+
+/* ------------------------------------------------------------
+   HOVER
+   ------------------------------------------------------------ */
+
+.hissa-mode-switch > button:hover {
+  transform: translateY(-1px);
+}
+
+
+/* ------------------------------------------------------------
+   KEYBOARD FOCUS
+   ------------------------------------------------------------ */
+
+.hissa-mode-switch > button:focus-visible {
+
+  outline: 3px solid rgba(190, 151, 72, 0.28) !important;
+
+  outline-offset: 3px !important;
+}
+
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+
+@media (max-width: 760px) {
+
+  .hissa-mode-switch {
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1.35fr)
+      minmax(0, 1fr) !important;
+
+    gap: 12px !important;
+
+    margin-bottom: 18px !important;
+  }
+
+  .hissa-mode-switch > button {
+
+    height: 50px !important;
+
+    min-height: 50px !important;
+
+    max-height: 50px !important;
+
+    padding-left: 8px !important;
+
+    padding-right: 8px !important;
+
+    font-size: 14px !important;
+  }
+}
+
+
+/* ============================================================
+   SMALL MOBILE
+   ============================================================ */
+
+@media (max-width: 520px) {
+
+  .hissa-mode-switch {
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1.25fr)
+      minmax(0, 1fr) !important;
+
+    gap: 9px !important;
+
+    margin-bottom: 16px !important;
+  }
+
+  .hissa-mode-switch > button {
+
+    height: 48px !important;
+
+    min-height: 48px !important;
+
+    max-height: 48px !important;
+
+    padding-left: 5px !important;
+
+    padding-right: 5px !important;
+
+    font-size: 12.5px !important;
+
+    border-radius: 9px !important;
+  }
+}
+
+
+/* ============================================================
+   VERY SMALL MOBILE
+   ============================================================ */
+
+@media (max-width: 380px) {
+
+  .hissa-mode-switch {
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1.2fr)
+      minmax(0, 1fr) !important;
+
+    gap: 7px !important;
+  }
+
+  .hissa-mode-switch > button {
+
+    height: 46px !important;
+
+    min-height: 46px !important;
+
+    max-height: 46px !important;
+
+    font-size: 11.5px !important;
+  }
+}
+
+
+
+/* ============================================================
+   Hissa Calculator
+   TOP MODE SWITCH — FINAL UI ONLY
+   ============================================================
+
+   REQUIRED STRUCTURE:
+
+   [ Normal Mode ]    [ GroupLine Mode ]    [ Metric Mode ]
+
+   NOT:
+
+   [ Normal Mode | GroupLine Mode | Metric Mode ]
+
+   Three completely independent buttons.
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   MODE SWITCH ROW
+   ------------------------------------------------------------ */
+
+.hissa-mode-switch {
+  display: grid !important;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+
+  gap: 18px !important;
+
+  /*
+   * Align the Mode Switch with the calculator's main
+   * content container.
+   */
+  width: 100% !important;
+
+  max-width: 960px !important;
+
+  margin-left: auto !important;
+  margin-right: auto !important;
+
+  padding: 0 !important;
+
+  /*
+   * Absolutely no segmented-control background.
+   */
+  background: transparent !important;
+
+  border: 0 !important;
+
+  border-radius: 0 !important;
+
+  box-shadow: none !important;
+
+  box-sizing: border-box !important;
+
+  align-items: stretch !important;
+
+  justify-items: stretch !important;
+
+  /*
+   * Prevent desktop wrapping.
+   */
+  flex-wrap: nowrap !important;
+}
+
+
+/* ------------------------------------------------------------
+   ALL THREE MODE BUTTONS
+   ------------------------------------------------------------ */
+
+.hissa-mode-switch > button {
+  /*
+   * Equal grid-column width.
+   */
+  width: 100% !important;
+
+  min-width: 0 !important;
+
+  max-width: none !important;
+
+  /*
+   * Exact same height.
+   */
+  height: 46px !important;
+
+  min-height: 46px !important;
+
+  max-height: 46px !important;
+
+  /*
+   * Each button owns its own border.
+   */
+  margin: 0 !important;
+
+  padding: 0 16px !important;
+
+  box-sizing: border-box !important;
+
+  border-width: 1px !important;
+
+  border-style: solid !important;
+
+  border-radius: 8px !important;
+
+  /*
+   * Independent rectangular clickable area.
+   */
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: center !important;
+
+  text-align: center !important;
+
+  white-space: nowrap !important;
+
+  overflow: hidden !important;
+
+  /*
+   * Prevent any inherited segmented-control styling.
+   */
+  transform: none;
+
+  outline-offset: 2px;
+
+  font-size: 15px !important;
+
+  font-weight: 600 !important;
+
+  line-height: 1 !important;
+
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease,
+    box-shadow 150ms ease !important;
+}
+
+
+/* ------------------------------------------------------------
+   NORMAL MODE ACTIVE STATE
+   ------------------------------------------------------------ */
+
+.hissa-mode-switch > button.active,
+.hissa-mode-switch > button[aria-selected="true"],
+.hissa-mode-switch > button[data-active="true"] {
+
+  background: #07111f !important;
+
+  color: #ffffff !important;
+
+  border: 1px solid #07111f !important;
+
+  border-radius: 8px !important;
+
+  box-shadow:
+    0 4px 10px rgba(7, 17, 31, 0.12) !important;
+}
+
+
+/* ------------------------------------------------------------
+   INACTIVE MODE BUTTONS
+   ------------------------------------------------------------ */
+
+.hissa-mode-switch > button:not(.active):not([aria-selected="true"]):not([data-active="true"]) {
+
+  background: #f8f5ec !important;
+
+  color: #596574 !important;
+
+  border: 1px solid #ddd6c5 !important;
+
+  border-radius: 8px !important;
+
+  box-shadow: none !important;
+}
+
+
+/* ------------------------------------------------------------
+   HOVER
+   ------------------------------------------------------------ */
+
+.hissa-mode-switch > button:hover {
+  transform: none !important;
+}
+
+
+/* ------------------------------------------------------------
+   FOCUS
+   ------------------------------------------------------------ */
+
+.hissa-mode-switch > button:focus-visible {
+
+  outline: 3px solid rgba(190, 151, 72, 0.28) !important;
+
+  outline-offset: 2px !important;
+}
+
+
+/* ============================================================
+   DESKTOP — LOCKED
+   ============================================================ */
+
+@media (min-width: 761px) {
+
+  .hissa-mode-switch {
+
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr)) !important;
+
+    gap: 18px !important;
+
+    width: 100% !important;
+
+    max-width: 960px !important;
+  }
+
+  .hissa-mode-switch > button {
+
+    height: 46px !important;
+
+    min-height: 46px !important;
+
+    max-height: 46px !important;
+  }
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 760px) {
+
+  .hissa-mode-switch {
+
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr)) !important;
+
+    gap: 12px !important;
+
+    width: 100% !important;
+
+    max-width: 100% !important;
+  }
+
+  .hissa-mode-switch > button {
+
+    height: 46px !important;
+
+    min-height: 46px !important;
+
+    max-height: 46px !important;
+
+    padding-left: 8px !important;
+
+    padding-right: 8px !important;
+
+    font-size: 13px !important;
+  }
+}
+
+
+/* ============================================================
+   SMALL MOBILE
+   ============================================================ */
+
+@media (max-width: 480px) {
+
+  .hissa-mode-switch {
+
+    gap: 8px !important;
+  }
+
+  .hissa-mode-switch > button {
+
+    height: 44px !important;
+
+    min-height: 44px !important;
+
+    max-height: 44px !important;
+
+    padding-left: 4px !important;
+
+    padding-right: 4px !important;
+
+    font-size: 11.5px !important;
+  }
+}
+
+
+
+/* ============================================================
+   MODE SWITCH — RESPONSIVE SAFETY
+   ============================================================
+
+   DESKTOP / TABLET
+   ----------------
+   Preserve the exact 3-column horizontal structure:
+
+   [ Normal Mode ]   [ GroupLine Mode ]   [ Metric Mode ]
+
+   MOBILE
+   ----------------
+   Keep all three buttons separate and safely tappable.
+   No overlap. No wrapping. No accidental adjacent clicks.
+   ============================================================ */
+
+
+/* ============================================================
+   DESKTOP + TABLET
+   761px and above
+   ============================================================ */
+
+@media (min-width: 761px) {
+
+  .hissa-mode-switch {
+
+    display: grid !important;
+
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr)) !important;
+
+    gap: 18px !important;
+
+    width: 100% !important;
+
+    max-width: 960px !important;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    align-items: stretch !important;
+  }
+
+  .hissa-mode-switch > button {
+
+    width: 100% !important;
+
+    min-width: 0 !important;
+
+    height: 46px !important;
+
+    min-height: 46px !important;
+    max-height: 46px !important;
+
+    margin: 0 !important;
+
+    box-sizing: border-box !important;
+  }
+}
+
+
+/* ============================================================
+   MOBILE
+   760px and below
+   ============================================================ */
+
+@media (max-width: 760px) {
+
+  .hissa-mode-switch {
+
+    display: grid !important;
+
+    /*
+     * Still exactly three columns.
+     * No stacking and no overlap.
+     */
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr)) !important;
+
+    gap: 12px !important;
+
+    width: 100% !important;
+
+    max-width: 100% !important;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    padding: 0 !important;
+
+    align-items: stretch !important;
+  }
+
+  .hissa-mode-switch > button {
+
+    width: 100% !important;
+
+    min-width: 0 !important;
+
+    max-width: none !important;
+
+    height: 46px !important;
+
+    min-height: 46px !important;
+    max-height: 46px !important;
+
+    margin: 0 !important;
+
+    padding: 0 6px !important;
+
+    box-sizing: border-box !important;
+
+    /*
+     * Prevent text from expanding the grid column.
+     */
+    overflow: hidden !important;
+
+    text-overflow: ellipsis !important;
+
+    white-space: nowrap !important;
+
+    /*
+     * Keep each button as an independent touch target.
+     */
+    position: relative !important;
+
+    z-index: 1 !important;
+
+    touch-action: manipulation !important;
+
+    font-size: 13px !important;
+  }
+}
+
+
+/* ============================================================
+   SMALL MOBILE
+   ============================================================ */
+
+@media (max-width: 480px) {
+
+  .hissa-mode-switch {
+
+    gap: 8px !important;
+  }
+
+  .hissa-mode-switch > button {
+
+    height: 44px !important;
+
+    min-height: 44px !important;
+    max-height: 44px !important;
+
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+
+    font-size: 11.5px !important;
+
+    border-radius: 8px !important;
+  }
+}
+
+
+/* ============================================================
+   VERY SMALL MOBILE
+   ============================================================ */
+
+@media (max-width: 360px) {
+
+  .hissa-mode-switch {
+
+    gap: 6px !important;
+  }
+
+  .hissa-mode-switch > button {
+
+    height: 42px !important;
+
+    min-height: 42px !important;
+    max-height: 42px !important;
+
+    padding-left: 3px !important;
+    padding-right: 3px !important;
+
+    font-size: 10.5px !important;
+  }
+}
+
+
+
+/* ============================================================
+   Hissa Calculator
+   MODE SWITCH — BODY ALIGNMENT LOCK
+   ============================================================
+
+   RULE:
+
+   The Mode Switch must NEVER extend beyond the calculator body.
+
+   It uses the same maximum content width as the calculator
+   card instead of using an independent 960px width.
+
+   Structure:
+
+   [ Normal Mode ]  [ GroupLine Mode ]  [ Metric Mode ]
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   MODE SWITCH CONTAINER
+   ------------------------------------------------------------ */
+
+.hissa-mode-switch {
+
+  display: grid !important;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr)) !important;
+
+  gap: 18px !important;
+
+  /*
+   * CRITICAL:
+   *
+   * Do NOT use a fixed 960px width here.
+   *
+   * The Mode Switch can never be wider than its parent.
+   */
+  width: 100% !important;
+
+  max-width: 100% !important;
+
+  margin-left: auto !important;
+  margin-right: auto !important;
+
+  padding: 0 !important;
+
+  box-sizing: border-box !important;
+
+  background: transparent !important;
+
+  border: 0 !important;
+
+  border-radius: 0 !important;
+
+  box-shadow: none !important;
+
+  align-items: stretch !important;
+}
+
+
+/* ------------------------------------------------------------
+   THREE BUTTONS
+   ------------------------------------------------------------ */
+
+.hissa-mode-switch > button {
+
+  width: 100% !important;
+
+  min-width: 0 !important;
+
+  max-width: none !important;
+
+  height: 46px !important;
+
+  min-height: 46px !important;
+
+  max-height: 46px !important;
+
+  margin: 0 !important;
+
+  padding: 0 14px !important;
+
+  box-sizing: border-box !important;
+
+  border-radius: 8px !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: center !important;
+
+  text-align: center !important;
+
+  white-space: nowrap !important;
+
+  overflow: hidden !important;
+
+  font-size: 15px !important;
+
+  font-weight: 600 !important;
+
+  line-height: 1 !important;
+}
+
+
+/* ------------------------------------------------------------
+   ACTIVE
+   ------------------------------------------------------------ */
+
+.hissa-mode-switch > button.active,
+.hissa-mode-switch > button[aria-selected="true"],
+.hissa-mode-switch > button[data-active="true"] {
+
+  background: #07111f !important;
+
+  color: #ffffff !important;
+
+  border: 1px solid #07111f !important;
+
+  border-radius: 8px !important;
+
+  box-shadow:
+    0 4px 10px rgba(7, 17, 31, 0.12) !important;
+}
+
+
+/* ------------------------------------------------------------
+   INACTIVE
+   ------------------------------------------------------------ */
+
+.hissa-mode-switch > button:not(.active):not([aria-selected="true"]):not([data-active="true"]) {
+
+  background: #f8f5ec !important;
+
+  color: #596574 !important;
+
+  border: 1px solid #ddd6c5 !important;
+
+  border-radius: 8px !important;
+
+  box-shadow: none !important;
+}
+
+
+/* ============================================================
+   DESKTOP / TABLET
+   ============================================================ */
+
+@media (min-width: 761px) {
+
+  .hissa-mode-switch {
+
+    /*
+     * Stay inside the calculator parent's width.
+     */
+    width: 100% !important;
+
+    max-width: 100% !important;
+
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr)) !important;
+
+    gap: 18px !important;
+  }
+
+  .hissa-mode-switch > button {
+
+    height: 46px !important;
+
+    min-height: 46px !important;
+
+    max-height: 46px !important;
+  }
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 760px) {
+
+  .hissa-mode-switch {
+
+    width: 100% !important;
+
+    max-width: 100% !important;
+
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr)) !important;
+
+    gap: 12px !important;
+  }
+
+  .hissa-mode-switch > button {
+
+    height: 46px !important;
+
+    min-height: 46px !important;
+
+    max-height: 46px !important;
+
+    padding-left: 6px !important;
+
+    padding-right: 6px !important;
+
+    font-size: 13px !important;
+  }
+}
+
+
+/* ============================================================
+   SMALL MOBILE
+   ============================================================ */
+
+@media (max-width: 480px) {
+
+  .hissa-mode-switch {
+
+    gap: 8px !important;
+  }
+
+  .hissa-mode-switch > button {
+
+    height: 44px !important;
+
+    min-height: 44px !important;
+
+    max-height: 44px !important;
+
+    padding-left: 4px !important;
+
+    padding-right: 4px !important;
+
+    font-size: 11.5px !important;
+  }
+}
+
+
+
+/* ============================================================
+   FINAL MODE SWITCH / CALCULATOR BODY ALIGNMENT
+   ============================================================
+
+   The Mode Switch and Calculator Card now share one dedicated
+   alignment container.
+
+   STRUCTURE:
+
+   .hissa-calculator-content
+       ├── .hissa-mode-switch
+       └── .hissa-card
+
+   Therefore:
+
+       Mode Switch width
+             =
+       Calculator Body width
+
+   The Mode Switch can never extend beyond the calculator body.
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   SHARED CALCULATOR CONTENT WIDTH
+   ------------------------------------------------------------ */
+
+.hissa-calculator-content {
+
+  width: 100% !important;
+
+  max-width: 960px !important;
+
+  margin-left: auto !important;
+  margin-right: auto !important;
+
+  padding: 0 !important;
+
+  box-sizing: border-box !important;
+}
+
+
+/* ------------------------------------------------------------
+   MODE SWITCH
+   ------------------------------------------------------------ */
+
+.hissa-calculator-content > .hissa-mode-switch {
+
+  width: 100% !important;
+
+  max-width: none !important;
+
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+
+  padding: 0 !important;
+
+  box-sizing: border-box !important;
+
+  display: grid !important;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr)) !important;
+
+  gap: 18px !important;
+
+  background: transparent !important;
+
+  border: 0 !important;
+
+  border-radius: 0 !important;
+
+  box-shadow: none !important;
+}
+
+
+/* ------------------------------------------------------------
+   MODE BUTTONS
+   ------------------------------------------------------------ */
+
+.hissa-calculator-content
+.hissa-mode-switch > button {
+
+  width: 100% !important;
+
+  min-width: 0 !important;
+
+  max-width: none !important;
+
+  height: 46px !important;
+
+  min-height: 46px !important;
+
+  max-height: 46px !important;
+
+  margin: 0 !important;
+
+  box-sizing: border-box !important;
+
+  border-radius: 8px !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: center !important;
+
+  white-space: nowrap !important;
+
+  overflow: hidden !important;
+}
+
+
+/* ------------------------------------------------------------
+   CALCULATOR CARD
+   ------------------------------------------------------------ */
+
+.hissa-calculator-content > .hissa-card {
+
+  width: 100% !important;
+
+  max-width: none !important;
+
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+
+  box-sizing: border-box !important;
+}
+
+
+/* ============================================================
+   DESKTOP / TABLET
+   ============================================================ */
+
+@media (min-width: 761px) {
+
+  .hissa-calculator-content {
+
+    width: 100% !important;
+
+    max-width: 960px !important;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .hissa-calculator-content > .hissa-mode-switch {
+
+    width: 100% !important;
+
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr)) !important;
+
+    gap: 18px !important;
+  }
+
+  .hissa-calculator-content
+  .hissa-mode-switch > button {
+
+    height: 46px !important;
+
+    min-height: 46px !important;
+
+    max-height: 46px !important;
+  }
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 760px) {
+
+  .hissa-calculator-content {
+
+    width: 100% !important;
+
+    max-width: 100% !important;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .hissa-calculator-content > .hissa-mode-switch {
+
+    width: 100% !important;
+
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr)) !important;
+
+    gap: 12px !important;
+  }
+
+  .hissa-calculator-content
+  .hissa-mode-switch > button {
+
+    height: 46px !important;
+
+    min-height: 46px !important;
+
+    max-height: 46px !important;
+
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+
+    font-size: 13px !important;
+  }
+}
+
+
+/* ============================================================
+   SMALL MOBILE
+   ============================================================ */
+
+@media (max-width: 480px) {
+
+  .hissa-calculator-content > .hissa-mode-switch {
+
+    gap: 8px !important;
+  }
+
+  .hissa-calculator-content
+  .hissa-mode-switch > button {
+
+    height: 44px !important;
+
+    min-height: 44px !important;
+
+    max-height: 44px !important;
+
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+
+    font-size: 11.5px !important;
+  }
+}
+
+
+
+/* ============================================================
+   METRIC MODE
+   SHAREHOLDER ROW HEIGHT ALIGNMENT
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   Metric shareholder row
+   ------------------------------------------------------------ */
+
+.hissa-metric-row {
+  min-height: 58px;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+
+/* ------------------------------------------------------------
+   Metric inputs
+   Match the visual height of the main Hissa inputs.
+   ------------------------------------------------------------ */
+
+.hissa-metric-row input,
+.hissa-metric-row .hissa-metric-name,
+.hissa-metric-row .hissa-metric-share {
+  min-height: 52px;
+  height: 52px;
+  box-sizing: border-box;
+}
+
+
+/* ------------------------------------------------------------
+   Metric input spacing
+   ------------------------------------------------------------ */
+
+.hissa-metric-row {
+  gap: 12px;
+}
+
+
+/* ------------------------------------------------------------
+   Name field
+   ------------------------------------------------------------ */
+
+.hissa-metric-row input[data-field="name"],
+.hissa-metric-row input[name="name"],
+.hissa-metric-row .hissa-metric-name {
+  min-width: 0;
+}
+
+
+/* ------------------------------------------------------------
+   Share field
+   ------------------------------------------------------------ */
+
+.hissa-metric-row input[data-field="share"],
+.hissa-metric-row input[name="share"],
+.hissa-metric-row .hissa-metric-share {
+  min-width: 0;
+}
+
+
+/* ------------------------------------------------------------
+   Remove browser-specific visual differences
+   ------------------------------------------------------------ */
+
+.hissa-metric-row input {
+  line-height: 1.2;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+
+/* ------------------------------------------------------------
+   Delete button stays vertically centered
+   ------------------------------------------------------------ */
+
+.hissa-metric-row > button,
+.hissa-metric-row button {
+  min-height: 52px;
+  height: 52px;
+  box-sizing: border-box;
+  align-self: center;
+}
+
+
+/* ------------------------------------------------------------
+   Metric mode card row should not become visually compressed
+   ------------------------------------------------------------ */
+
+#hissa-metric-rows {
+  width: 100%;
+}
+
+#hissa-metric-rows > * {
+  box-sizing: border-box;
+}
+
+
+/* ------------------------------------------------------------
+   Tablet / desktop
+   ------------------------------------------------------------ */
+
+@media (min-width: 761px) {
+
+  .hissa-metric-row {
+    min-height: 58px;
+  }
+
+  .hissa-metric-row input,
+  .hissa-metric-row .hissa-metric-name,
+  .hissa-metric-row .hissa-metric-share {
+    height: 52px;
+    min-height: 52px;
+  }
+}
+
+
+/* ------------------------------------------------------------
+   Mobile
+   Keep the same comfortable touch height.
+   ------------------------------------------------------------ */
+
+@media (max-width: 760px) {
+
+  .hissa-metric-row {
+    min-height: 56px;
+    gap: 10px;
+  }
+
+  .hissa-metric-row input,
+  .hissa-metric-row .hissa-metric-name,
+  .hissa-metric-row .hissa-metric-share {
+    height: 52px;
+    min-height: 52px;
+  }
+
+  .hissa-metric-row button {
+    height: 52px;
+    min-height: 52px;
+  }
+}
+
+
+/* ------------------------------------------------------------
+   Very small mobile
+   ------------------------------------------------------------ */
+
+@media (max-width: 520px) {
+
+  .hissa-metric-row {
+    gap: 8px;
+  }
+
+  .hissa-metric-row input,
+  .hissa-metric-row .hissa-metric-name,
+  .hissa-metric-row .hissa-metric-share {
+    height: 50px;
+    min-height: 50px;
+  }
+
+  .hissa-metric-row button {
+    height: 50px;
+    min-height: 50px;
+  }
+}
+
+
+
+/* ============================================================
+   Hissa Calculator
+   METRIC MODE — FINAL VISUAL HEIGHT ALIGNMENT
+   2026-09-24
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   Metric shareholder area
+   ------------------------------------------------------------ */
+
+#hissa-metric-rows {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+/* ------------------------------------------------------------
+   Every direct Metric shareholder row
+   ------------------------------------------------------------ */
+
+#hissa-metric-rows > * {
+  box-sizing: border-box;
+  min-height: 58px !important;
+  align-items: center !important;
+}
+
+
+/* ------------------------------------------------------------
+   Metric Mode text / number inputs
+   Force the same comfortable visual height as the
+   Normal / GroupLine shareholder inputs.
+   ------------------------------------------------------------ */
+
+#hissa-metric-rows input {
+  height: 52px !important;
+  min-height: 52px !important;
+  box-sizing: border-box !important;
+
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+
+  line-height: 1.25 !important;
+}
+
+
+/* ------------------------------------------------------------
+   Metric name + share fields
+   Keep both fields vertically identical.
+   ------------------------------------------------------------ */
+
+#hissa-metric-rows input[type="text"],
+#hissa-metric-rows input[type="number"] {
+  height: 52px !important;
+  min-height: 52px !important;
+  box-sizing: border-box !important;
+}
+
+
+/* ------------------------------------------------------------
+   Metric delete button
+   Same vertical height as the inputs.
+   ------------------------------------------------------------ */
+
+#hissa-metric-rows button {
+  height: 52px !important;
+  min-height: 52px !important;
+  box-sizing: border-box !important;
+
+  align-self: center !important;
+}
+
+
+/* ------------------------------------------------------------
+   Metric row spacing
+   ------------------------------------------------------------ */
+
+#hissa-metric-rows > * {
+  gap: 12px !important;
+}
+
+
+/* ------------------------------------------------------------
+   Make Metric Mode shareholder box breathe vertically.
+   This is the important difference from the previous patch.
+   ------------------------------------------------------------ */
+
+#hissa-metric-panel #hissa-metric-rows {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+
+/* ------------------------------------------------------------
+   Tablet / Desktop
+   ------------------------------------------------------------ */
+
+@media (min-width: 761px) {
+
+  #hissa-metric-rows input[type="text"],
+  #hissa-metric-rows input[type="number"] {
+    height: 52px !important;
+    min-height: 52px !important;
+  }
+
+  #hissa-metric-rows button {
+    height: 52px !important;
+    min-height: 52px !important;
+  }
+}
+
+
+/* ------------------------------------------------------------
+   Mobile
+   ------------------------------------------------------------ */
+
+@media (max-width: 760px) {
+
+  #hissa-metric-rows > * {
+    min-height: 56px !important;
+  }
+
+  #hissa-metric-rows input[type="text"],
+  #hissa-metric-rows input[type="number"] {
+    height: 52px !important;
+    min-height: 52px !important;
+  }
+
+  #hissa-metric-rows button {
+    height: 52px !important;
+    min-height: 52px !important;
+  }
+}
+
+
+/* ------------------------------------------------------------
+   Very small screens
+   ------------------------------------------------------------ */
+
+@media (max-width: 520px) {
+
+  #hissa-metric-rows > * {
+    gap: 8px !important;
+  }
+
+  #hissa-metric-rows input[type="text"],
+  #hissa-metric-rows input[type="number"] {
+    height: 50px !important;
+    min-height: 50px !important;
+  }
+
+  #hissa-metric-rows button {
+    height: 50px !important;
+    min-height: 50px !important;
+  }
+}
+
+
+
+/* ============================================================
+   Hissa Calculator
+   METRIC MODE — REAL SHAREHOLDER ROW
+   FINAL ALIGNMENT
+   2026-09-24
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   Actual generated Metric shareholder row
+   ------------------------------------------------------------ */
+
+.hissa-metric-real-row {
+  width: 100% !important;
+  min-height: 58px !important;
+
+  box-sizing: border-box !important;
+
+  display: grid !important;
+  align-items: center !important;
+
+  gap: 12px !important;
+}
+
+
+/* ------------------------------------------------------------
+   Metric inputs
+   Match Normal / GroupLine visual height.
+   ------------------------------------------------------------ */
+
+.hissa-metric-real-row input {
+  height: 52px !important;
+  min-height: 52px !important;
+
+  box-sizing: border-box !important;
+
+  margin: 0 !important;
+}
+
+
+/* ------------------------------------------------------------
+   Metric delete button
+   ------------------------------------------------------------ */
+
+.hissa-metric-real-row button {
+  height: 52px !important;
+  min-height: 52px !important;
+
+  box-sizing: border-box !important;
+
+  margin: 0 !important;
+
+  align-self: center !important;
+}
+
+
+/* ------------------------------------------------------------
+   Keep Metric row vertically centered
+   ------------------------------------------------------------ */
+
+.hissa-metric-real-row > * {
+  align-self: center !important;
+}
+
+
+/* ------------------------------------------------------------
+   Desktop / Tablet
+   ------------------------------------------------------------ */
+
+@media (min-width: 761px) {
+
+  .hissa-metric-real-row {
+    min-height: 58px !important;
+  }
+
+  .hissa-metric-real-row input {
+    height: 52px !important;
+    min-height: 52px !important;
+  }
+
+  .hissa-metric-real-row button {
+    height: 52px !important;
+    min-height: 52px !important;
+  }
+}
+
+
+/* ------------------------------------------------------------
+   Mobile
+   ------------------------------------------------------------ */
+
+@media (max-width: 760px) {
+
+  .hissa-metric-real-row {
+    min-height: 56px !important;
+  }
+
+  .hissa-metric-real-row input {
+    height: 52px !important;
+    min-height: 52px !important;
+  }
+
+  .hissa-metric-real-row button {
+    height: 52px !important;
+    min-height: 52px !important;
+  }
+}
+
+
+/* ------------------------------------------------------------
+   Small mobile
+   ------------------------------------------------------------ */
+
+@media (max-width: 520px) {
+
+  .hissa-metric-real-row {
+    gap: 8px !important;
+  }
+
+  .hissa-metric-real-row input {
+    height: 50px !important;
+    min-height: 50px !important;
+  }
+
+  .hissa-metric-real-row button {
+    height: 50px !important;
+    min-height: 50px !important;
+  }
+}
+
+
+
+/* ============================================================
+   Hissa Calculator
+   METRIC MODE
+   FINAL STRUCTURAL HEIGHT ALIGNMENT
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   REAL METRIC SHAREHOLDER CARD
+   ------------------------------------------------------------ */
+
+.hissa-rows .hissa-row.metric-row,
+.hissa-metric-rows .hissa-row.metric-row {
+  width: 100% !important;
+
+  min-height: 180px !important;
+
+  box-sizing: border-box !important;
+
+  padding: 18px 20px !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+
+  justify-content: flex-start !important;
+
+  gap: 14px !important;
+}
+
+
+/* ------------------------------------------------------------
+   METRIC HEADER
+   ------------------------------------------------------------ */
+
+.hissa-row.metric-row .metric-row-head {
+  width: 100% !important;
+
+  min-height: 32px !important;
+
+  height: 32px !important;
+
+  box-sizing: border-box !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: space-between !important;
+
+  margin: 0 !important;
+}
+
+
+/* ------------------------------------------------------------
+   METRIC SHAREHOLDER LABEL
+   ------------------------------------------------------------ */
+
+.hissa-row.metric-row .metric-row-head label {
+  margin: 0 !important;
+
+  line-height: 1.2 !important;
+}
+
+
+/* ------------------------------------------------------------
+   METRIC DELETE BUTTON
+   ------------------------------------------------------------ */
+
+.hissa-row.metric-row .metric-remove {
+  width: 40px !important;
+
+  height: 40px !important;
+
+  min-width: 40px !important;
+
+  min-height: 40px !important;
+
+  margin: 0 !important;
+
+  box-sizing: border-box !important;
+
+  display: inline-flex !important;
+
+  align-items: center !important;
+
+  justify-content: center !important;
+}
+
+
+/* ------------------------------------------------------------
+   METRIC INPUT AREA
+   ------------------------------------------------------------ */
+
+.hissa-row.metric-row .metric-fields {
+  width: 100% !important;
+
+  min-height: 52px !important;
+
+  height: 52px !important;
+
+  box-sizing: border-box !important;
+
+  display: grid !important;
+
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 0.38fr) !important;
+
+  gap: 12px !important;
+
+  align-items: stretch !important;
+
+  margin: 0 !important;
+}
+
+
+/* ------------------------------------------------------------
+   METRIC INPUTS
+   ------------------------------------------------------------ */
+
+.hissa-row.metric-row .metric-fields input {
+  width: 100% !important;
+
+  height: 52px !important;
+
+  min-height: 52px !important;
+
+  box-sizing: border-box !important;
+
+  margin: 0 !important;
+}
+
+
+/* ------------------------------------------------------------
+   IMPORTANT:
+   Do not allow old metric-row rules to shrink the fields.
+   ------------------------------------------------------------ */
+
+.hissa-row.metric-row .metric-fields > * {
+  align-self: stretch !important;
+}
+
+
+/* ------------------------------------------------------------
+   DESKTOP / TABLET
+   ------------------------------------------------------------ */
+
+@media (min-width: 761px) {
+
+  .hissa-row.metric-row {
+    min-height: 180px !important;
+
+    padding: 18px 20px !important;
+
+    gap: 14px !important;
+  }
+
+  .hissa-row.metric-row .metric-fields {
+    height: 52px !important;
+
+    min-height: 52px !important;
+  }
+
+  .hissa-row.metric-row .metric-fields input {
+    height: 52px !important;
+
+    min-height: 52px !important;
+  }
+}
+
+
+/* ------------------------------------------------------------
+   MOBILE
+   ------------------------------------------------------------ */
+
+@media (max-width: 760px) {
+
+  .hissa-row.metric-row {
+    min-height: 170px !important;
+
+    padding: 16px !important;
+
+    gap: 12px !important;
+  }
+
+  .hissa-row.metric-row .metric-fields {
+    height: auto !important;
+
+    min-height: 52px !important;
+
+    grid-template-columns: minmax(0, 1fr) minmax(130px, 0.45fr) !important;
+
+    gap: 10px !important;
+  }
+
+  .hissa-row.metric-row .metric-fields input {
+    height: 52px !important;
+
+    min-height: 52px !important;
+  }
+}
+
+
+/* ------------------------------------------------------------
+   SMALL MOBILE
+   ------------------------------------------------------------ */
+
+@media (max-width: 520px) {
+
+  .hissa-row.metric-row {
+    min-height: 160px !important;
+
+    padding: 14px !important;
+
+    gap: 10px !important;
+  }
+
+  .hissa-row.metric-row .metric-fields {
+    grid-template-columns: minmax(0, 1fr) !important;
+
+    height: auto !important;
+
+    gap: 10px !important;
+  }
+
+  .hissa-row.metric-row .metric-fields input {
+    width: 100% !important;
+
+    height: 50px !important;
+
+    min-height: 50px !important;
+  }
+
+  .hissa-row.metric-row .metric-remove {
+    width: 38px !important;
+
+    height: 38px !important;
+
+    min-width: 38px !important;
+
+    min-height: 38px !important;
+  }
+}
+
+
+/* ------------------------------------------------------------
+   CLEAN UP PREVIOUS NON-FUNCTIONAL OVERRIDES
+   ------------------------------------------------------------ */
+
+.hissa-metric-real-row {
+  /* Kept harmless for backwards compatibility.
+     Actual Metric rows are targeted above through
+     .hissa-row.metric-row */
+}
+
+
+
+
+/* ============================================================
+   METRIC MODE
+   WARNING STATE
+   ============================================================ */
+
+.hissa-mode-warning {
+  width: 100% !important;
+
+  box-sizing: border-box !important;
+
+  margin: 0 0 16px !important;
+
+  padding: 14px 18px !important;
+
+  border: 1px solid rgba(176, 128, 42, 0.32) !important;
+
+  border-radius: 8px !important;
+
+  background: #fffaf0 !important;
+
+  color: #7a5a20 !important;
+
+  font-size: 15px !important;
+
+  line-height: 1.65 !important;
+
+  text-align: left !important;
+}
+
+
+/* ------------------------------------------------------------
+   Metric warning on smaller screens
+   ------------------------------------------------------------ */
+
+@media (max-width: 760px) {
+
+  .hissa-mode-warning {
+    padding: 13px 15px !important;
+
+    font-size: 14px !important;
+
+    line-height: 1.6 !important;
+  }
+}
+
+
+/* ------------------------------------------------------------
+   Metric mode badges
+   ------------------------------------------------------------ */
+
+.hissa-mode-badge {
+  box-sizing: border-box !important;
+
+  white-space: nowrap !important;
+}
+

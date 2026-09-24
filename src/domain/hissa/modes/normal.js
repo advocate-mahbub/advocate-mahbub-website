@@ -3,6 +3,8 @@ import { allocateLand } from "../allocation/land-allocation.js";
 import {
   validateTotalLand,
   validateRows,
+  getTotalShareTil,
+  validateNormalTotalShare,
 } from "../validation/input.js";
 
 export function calculateNormal({
@@ -18,7 +20,7 @@ export function calculateNormal({
   const normalizedRows = rows
     .map((row, index) => ({
       id: row.id ?? `normal-${index + 1}`,
-      name: row.name?.trim() || `শরিক ${String(index + 1).replace(/[0-9]/g, (digit) => "০১২৩৪৫৬৭৮৯"[digit])}`,
+      name: row.name?.trim() || `শরীক ${String(index + 1).replace(/[0-9]/g, (digit) => "০১২৩৪৫৬৭৮৯"[digit])}`,
       shareTil: normalizeToTil(row),
     }))
     .filter((row) => row.shareTil > 0n);
@@ -27,6 +29,13 @@ export function calculateNormal({
 
   if (!rowCheck.valid) {
     throw new RangeError(rowCheck.message);
+  }
+
+  const totalShareTil = getTotalShareTil(normalizedRows);
+  const totalShareCheck = validateNormalTotalShare(totalShareTil);
+
+  if (!totalShareCheck.valid) {
+    throw new RangeError(totalShareCheck.message);
   }
 
   const allocated = allocateLand(

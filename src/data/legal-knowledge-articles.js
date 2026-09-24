@@ -31,5 +31,5 @@ export const legalKnowledgeArticles = [
 
     published: 'September 2026',
     readTime: '৮ মিনিট',
-  },
+  },,
 ];

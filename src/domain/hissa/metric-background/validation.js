@@ -18,7 +18,7 @@ export function validateMetricRows(rows) {
   if (!Array.isArray(rows) || rows.length === 0) {
     return {
       valid: false,
-      message: 'অন্তত একজন শরিকের হিস্যা দিতে হবে।',
+      message: 'অন্তত একজন শরীকের হিস্যা দিতে হবে।',
     };
   }
 
@@ -26,7 +26,7 @@ export function validateMetricRows(rows) {
     if (!row || !Number.isFinite(row.share) || row.share < 0) {
       return {
         valid: false,
-        message: 'প্রতিটি শরিকের হিস্যা শূন্য বা তার বেশি হতে হবে।',
+        message: 'প্রতিটি শরীকের হিস্যা শূন্য বা তার বেশি হতে হবে।',
       };
     }
   }
