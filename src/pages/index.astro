@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import SiteHeader from '../components/SiteHeader.astro';
 
 const site = {
   name: 'Mahbubur Rahman',
@@ -220,110 +221,7 @@ const faqs = [
          HEADER
          ===================================================== -->
 
-    <header class="site-header">
-
-      <div class="container nav-wrap">
-
-        <a
-          href="/"
-          class="brand"
-          aria-label="Mahbubur Rahman home"
-        >
-          <span class="brand-name">
-            Mahbubur Rahman
-          </span>
-
-          <span class="brand-role">
-            ADVOCATE
-          </span>
-        </a>
-
-        <nav
-          class="main-nav"
-          aria-label="Main navigation"
-        >
-          <a href="#about">About</a>
-
-          <a href="#property">
-            Property &amp; Land
-          </a>
-
-          <a href="#knowledge">
-            Legal Knowledge
-          </a>
-
-          <a href="#tools">
-            Tools
-          </a>
-
-          <a href="#services">
-            Services
-          </a>
-
-          <a
-            href="#consultation"
-            class="nav-cta"
-          >
-            আলোচনা করুন
-          </a>
-        </nav>
-
-        <button
-          class="mobile-menu-toggle"
-          type="button"
-          aria-label="মেনু খুলুন"
-          aria-expanded="false"
-          aria-controls="mobile-menu"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
-      </div>
-
-      <div
-        class="mobile-menu"
-        id="mobile-menu"
-      >
-        <nav
-          class="mobile-menu-nav"
-          aria-label="Mobile navigation"
-        >
-          <a href="#about">
-            About
-          </a>
-
-          <a href="#property">
-            Property &amp; Land
-          </a>
-
-          <a href="#knowledge">
-            Legal Knowledge
-          </a>
-
-          <a href="/tools/hissa-calculator/">
-            Tools
-          </a>
-
-          <a href="#services">
-            Services
-          </a>
-
-          <a href="/tools/property-risk-checker/">
-            Property Risk Checker
-          </a>
-
-          <a
-            href="#consultation"
-            class="mobile-menu-cta"
-          >
-            আলোচনা করুন
-          </a>
-        </nav>
-      </div>
-
-    </header>
+    <SiteHeader />
 
 
     <main>

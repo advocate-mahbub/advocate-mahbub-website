@@ -2333,3 +2333,11 @@ h2 span::before {
   display: inline-block;
   margin-inline-start: 0.18em;
 }
+
+/* SITE HEADER — STICKY / TOP LAYER */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
